@@ -28,6 +28,7 @@ namespace ClinicManegementSystemBackend.Models
         public virtual DbSet<TblStaff> TblStaff { get; set; }
         public virtual DbSet<TblTest> TblTest { get; set; }
         public virtual DbSet<TblUser> TblUser { get; set; }
+        public object Staff { get; internal set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
