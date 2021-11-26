@@ -10,7 +10,9 @@ namespace ClinicManegementSystemBackend.Models
         public string DoctorNotes { get; set; }
         public bool? IsActive { get; set; }
         public int? DoctorId { get; set; }
+        public int? PatientId { get; set; }
 
         public virtual TblDoctor Doctor { get; set; }
+        public virtual TblPatient Patient { get; set; }
     }
 }
