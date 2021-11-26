@@ -47,7 +47,6 @@ D:\CMS Project\ClinicManegementSystemBackend\obj\Debug\netcoreapp3.1\staticwebas
 D:\CMS Project\ClinicManegementSystemBackend\obj\Debug\netcoreapp3.1\staticwebassets\ClinicManegementSystemBackend.StaticWebAssets.xml
 D:\CMS Project\ClinicManegementSystemBackend\obj\Debug\netcoreapp3.1\scopedcss\bundle\ClinicManegementSystemBackend.styles.css
 D:\CMS Project\ClinicManegementSystemBackend\obj\Debug\netcoreapp3.1\ClinicManegementSystemBackend.RazorTargetAssemblyInfo.cache
-D:\CMS Project\ClinicManegementSystemBackend\obj\Debug\netcoreapp3.1\ClinicManegementSystemBackend.csproj.CopyComplete
 D:\CMS Project\ClinicManegementSystemBackend\obj\Debug\netcoreapp3.1\ClinicManegementSystemBackend.dll
 D:\CMS Project\ClinicManegementSystemBackend\obj\Debug\netcoreapp3.1\ClinicManegementSystemBackend.pdb
 D:\CMS Project\ClinicManegementSystemBackend\obj\Debug\netcoreapp3.1\ClinicManegementSystemBackend.genruntimeconfig.cache
