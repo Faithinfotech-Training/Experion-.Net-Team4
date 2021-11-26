@@ -1,4 +1,5 @@
 ﻿using ClinicManegementSystemBackend.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,34 +30,29 @@ namespace ClinicManegementSystemBackend.Repository
         }
         #endregion
 
-        /*
+        
         #region Get Doctor Notes By PatientId
-        public async Task<TblPatient> GetPatientByDoctorId(int id)
+        public async Task<TblObservation> GetNotesByPatientId(int id)
         {
             if (db != null)
             {
                 //LINQ
                 return await (from o in db.TblObservation
-                              where o.patient == id
-                              select new TblPatient
+                              where o.PatientId == id
+                              select new TblObservation
                               {
-                                  PatientId = p.PatientId,
-                                  PatientName = p.PatientName,
-                                  PatientAge = p.PatientAge,
-                                  PatientGender = p.PatientGender,
-                                  BloodGroup = p.BloodGroup,
-                                  PatientAddress = p.PatientAddress,
-                                  PatientPhone = p.PatientPhone,
-                                  EmergencyContact = p.EmergencyContact,
-                                  PatientEmail = p.PatientEmail,
-                                  IsActive = p.IsActive,
-                                  DoctorId = p.DoctorId
+                                  ObservationId = o.ObservationId,
+                                  Observation = o.Observation,
+                                  DoctorNotes = o.DoctorNotes,
+                                  IsActive = o.IsActive,
+                                  DoctorId = o.DoctorId,
+                                  PatientId = o.PatientId
                               }).FirstOrDefaultAsync();
             }
             return null;
         }
         #endregion
-        */
+        
 
     }
 }
