@@ -1,5 +1,6 @@
 ﻿using ClinicManegementSystemBackend.Models;
 using ClinicManegementSystemBackend.ViewModel;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,11 @@ namespace ClinicManegementSystemBackend.Repository
         Task UpdatePatient(TblPatient patient);
         #endregion
 
+        //Different Get Methods For Patient
+        #region Get Methods
+        Task<TblPatient> GetPatientByDoctorId(int id);
+        Task<ActionResult<TblPatient>> GetPatientById(int patientId);
+        Task<List<TblPatient>> GetPatients();
+        #endregion
     }
 }

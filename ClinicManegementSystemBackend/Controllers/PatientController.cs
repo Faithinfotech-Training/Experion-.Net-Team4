@@ -76,6 +76,77 @@ namespace ClinicManegementSystemBackend.Controllers
         }
         #endregion
 
+        //Get Methods For Patient
+        #region Get All Patients
+        [HttpGet]
+        //[Route("GetPatients")]
+        public async Task<IActionResult> GetHobbies()
+        {
+            try
+            {
+                var patients = await patientRepository.GetPatients();
+                if (patients == null)
+                {
+                    return NotFound();
+                }
+                return Ok(patients);
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+
+        }
+        #endregion
+
+        #region Get Test By Doctor Id 
+        [HttpGet("GetPatientByDoctorId/{id}")]
+        public async Task<IActionResult> GetPatientByDoctorId(int id)
+        {
+            try
+            {
+                var patient = await patientRepository.GetPatientByDoctorId(id);
+                if (patient == null)
+                {
+                    return NotFound();
+                }
+                return Ok(patient);
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+
+        }
+        #endregion
+
+        #region Get Patient By Id 
+        [HttpGet("{id}")]
+        public Task<ActionResult<TblPatient>> GetTestById(int id)
+        {
+            try
+            {
+                var patient = patientRepository.GetPatientById(id);
+                if (patient == null)
+                {
+                    return null;
+                }
+                return patient;
+            }
+
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+        #endregion
+
+
+
+
 
     }
 }
