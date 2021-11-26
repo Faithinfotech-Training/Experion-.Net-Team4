@@ -34,7 +34,7 @@ namespace ClinicManegementSystemBackend.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=MALAVIKAKNAIR\\SQLEXPRESS; Initial Catalog=ClinicManagementSystem; Integrated security=True");
+                optionsBuilder.UseSqlServer("Data Source=NITHINPETER\\SQLEXPRESS; Initial Catalog=ClinicManagementSystem; Integrated security=True");
             }
         }
 
@@ -43,7 +43,7 @@ namespace ClinicManegementSystemBackend.Models
             modelBuilder.Entity<TblAppointment>(entity =>
             {
                 entity.HasKey(e => e.AppointmentId)
-                    .HasName("PK__TblAppoi__8ECDFCC2A9DF4A2B");
+                    .HasName("PK__TblAppoi__8ECDFCC259E2EA00");
 
                 entity.Property(e => e.AppointmentDate).HasColumnType("date");
 
@@ -61,7 +61,7 @@ namespace ClinicManegementSystemBackend.Models
             modelBuilder.Entity<TblDoctor>(entity =>
             {
                 entity.HasKey(e => e.DoctorId)
-                    .HasName("PK__TblDocto__2DC00EBFB8AE2EA1");
+                    .HasName("PK__TblDocto__2DC00EBF47A29F7B");
 
                 entity.Property(e => e.DoctorAddress)
                     .HasMaxLength(100)
@@ -102,7 +102,7 @@ namespace ClinicManegementSystemBackend.Models
             modelBuilder.Entity<TblLabReport>(entity =>
             {
                 entity.HasKey(e => e.ReportId)
-                    .HasName("PK__TblLabRe__D5BD480568D6880D");
+                    .HasName("PK__TblLabRe__D5BD4805C926091F");
 
                 entity.Property(e => e.ReportDate).HasColumnType("date");
 
@@ -129,7 +129,7 @@ namespace ClinicManegementSystemBackend.Models
             modelBuilder.Entity<TblMedicine>(entity =>
             {
                 entity.HasKey(e => e.MedicineId)
-                    .HasName("PK__TblMedic__4F21289028FBD120");
+                    .HasName("PK__TblMedic__4F212890B3BE6415");
 
                 entity.Property(e => e.Dosage)
                     .HasMaxLength(10)
@@ -148,7 +148,7 @@ namespace ClinicManegementSystemBackend.Models
             modelBuilder.Entity<TblObservation>(entity =>
             {
                 entity.HasKey(e => e.ObservationId)
-                    .HasName("PK__TblObser__420EA5E7471EF5FB");
+                    .HasName("PK__TblObser__420EA5E713F8AFF7");
 
                 entity.Property(e => e.DoctorNotes).IsUnicode(false);
 
@@ -159,13 +159,18 @@ namespace ClinicManegementSystemBackend.Models
                 entity.HasOne(d => d.Doctor)
                     .WithMany(p => p.TblObservation)
                     .HasForeignKey(d => d.DoctorId)
-                    .HasConstraintName("FK__TblObserv__Docto__47DBAE45");
+                    .HasConstraintName("FK__TblObserv__Docto__4D94879B");
+
+                entity.HasOne(d => d.Patient)
+                    .WithMany(p => p.TblObservation)
+                    .HasForeignKey(d => d.PatientId)
+                    .HasConstraintName("FK__TblObserv__Patie__4E88ABD4");
             });
 
             modelBuilder.Entity<TblPatient>(entity =>
             {
                 entity.HasKey(e => e.PatientId)
-                    .HasName("PK__TblPatie__970EC3668D1E248B");
+                    .HasName("PK__TblPatie__970EC36602B9B6C1");
 
                 entity.Property(e => e.BloodGroup)
                     .HasMaxLength(10)
@@ -204,7 +209,7 @@ namespace ClinicManegementSystemBackend.Models
             modelBuilder.Entity<TblPaymentBill>(entity =>
             {
                 entity.HasKey(e => e.BillId)
-                    .HasName("PK__TblPayme__11F2FC6AEC3DD9E8");
+                    .HasName("PK__TblPayme__11F2FC6A1DFBCF94");
 
                 entity.Property(e => e.Amount).HasColumnType("money");
 
@@ -219,7 +224,7 @@ namespace ClinicManegementSystemBackend.Models
             modelBuilder.Entity<TblPrescribedTest>(entity =>
             {
                 entity.HasKey(e => e.PrescribedTestId)
-                    .HasName("PK__TblPresc__16150AA172A8F6DD");
+                    .HasName("PK__TblPresc__16150AA10B027824");
 
                 entity.Property(e => e.PrescribedTestName)
                     .HasMaxLength(30)
@@ -234,7 +239,7 @@ namespace ClinicManegementSystemBackend.Models
             modelBuilder.Entity<TblPrescription>(entity =>
             {
                 entity.HasKey(e => e.PrescriptionId)
-                    .HasName("PK__TblPresc__4013083220634178");
+                    .HasName("PK__TblPresc__40130832F76DA218");
 
                 entity.Property(e => e.PrescriptionDate).HasColumnType("date");
 
@@ -252,7 +257,7 @@ namespace ClinicManegementSystemBackend.Models
             modelBuilder.Entity<TblRole>(entity =>
             {
                 entity.HasKey(e => e.RoleId)
-                    .HasName("PK__TblRole__8AFACE1A9A5A38E6");
+                    .HasName("PK__TblRole__8AFACE1AA3291629");
 
                 entity.Property(e => e.RoleName)
                     .IsRequired()
@@ -263,7 +268,7 @@ namespace ClinicManegementSystemBackend.Models
             modelBuilder.Entity<TblStaff>(entity =>
             {
                 entity.HasKey(e => e.StaffId)
-                    .HasName("PK__TblStaff__96D4AB1736B5EA68");
+                    .HasName("PK__TblStaff__96D4AB1765557B9E");
 
                 entity.Property(e => e.StaffAddress)
                     .HasMaxLength(100)
@@ -300,7 +305,7 @@ namespace ClinicManegementSystemBackend.Models
             modelBuilder.Entity<TblTest>(entity =>
             {
                 entity.HasKey(e => e.TestId)
-                    .HasName("PK__TblTest__8CC331608CA5404A");
+                    .HasName("PK__TblTest__8CC33160E1047D5E");
 
                 entity.Property(e => e.NormalRange)
                     .HasMaxLength(20)
@@ -328,7 +333,7 @@ namespace ClinicManegementSystemBackend.Models
             modelBuilder.Entity<TblUser>(entity =>
             {
                 entity.HasKey(e => e.UserId)
-                    .HasName("PK__TblUser__1788CC4CF2FC205C");
+                    .HasName("PK__TblUser__1788CC4C6E5B4822");
 
                 entity.Property(e => e.UserName)
                     .HasMaxLength(20)

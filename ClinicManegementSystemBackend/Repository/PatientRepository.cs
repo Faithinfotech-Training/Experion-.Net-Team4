@@ -1,5 +1,6 @@
 ﻿using ClinicManegementSystemBackend.Models;
 using ClinicManegementSystemBackend.ViewModel;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -45,6 +46,59 @@ namespace ClinicManegementSystemBackend.Repository
 
                 }           
 
+        }
+        #endregion
+
+        //Get by Id And Get By DoctorId
+        #region Get Patient By DoctorId
+        public async Task<TblPatient> GetPatientByDoctorId(int id)
+        {
+            if (db != null)
+            {
+                //LINQ
+                return await (from p in db.TblPatient
+                              where p.DoctorId == id
+                              select new TblPatient
+                              {
+                                  PatientId = p.PatientId,
+                                  PatientName=p.PatientName,
+                                  PatientAge = p.PatientAge,
+                                  PatientGender = p.PatientGender,
+                                  BloodGroup = p.BloodGroup,
+                                  PatientAddress = p.PatientAddress,
+                                  PatientPhone = p.PatientPhone,
+                                  EmergencyContact = p.EmergencyContact,
+                                  PatientEmail = p.PatientEmail,
+                                  IsActive = p.IsActive,
+                                  DoctorId = p.DoctorId
+                              }).FirstOrDefaultAsync();
+            }
+            return null;
+        }
+        #endregion
+
+        #region Get Patient By ID        
+        public async Task<ActionResult<TblPatient>> GetPatientById(int patientId)
+        {
+            if (db != null)
+            {
+                TblPatient test = await db.TblPatient.FirstOrDefaultAsync(em => em.PatientId == patientId);
+                return test;
+            }
+            return null;
+        }
+        #endregion
+
+        
+        //Get All Patients
+        #region Get Patients       
+        public async Task<List<TblPatient>> GetPatients()
+        {
+            if (db != null)
+            {
+                return await db.TblPatient.ToListAsync();
+            }
+            return null;
         }
         #endregion
 

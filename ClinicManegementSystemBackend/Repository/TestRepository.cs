@@ -19,6 +19,7 @@ namespace ClinicManegementSystemBackend.Repository
             db = _db;
         }
 
+        #region Get Test By Report Id        
         public async Task<TblTest> GetTestByReportId(int id)
         {
             if (db != null)
@@ -39,8 +40,7 @@ namespace ClinicManegementSystemBackend.Repository
             }
             return null;
         }
-
-
+        #endregion
 
         #region Add Test
         public async Task<int> AddTest(TblTest test)

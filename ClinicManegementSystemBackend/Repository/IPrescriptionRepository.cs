@@ -12,6 +12,5 @@ namespace ClinicManegementSystemBackend.Repository
         Task<List<PrescriptionLabViewModel>> GetPrescription();
         Task UpdateReport(TblPrescription prescription);
         Task<int> AddPrescription(TblPrescription prescription);
-
     }
 }
