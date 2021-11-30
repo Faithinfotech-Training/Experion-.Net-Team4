@@ -2,6 +2,7 @@
 .form-group>input{
     font-weight: bolder;
 }
+<<<<<<< HEAD
 
 .form-group>select{
     font-weight: bolder;
@@ -27,3 +28,29 @@ div.validation-error{
     font-size: 80%;
     color: #dd3535;
 }
+=======
+.form-group>select{
+    font-weight: bolder;
+}
+
+.form-group input placeholder{
+    color:rgb(228,211,211);
+}
+
+table tbody tr :hover{
+    background-color: rgba(143,188,255,0.664);
+    cursor:pointer;
+}
+
+input.invalid{
+    border-color: red;
+}
+
+div.validation-error{
+    width:100%;
+    margin-top: .25em;
+    font-size:80%;
+    color: #dd3535;
+
+}
+>>>>>>> 2beb17b788e837f2884a66ea87a43233fbc5e415

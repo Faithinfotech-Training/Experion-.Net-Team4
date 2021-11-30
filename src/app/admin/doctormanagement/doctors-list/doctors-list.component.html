@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="header">
+        <h5 class="text-center">
+            Doctor Details
+        </h5>
+        <!--Search functionality-->
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Search .." [(ngModel)]="filter">
+        </div>
+
+        <a [routerLink]="['doctor']" class="btn btn-primary"> Add Doctor </a>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Address
+                </th>
+                <th>
+                    Phone
+                </th>
+                <th>
+                    Email
+                </th>
+                 <th>
+                    Age
+                </th>
+                <th>
+                    Gender
+                </th>
+                <th>
+                    Qualification
+                </th>
+                <th>
+                    Specialization
+                </th>
+                <th>
+                    DateOfJoining
+                </th>
+                <th>
+                    Status
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                *ngFor="let doctor of this.doctorService.doctors| filter: filter | paginate: {itemsPerPage:5,currentPage:page}">
+                <td>{{doctor.DoctorId}}</td>
+                <td>{{doctor.DoctorName}}</td>
+                <td>{{doctor.DoctorAddress}}</td>
+                <td>{{doctor.DoctorPhone}}</td>
+                <td>{{doctor.DoctorEmail}}</td>
+                <td>{{doctor.DoctorAge}}</td>
+                <td>{{doctor.DoctorGender}}</td>
+                <td>{{doctor.DoctorQualification}}</td>
+                <td>{{doctor.DoctorSpecialization}}</td>
+                <td>{{doctor.DoctorDateOfJoining|date:'dd-MM-yyyy'}}</td>
+                <td >{{doctor.IsActive}}</td>
+                <td>
+                    <button (click)="deleteform(doctor)" class="btn btn-sm btn-outline-danger">Delete</button>&nbsp;
+                    <button (click)="populateform(emp)" class="btn btn-sm btn-info"
+                        style="margin-left:10px">Edit</button>
+
+                    <button (click)="updatedoctor(doctor.DoctorId)" class="btn btn-sm btn-info"
+                        style="margin-left:10px">Edit</button>
+                </td>
+
+            </tr>
+        </tbody>
+
+
+
+    </table>
+
+    <div class="footer">
+        <!--pagination - control-->
+
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+
+</div>
+
