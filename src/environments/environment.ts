@@ -4,15 +4,8 @@
 
 export const environment = {
   production: false,
-<<<<<<< HEAD
-  apiUrl:'https://localhost:44314'
-=======
-<<<<<<< HEAD
-  apiUrl:"https://localhost:44314/"
-=======
-  apiUrl:'https://localhost:44314'
->>>>>>> 302135af8f7f148727f7400d8ce44c48357fbf46
->>>>>>> 2beb17b788e837f2884a66ea87a43233fbc5e415
+  apiUrl:'https://localhost:44314' 
+
 };
 
 /*
