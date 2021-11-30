@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+<<<<<<< HEAD
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import {AuthGuard} from './shared/auth.guard';
@@ -14,6 +15,18 @@ const routes: Routes = [
   {path: 'doctors-list',component:DoctorsListComponent},
   {path:'doctors',component:DoctorsComponent},
   {path:'doctormanagement',component:DoctormanagementComponent}
+=======
+import { PatientComponent } from './frontoffice/patient/patient.component';
+import { FrontofficeComponent } from './frontoffice/frontoffice.component';
+import { PatientListComponent } from './frontoffice/patient-list/patient-list.component';
+
+const routes: Routes = [
+  {path:'frontoffice',component:FrontofficeComponent},
+  {path:'patient',component:PatientComponent},
+  {path:'patientlist',component:PatientListComponent},
+  {path:'patient/:patientId',component:PatientComponent},
+  {path:'patientlist/patient',component:PatientComponent}
+>>>>>>> 302135af8f7f148727f7400d8ce44c48357fbf46
 ];
 
 @NgModule({
