@@ -1,0 +1,63 @@
+<form name="TestForm" #form="ngForm" autocomplete="off"
+(ngSubmit)="onSubmit(form)">
+    <!--Staff ID-->
+    <div class="form-group">
+        <label>Staff ID</label>
+        <input name="StaffId" #StaffId="ngModel" [(ngModel)]="labService.testFormData.StaffId"
+            class="form-control" placeholder="Enter Staff ID" minlength="1" maxlength="10" required
+            [ngClass]="{'is-invalid': StaffId.touched && StaffId.invalid}" />
+
+        <div class="validation-error" *ngIf="StaffId.touched && StaffId.invalid">
+            <div *ngIf="StaffId.errors.required">Staff ID is Required</div>
+        </div>
+    </div>
+    <br>
+
+    <!--Test Name-->
+    <div class="form-group">
+        <label>Test Name</label>
+        <input name="TestName" #TestName="ngModel" [(ngModel)]="labService.testFormData.TestName"
+            class="form-control" placeholder="Enter Test Name" minlength="1" maxlength="10" required
+            [ngClass]="{'is-invalid': TestName.touched && TestName.invalid}" />
+
+        <div class="validation-error" *ngIf="TestName.touched && TestName.invalid">
+            <div *ngIf="TestName.errors.required">Test Name is Required</div>
+        </div>
+    </div>
+    <br>
+
+    <!--Normal Range-->
+    <div class="form-group">
+        <label>Normal Range</label>
+        <input name="NormalRange" #NormalRange="ngModel" [(ngModel)]="labService.testFormData.NormalRange"
+            class="form-control" placeholder="Enter Normal Range" minlength="1" maxlength="20" 
+            [ngClass]="{'is-invalid': NormalRange.touched && NormalRange.invalid}" />        
+    </div>
+    <br>
+
+    <!--Test Result-->
+    <div class="form-group">
+        <label>Test Result</label>
+        <input name="TestResult" #TestResult="ngModel" [(ngModel)]="labService.testFormData.TestResult"
+            class="form-control" placeholder="Enter Test Result" minlength="1" maxlength="10" required
+            [ngClass]="{'is-invalid': TestResult.touched && TestResult.invalid}" />
+
+        <div class="validation-error" *ngIf="TestResult.touched && TestResult.invalid">
+            <div *ngIf="TestResult.errors.required">Test Result is Required</div>
+        </div>
+    </div>
+    <br>
+
+    <!--Submit Button-->
+    <div class="form-group">
+        <br>
+        <button type="submit" [disabled]="!(form.valid && form.dirty) "
+            class="btn  btn-primary form-control" >
+            Add
+        </button>
+    </div>
+    <br>
+</form>
+<br>
+<br>
+<a class="btn ntn-lg btn-secondary for" style="width: 100%;"  href="../labtechnitian">Finish</a>

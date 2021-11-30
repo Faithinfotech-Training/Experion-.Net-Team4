@@ -1,0 +1,72 @@
+<form name="reportForm" #form="ngForm" autocomplete="off"
+(ngSubmit)="onSubmit(form)">
+    
+    <!--Patient ID-->
+    <div class="form-group">
+        <label>Patient ID</label>
+        <input name="PatientId" #PatientId="ngModel" [(ngModel)]="labService.reportFormData.PatientId"
+            class="form-control" placeholder="Enter Patient ID" minlength="1" maxlength="10" required
+            [ngClass]="{'is-invalid': PatientId.touched && PatientId.invalid}" />
+
+        <div class="validation-error" *ngIf="PatientId.touched && PatientId.invalid">
+            <div *ngIf="PatientId.errors.required">Patient ID is Required</div>
+        </div>
+    </div>
+    <br>
+
+    <!--Staff ID-->
+    <div class="form-group">
+        <label>Staff ID</label>
+        <input name="StaffId" #StaffId="ngModel" [(ngModel)]="labService.reportFormData.StaffId"
+            class="form-control" placeholder="Enter Staff ID" minlength="1" maxlength="10" required
+            [ngClass]="{'is-invalid': StaffId.touched && StaffId.invalid}" />
+
+        <div class="validation-error" *ngIf="StaffId.touched && StaffId.invalid">
+            <div *ngIf="StaffId.errors.required">Staff ID is Required</div>
+        </div>
+    </div>
+    <br>
+
+    <!--Doctor ID-->
+    <div class="form-group">
+        <label>Doctor ID</label>
+        <input name="DoctorId" #DoctorId="ngModel" [(ngModel)]="labService.reportFormData.DoctorId"
+            class="form-control" placeholder="Enter Doctor ID" minlength="1" maxlength="10" required
+            [ngClass]="{'is-invalid': DoctorId.touched && DoctorId.invalid}" />
+
+        <div class="validation-error" *ngIf="DoctorId.touched && DoctorId.invalid">
+            <div *ngIf="DoctorId.errors.required">Doctor ID is Required</div>
+        </div>
+    </div>
+    <br>
+
+    <!--Report Notes-->
+    <div class="form-group">
+        <label>Notes & Observations</label>
+        <textarea name="ReportNotes" #ReportNotes="ngModel" [(ngModel)]="labService.reportFormData.ReportNotes"
+            class="form-control" placeholder="Enter Notes & Observations" minlength="2" maxlength="100" required
+            [ngClass]="{'is-invalid': ReportNotes.touched && ReportNotes.invalid}" ></textarea>
+
+        <div class="validation-error" *ngIf="ReportNotes.touched && ReportNotes.invalid">
+            <div *ngIf="ReportNotes.errors.required">Doctor ID is Required</div>
+        </div>
+    </div>
+    <br>
+
+    <!--Submit Button-->
+    <div class="form-group">
+        <br>
+        <button type="submit" [disabled]="!(form.valid && form.dirty) "
+            class="btn  btn-primary form-control" >
+            Submit
+        </button>
+    </div>
+    <br>
+</form>
+<div *ngIf="isSubmitted == true" >
+    <button class="btn  btn-secondary form-control" (click)="addTest()">Add Tests</button>
+</div>
+
+
+
+

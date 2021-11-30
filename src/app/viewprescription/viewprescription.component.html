@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="header">
+        <h5>Prescription Info</h5>
+        <!--Serch Functionality-->
+        <div class="form-group row">
+            
+            <input style="width: 60%;" class="form-control col-md-3" type="text" 
+             placeholder="Search here..." 
+            [(ngModel)]="tempFilter">
+            <button class="btn btn-success col-md-2" style="margin-left: 5px;" (click)="filter=tempFilter">Search</button>
+            <button class="btn btn-secondary col-md-2" style="margin-left: 5px;" (click)="filter=''">Reset</button>            
+        </div>
+        <br>
+        
+    </div>
+    <table class="table table-bodered table-striped">
+        <thead>
+            <tr>
+                <th>PrescriptionNumber</th>
+                <th>Patient Name</th>
+                <th>DoctorName</th>
+                <th>PrescriptionDate</th>                
+                <th>Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+                    
+                <tr *ngFor="let prescription of labService.prescriptions | filter:filter | paginate: {itemsPerPage:5 , currentPage: page}">
+                    <td  >{{prescription.PrescriptionNumber}}</td>
+                    <td  >{{prescription.PatientName}}</td>
+                    <td  >{{prescription.DoctorName }}</td>
+                    <td  >{{prescription.PrescriptionDate | date:'dd-MM-yyyy'}}</td>                   
+                    <td  >                        
+                        <button  (click)="viewTest(prescription.PrescriptionId)" class="btn btn-info" style="margin-left:10px">View Tests</button>                    
+                    </td>
+                    
+                </tr>
+            
+        </tbody>
+
+    </table>
+    <div class="footer">
+        <!--Pagination  : Page Change-->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+
+</div>
+

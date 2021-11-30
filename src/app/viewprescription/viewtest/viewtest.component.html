@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="header">
+        <h5>Tests In Prescription  ID : {{pId}}</h5>        
+        <br>
+        
+    </div>
+    <table class="table table-bodered table-striped">
+        <thead>
+            <tr>
+                <th>Test ID</th>
+                <th>Test Name</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+                    
+                <tr *ngFor="let test of labService.prescribedTests">
+                    <td  >{{test.PrescribedTestId}}</td>
+                    <td  >{{test.PrescribedTestName}}</td>             
+                </tr>            
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <button class="btn btn-secondary" style="width: 100%;">Generate a report</button>
+    
+
+</div>
+
