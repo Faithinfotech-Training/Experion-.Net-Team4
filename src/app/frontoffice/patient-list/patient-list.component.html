@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="header">
+        <h5>Patient Info</h5>
+        <!--search functionality-->
+        <div class="form-group">
+            <input class="form-control" type="text"
+            placeholder="search here...."
+            [(ngModel)]="filter">
+
+        </div>
+        <a [routerLink]="['patient']" class="btn btn-primary">Add Patient</a>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Patient Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Blood Group</th>
+                <th>Patient Address</th>
+                <th>Patient Phone</th>
+                <th>Emergency Contact</th>
+                <th>Patient Email</th>
+                <th>IsActive</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pat of service.patients|filter:filter| paginate:{itemsPerPage:5,currentPage:page}">
+                <!--ng-container *ngIf="pat.IsActive"-->
+                    <td (click)="populateForm(pat)">{{pat.PatientId}}</td>
+                    <td (click)="populateForm(pat)">{{pat.PatientName}}</td>
+                    <td (click)="populateForm(pat)">{{pat.PatientAge}}</td>
+                    <td (click)="populateForm(pat)">{{pat.PatientGender}}</td>
+                    <td (click)="populateForm(pat)">{{pat.BloodGroup}}</td>
+                    <td (click)="populateForm(pat)">{{pat.PatientAddress}}</td>
+                    <td (click)="populateForm(pat)">{{pat.PatientPhone}}</td>
+                    <td (click)="populateForm(pat)">{{pat.EmergencyContact}}</td>
+                    <td (click)="populateForm(pat)">{{pat.PatientEmail}}</td>
+                    <td (click)="populateForm(pat)">{{pat.IsActive}}</td>
+                    
+                    <td>
+                        <button class="btn btn-sm btn-outline-danger"
+                            (click)="deletePatient(pat)">X</button>&nbsp;
+                        <button (click)="updatePatient(pat.PatientId)" class="btn btn-info" style="margin-left:10px">Edit</button>
+
+                    </td>
+                <!--/ng-container-->
+            </tr>
+
+        </tbody>
+
+    </table>
+    <div class="footer">
+        <!--pagination-->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+
+</div>

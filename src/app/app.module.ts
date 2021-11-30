@@ -9,6 +9,21 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { LabtechnitianComponent } from './labtechnitian/labtechnitian.component';
 import { FrontofficeComponent } from './frontoffice/frontoffice.component';
 
+import { EditfrontofficeComponent } from './frontoffice/editfrontoffice/editfrontoffice.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination';
+import {  Ng2SearchPipeModule} from 'ng2-search-filter';
+import {  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FrontofficeService } from './shared/frontoffice.service';
+import { PatientComponent } from './frontoffice/patient/patient.component';
+import { PatientListComponent } from './frontoffice/patient-list/patient-list.component';
+import { PaymentbillComponent } from './frontoffice/paymentbill/paymentbill.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,13 +31,27 @@ import { FrontofficeComponent } from './frontoffice/frontoffice.component';
     AdminComponent,
     DoctorComponent,
     LabtechnitianComponent,
-    FrontofficeComponent
+    FrontofficeComponent,
+    
+    EditfrontofficeComponent,
+    PatientComponent,
+    PatientListComponent,
+    PaymentbillComponent
+   
+ 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() ,// ToastrModule added
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [FrontofficeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
