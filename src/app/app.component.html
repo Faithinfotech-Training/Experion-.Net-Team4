@@ -1,5 +1,13 @@
-<div class="container">
-  <h2 style="text-align: center; font-size:200%;font-family:fantasy">{{title}}</h2>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" style="padding-left: 20px;" href="#">Clinic Management System</a>
+  <a class="navbar-brand" style="float:inline-end; padding-left: 70%; margin-right: 20px;" href="/login" (click)="logout()">Logout</a>
+</nav>
+<br>
+<br>
+<div class="container" style="width: 70%;">
+  <!--<h2 style="text-align: center; font-size: 200%; font-family:fantasy;">{{title}}</h2>-->
+  
+  
   <div class="card">
     <div class="card-body">
       <!--for testing look and field-->
@@ -49,13 +57,14 @@
     <hr>
       <router-outlet></router-outlet>
     </div>
-
   </div>
-  
-
 </div>
+
 <div class="footer">
   <div class="container">
-    <span>All Rights reserved 2021<a href="http://faithinfotechacademy.com">@faithinfotechacademy</a></span>
+    <br>
+    <br>
+    <br>
+    <span style="float: right;">All Rights Reserved 2021 &copy;Team 4 </span>
   </div>
 </div>

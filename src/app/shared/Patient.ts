@@ -9,6 +9,7 @@ export class Patient {
     PatientPhone :string='';
     EmergencyContact:string='';
     PatientEmail:string='';
+    DoctorId:number=0;
     IsActive:boolean=false;
 
 

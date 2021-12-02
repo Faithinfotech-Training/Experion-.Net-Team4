@@ -1,1 +1,29 @@
-<p>admin works!</p>
+<header>
+    <div class="container-fluid">
+        <h5>
+           Hi,This is Admin Module. Welcome {{loggedUserName}}
+
+        </h5>
+    </div>
+    <nav class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href ="#" routerLink='../stafflist'>
+                 Staff
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href ="../doctormanagement" >
+                 Doctors
+            </a>
+        </li>
+
+    
+        <li class="nav-item">
+            <a class="nav-link" href ="#" (click)="LogOut()">
+                LogOut
+            </a>
+        </li>
+
+    </nav>
+</header>
+

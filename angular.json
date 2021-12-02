@@ -126,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ClinicManagementSystemUI"
+    }
+  },
+  "defaultProject": "ClinicManagementSystemUI",
+  "cli": {
+    "analytics": false
+  }
 }
