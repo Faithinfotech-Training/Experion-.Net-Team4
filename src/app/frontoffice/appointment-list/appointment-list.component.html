@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="header">
+        <h5>Appointment Info</h5>
+        <!--search functionality-->
+        <div class="form-group">
+            <input class="form-control" type="text"
+            placeholder="search here...."
+            [(ngModel)]="filter">
+        </div>
+        <a [routerLink]="['appointment']" class="btn btn-primary">Add Appointment</a>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Appointment Id</th>
+                <th>Appointment Date</th>
+                <!--<th>Appointment Time</th> -->
+                <th>Doctor id</th>
+                <th>Patient id</th>
+                <th>IsActive</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let apt of service.appointments|filter:filter| paginate:{itemsPerPage:5,currentPage:page}">
+               <!-- <ng-container *ngIf="emp.IsActive">-->
+                <td (click)="populateForm(apt)">{{apt.AppointmentId}}</td>
+                <td (click)="populateForm(apt)">{{apt.AppointmentDate |date:'dd-MM-yyyy' }}</td>
+               <!--<td (click)="populateForm(apt)">{{apt.AppointmentTime |date:'h:mm:ss'}}</td>-->
+                <td (click)="populateForm(apt)">{{apt.DoctorId}}</td>
+                <td (click)="populateForm(apt)">{{apt.PatientId}}</td>
+                <td (click)="populateForm(apt)">{{apt.IsActive}}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-danger"
+                        (click)="deleteAppointment(apt)">X</button>&nbsp;
+                    <button (click)="updateAppointment(apt.AppointmentId)" class="btn btn-info" style="margin-left:10px">Edit</button>
+
+                </td>
+
+               <!-- </ng-container>-->
+            </tr>
+        </tbody>
+    </table>
+<div class="footer">
+    <!--pagination-->
+    <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+</div>
+
+</div>
+

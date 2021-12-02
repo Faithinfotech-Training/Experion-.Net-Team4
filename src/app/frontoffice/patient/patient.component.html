@@ -8,7 +8,7 @@
     <label>Name</label>
     <input name="PatientName" #PatientName="ngModel" [(ngModel)]="service.formData.PatientName"
         class="form-control" placeholder="enter full name " minLength="1" maxLength="25" required
-        [ngClass]="{'is invalid':PatientName.touched && PatientName.invalid}" />
+        [ngClass]="{'is-invalid':PatientName.touched && PatientName.invalid}" />
     <div class="validation-error" *ngIf="PatientName.touched&&PatientName.invalid">
         <div *ngIf="PatientName.errors.required">Patient Name is required</div>
     </div>
@@ -18,9 +18,9 @@
 <div class="form-group">
     <label>Age</label>
     <input type="number" name="PatientAge" #PatientAge="ngModel" [(ngModel)]="service.formData.PatientAge" class="form-control"
-        placeholder="enter Age" required
-        [ngClass]="{'is invalid':PatientAge.touched && PatientAge.invalid}" />
-    <div class="validation-error" *ngIf="PatientAge.touched&&PatientAge.invalid">
+        placeholder="enter Age" minlength="1" maxlength="2" required
+        [ngClass]="{'is-invalid':PatientAge.touched && PatientAge.invalid}" />
+    <div class="validation-error" *ngIf="PatientAge.touched && PatientAge.invalid">
         <div *ngIf="PatientAge.errors.required">Age is required</div>
     </div>
 </div>
@@ -34,7 +34,7 @@
         <option value="Male">Male</option>
         <option value="Female">Female</option>    
     </select>
-    <div class="validation-error" *ngIf="PatientGender.touched&&PatientGender.invalid">
+    <div class="validation-error" *ngIf="PatientGender.touched && PatientGender.invalid">
         <div *ngIf="PatientGender.errors.required">Gender is required</div>
     </div>
 </div>
@@ -54,7 +54,7 @@
         <option value="AB+">AB+</option>
         <option value="AB-">AB-</option>    
     </select>
-    <div class="validation-error" *ngIf="BloodGroup.touched&&BloodGroup.invalid">
+    <div class="validation-error" *ngIf="BloodGroup.touched  &&BloodGroup.invalid">
         <div *ngIf="BloodGroup.errors.required">Blood Group is required</div>
     </div>
 </div>
@@ -64,8 +64,8 @@
     <label>Address</label>
     <input name="PatientAddress" #PatientAddress="ngModel" [(ngModel)]="service.formData.PatientAddress"
         class="form-control" placeholder="enter address " minLength="4" maxLength="25" required
-        [ngClass]="{'is invalid':PatientAddress.touched && PatientAddress.invalid}" />
-    <div class="validation-error" *ngIf="PatientAddress.touched&&PatientAddress.invalid">
+        [ngClass]="{'is-invalid':PatientAddress.touched && PatientAddress.invalid}" />
+    <div class="validation-error" *ngIf="PatientAddress.touched && PatientAddress.invalid">
         <div *ngIf="PatientAddress.errors.required">Patient Address is required</div>
     </div>
 </div>
@@ -76,7 +76,7 @@
     <input name="PatientPhone" #PatientPhone="ngModel" [(ngModel)]="service.formData.PatientPhone"
         class="form-control" placeholder="enter the contact number " minLength="1" maxLength="15" required
         [ngClass]="{'is invalid':PatientPhone.touched && PatientPhone.invalid}" />
-    <div class="validation-error" *ngIf="PatientPhone.touched&&PatientPhone.invalid">
+    <div class="validation-error" *ngIf="PatientPhone.touched && PatientPhone.invalid">
         <div *ngIf="PatientPhone.errors.required">Patient contact number is required</div>
     </div>
 </div>
@@ -85,9 +85,9 @@
 <div class="form-group">
     <label>Emergency Contact number</label>
     <input name="EmergencyContact" #EmergencyContact="ngModel" [(ngModel)]="service.formData.EmergencyContact"
-        class="form-control" placeholder="enter the emergency contact number " minLength="1" maxLength="15" required
+        class="form-control" placeholder="enter the emergency contact number " minlength="1" maxlength="15" required
         [ngClass]="{'is invalid':EmergencyContact.touched && EmergencyContact.invalid}" />
-    <div class="validation-error" *ngIf="EmergencyContact.touched&& EmergencyContact.invalid">
+    <div class="validation-error" *ngIf="EmergencyContact.touched && EmergencyContact.invalid">
         <div *ngIf="EmergencyContact.errors.required">Patient emergency contact number is required</div>
     </div>
 </div>
@@ -98,7 +98,7 @@
     <input type="email" name="PatientEmail" #PatientEmail="ngModel" [(ngModel)]="service.formData.PatientEmail" class="form-control"
         placeholder="enter Email address" required
         [ngClass]="{'is invalid':PatientEmail.touched && PatientEmail.invalid}" />
-    <div class="validation-error" *ngIf="PatientEmail.touched&&PatientEmail.invalid">
+    <div class="validation-error" *ngIf="PatientEmail.touched && PatientEmail.invalid">
         <div *ngIf="PatientEmail.errors.required">Email is required</div>
     </div>
 </div>

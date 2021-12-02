@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="header">
+        <h5>Payment Bill Info</h5>
+        <!--search functionality-->
+        <div class="form-group">
+            <input class="form-control" type="text"
+            placeholder="search here...."
+            [(ngModel)]="filter">
+        </div>
+        <a [routerLink]="['paymentbill']" class="btn btn-primary">Generate Payment Bill</a>
+
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Bill Id</th>
+                <th>Bill Number</th>
+                <th>Bill Date</th>
+                <th>Amount</th>
+                <th>Is Active</th>
+                <th>Patient Id</th>
+                
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of service.bills|filter:filter| paginate:{itemsPerPage:5,currentPage:page}">
+               <!-- <ng-container *ngIf="emp.IsActive">-->
+                <td (click)="populateForm(b)">{{b.BillId}}</td>
+                <td (click)="populateForm(b)">{{b.BillNumber}}</td>
+                <td (click)="populateForm(b)">{{b.BillDate | date:'dd-MM-yyyy'}}</td>
+                <td (click)="populateForm(b)">{{b.Amount}}</td>
+                <td (click)="populateForm(b)">{{b.IsActive}}</td>
+                <td (click)="populateForm(b)">{{b.PatientId}}</td>
+               <!-- </ng-container>-->
+            </tr>
+        </tbody>
+    </table>
+<div class="footer">
+    <!--pagination-->
+    <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+</div>
+
+</div>
+

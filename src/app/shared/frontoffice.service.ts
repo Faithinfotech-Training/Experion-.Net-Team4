@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { PaymentBill } from './paymentbill';
+import { Appointment } from './appointment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,10 @@ export class FrontofficeService {
   //create an instance
   formData:Patient=new Patient();
   billFormData:PaymentBill=new PaymentBill();
+  aFormData:Appointment=new Appointment();
   patients:Patient[];
   bills:PaymentBill[];
+  appointments:Appointment[];
   
   constructor(private httpClient: HttpClient) { }
 
@@ -61,9 +64,28 @@ getPatient(patientId:number):Observable<any>{
 
   //get a particular payment bill
   getBill(billId:number):Observable<any>{
-
-    return this.httpClient.get(environment.apiUrl+"/api/PaymentBill/GetPaymentBillById?id="+billId)
-  
+    return this.httpClient.get(environment.apiUrl+"/api/PaymentBill/GetPaymentBillById?id="+billId)  
     }
+
+    //insert appointment
+    insertAppointment(model:Appointment):Observable<any>{
+      return this.httpClient.post(environment.apiUrl+"/api/Appointment/AddAppointment",model)
+  }
+    //get all appointments
+    bindListAppointment(){
+      this.httpClient.get(environment.apiUrl+"/api/Appointment/GetAppointment")
+     .toPromise().then(response=>
+      this.appointments = response as Appointment[])
+    }
+  
+    //get a particular appointment
+    getAppointment(appointmentId:number):Observable<any>{
+      return this.httpClient.get(environment.apiUrl+"/api/Appointment/GetAppointmentById?id="+appointmentId)    
+      }
+  
+    //edit or update appointment
+    updateAppointment(model:Appointment):Observable<any>{
+      return this.httpClient.put(environment.apiUrl+"/api/Appointment/UpdateAppointment",model)
+  }
 
 }

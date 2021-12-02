@@ -20,9 +20,6 @@ export class PatientComponent implements OnInit {
     //get patient id from activated routes
     this.patientId = this.route.snapshot.params['patientId'];
     
-    
-    //console.log("On Load : " + this.empId);
-    
     if(this.patientId!=0||this.patientId!=null){
     //get patient
     this.service.getPatient(this.patientId).subscribe(

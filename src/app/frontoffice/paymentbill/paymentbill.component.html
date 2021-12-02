@@ -1,0 +1,76 @@
+<form name="billform" #form="ngForm" autocomplete="off"
+(ngSubmit)="onSubmit(form)">
+<!--Bill ID-->
+<input type="text" name="BillId" [(ngModel)]="service.billFormData.BillId" />
+
+<!--BillNumber-->
+<div class="form-group">
+    <label>Bill Number</label>
+    <input type="number" name="BillNumber" #BillNumber="ngModel" [(ngModel)]="service.billFormData.BillNumber" class="form-control"
+        placeholder="enter BillNumber" required
+        [ngClass]="{'is invalid':BillNumber.touched && BillNumber.invalid}" />
+    <div class="validation-error" *ngIf="BillNumber.touched&&BillNumber.invalid">
+        <div *ngIf="BillNumber.errors.required">BillNumber is required</div>
+    </div>
+</div>
+
+<!--Bill Date-->
+ <div class="form-group">
+    <label>BillDate</label>
+    <input type="datetime" name="BillDate" id="BillDate" #BillDate="ngModel"
+        [(ngModel)]="service.billFormData.BillDate" class="form-control" required
+        [ngClass]="{'is invalid':BillDate.touched && BillDate.invalid}" />
+    <div class="validation-error" *ngIf="BillDate.touched&&BillDate.invalid">
+        <div *ngIf="BillDate.errors.required">Bill Date is required</div>
+    </div>
+</div>
+
+<!--Amount-->
+<div class="form-group">
+    <label>Amount</label>
+    <input type="number" name="Amount" #Amount="ngModel" [(ngModel)]="service.billFormData.Amount" class="form-control"
+        placeholder="enter Amount" required
+        [ngClass]="{'is invalid':Amount.touched && Amount.invalid}" />
+    <div class="validation-error" *ngIf="Amount.touched&&Amount.invalid">
+        <div *ngIf="Amount.errors.required">Amount is required</div>
+    </div>
+</div>
+
+<!--Patient ID-->
+<div class="form-group">
+    <label class="col-md-4">Patient</label>
+    <select name="PatientId" id="PatientId" class="form-control" #PatientId="ngModel" required
+        [(ngModel)]="service.billFormData.PatientId">
+        <option value="0" disabled>Choose Patient</option>
+        <option *ngFor="let pat of service.patients"
+         value="{{pat.PatientId}}">Id:{{pat.PatientId}}, Name:{{pat.PatientName}}</option>
+        
+    </select>
+    <div class="validation-error" *ngIf="PatientId.touched && PatientId.invalid">
+        <div *ngIf="PatientId.errors.required">Patient is required</div>
+    </div>
+</div>
+
+<!--is active-->
+<br>
+<div class="form-group">
+    <div class="form-check">
+        <label class="col-md-4">Is Active</label>
+        <input type="checkbox" name="IsActive" id="IsActive" #IsActive="ngModel"
+            [(ngModel)]="service.billFormData.IsActive" class="form-check-input">
+    </div>
+</div>
+
+<!--submit button-->
+<br>
+<div class="form-group">
+    <button type="submit"[disabled]="!(form.valid && form.dirty)"
+        class="btn btn-lg btn-primary form-control">Submit
+    </button>
+
+</div>
+</form>
+
+
+
+

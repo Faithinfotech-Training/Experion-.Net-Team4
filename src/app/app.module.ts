@@ -21,6 +21,9 @@ import { FrontofficeService } from './shared/frontoffice.service';
 import { PatientComponent } from './frontoffice/patient/patient.component';
 import { PatientListComponent } from './frontoffice/patient-list/patient-list.component';
 import { PaymentbillComponent } from './frontoffice/paymentbill/paymentbill.component';
+import { PaymentbillListComponent } from './frontoffice/paymentbill-list/paymentbill-list.component';
+import { AppointmentComponent } from './frontoffice/appointment/appointment.component';
+import { AppointmentListComponent } from './frontoffice/appointment-list/appointment-list.component';
 
 
 
@@ -36,7 +39,10 @@ import { PaymentbillComponent } from './frontoffice/paymentbill/paymentbill.comp
     EditfrontofficeComponent,
     PatientComponent,
     PatientListComponent,
-    PaymentbillComponent
+    PaymentbillComponent,
+    PaymentbillListComponent,
+    AppointmentComponent,
+    AppointmentListComponent
    
  
   ],
