@@ -1,0 +1,78 @@
+<form name="appointmentform" #form="ngForm" autocomplete="off"
+(ngSubmit)="onSubmit(form)">
+
+<!--Appointment ID-->
+<input type="text" name="AppointmentId" [(ngModel)]="service.aFormData.AppointmentId" />
+
+<!--Appointment Date-->
+<div class="form-group">
+    <label>Appointment Date</label>
+    <input type="date" name="AppointmentDate" id="AppointmentDate" #AppointmentDate="ngModel"
+        [(ngModel)]="service.aFormData.AppointmentDate" class="form-control" required
+        [ngClass]="{'is invalid':AppointmentDate.touched && AppointmentDate.invalid}" />
+    <div class="validation-error" *ngIf="AppointmentDate.touched&&AppointmentDate.invalid">
+        <div *ngIf="AppointmentDate.errors.required">Appointment date is required</div>
+    </div>
+</div>
+
+<!--Appointment Time
+<div class="form-group">
+    <label>Appointment Time</label>
+    <input type="time" name="AppointmentTime" id="AppointmentTime" #AppointmentTime="ngModel"
+        [(ngModel)]="service.aFormData.AppointmentTime" class="form-control" required
+        [ngClass]="{'is invalid':AppointmentTime.touched && AppointmentTime.invalid}" />
+    <div class="validation-error" *ngIf="AppointmentTime.touched&&AppointmentTime.invalid">
+        <div *ngIf="AppointmentTime.errors.required">Appointment time is required</div>
+    </div>
+</div>-->
+
+<!--Patient ID-->
+<div class="form-group">
+    <label class="col-md-4">Patient</label>
+    <select name="PatientId" id="PatientId" class="form-control" #PatientId="ngModel" required
+        [(ngModel)]="service.aFormData.PatientId">
+        <option value="0" disabled>Choose Patient</option>
+        <option *ngFor="let pat of service.patients"
+         value="{{pat.PatientId}}">Id:{{pat.PatientId}}, Name:{{pat.PatientName}}</option>
+        
+    </select>
+    <div class="validation-error" *ngIf="PatientId.touched && PatientId.invalid">
+        <div *ngIf="PatientId.errors.required">Patient is required</div>
+    </div>
+</div>
+
+<!--Doctor id-->
+<div class="form-group">
+    <label>Doctor ID</label>
+    <input name="DoctorId" #DoctorId="ngModel" [(ngModel)]="service.aFormData.DoctorId"
+        class="form-control" placeholder="enter doctor id " minLength="1" maxLength="25" required
+        [ngClass]="{'is invalid':DoctorId.touched && DoctorId.invalid}" />
+    <div class="validation-error" *ngIf="DoctorId.touched&&DoctorId.invalid">
+        <div *ngIf="DoctorId.errors.required">Doctor Id is required</div>
+    </div>
+</div>
+
+<!--is active-->
+<br>
+<div class="form-group">
+    <div class="form-check">
+        <label class="col-md-4">Is Active</label>
+        <input type="checkbox" name="IsActive" id="IsActive" #IsActive="ngModel"
+            [(ngModel)]="service.aFormData.IsActive" class="form-check-input">
+    </div>
+</div>
+
+<!--submit button-->
+<br>
+<div class="form-group">
+    <button type="submit"[disabled]="!(form.valid && form.dirty)"
+        class="btn btn-lg btn-primary form-control">Submit
+    </button>
+
+</div>
+</form>
+
+
+
+
+

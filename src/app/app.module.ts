@@ -25,6 +25,30 @@ import { StaffComponent } from './admin/staffmanagement/staff/staff.component';
 import { StaffListComponent } from './admin/staffmanagement/staff-list/staff-list.component';
 import { RolemanagementComponent } from './admin/rolemanagement/rolemanagement.component';
 import { UsermanagementComponent } from './admin/usermanagement/usermanagement.component';
+import { ViewprescriptionComponent } from './viewprescription/viewprescription.component';
+import { LabTechnitianService } from './shared/lab-technitian.service';
+import { ViewtestComponent } from './viewprescription/viewtest/viewtest.component';
+import { ViewreportsComponent } from './viewreports/viewreports.component';
+import { ReporttestComponent } from './viewreports/reporttest/reporttest.component';
+import { AddreportComponent } from './labtechnitian/addreport/addreport.component';
+import { AddtestsComponent } from './labtechnitian/addtests/addtests.component';
+import { EditfrontofficeComponent } from './frontoffice/editfrontoffice/editfrontoffice.component';
+import { FrontofficeService } from './shared/frontoffice.service';
+import { PatientComponent } from './frontoffice/patient/patient.component';
+import { PatientListComponent } from './frontoffice/patient-list/patient-list.component';
+import { PaymentbillComponent } from './frontoffice/paymentbill/paymentbill.component';
+import { PaymentbillListComponent } from './frontoffice/paymentbill-list/paymentbill-list.component';
+import { AppointmentComponent } from './frontoffice/appointment/appointment.component';
+import { AppointmentListComponent } from './frontoffice/appointment-list/appointment-list.component';
+import { ViewpatientComponent } from './doctor/viewpatient/viewpatient.component';
+import { ConsultationComponent } from './doctor/consultation/consultation.component';
+import { ViewfullprescriptionComponent } from './viewprescription/viewfullprescription/viewfullprescription.component';
+import { ViewNotesComponent } from './doctor/view-notes/view-notes.component';
+import { AddprescriptionComponent } from './doctor/addprescription/addprescription.component';
+import { AddprescribedtestComponent } from './doctor/addprescription/addprescribedtest/addprescribedtest.component';
+import { AddmedicineComponent } from './doctor/addprescription/addmedicine/addmedicine.component';
+
+
 
 @NgModule({
   declarations: [
@@ -34,6 +58,12 @@ import { UsermanagementComponent } from './admin/usermanagement/usermanagement.c
     DoctorComponent,
     LabtechnitianComponent,
     FrontofficeComponent,
+    ViewprescriptionComponent,
+    ViewtestComponent,
+    ViewreportsComponent,
+    ReporttestComponent,
+    AddreportComponent,
+    AddtestsComponent,
     DoctorsListComponent,
     DoctorsComponent,
     DoctormanagementComponent,
@@ -41,7 +71,22 @@ import { UsermanagementComponent } from './admin/usermanagement/usermanagement.c
     StaffComponent,
     StaffListComponent,
     RolemanagementComponent,
-    UsermanagementComponent
+    UsermanagementComponent,    
+    EditfrontofficeComponent,
+    PatientComponent,
+    PatientListComponent,
+    PaymentbillComponent,
+    PaymentbillListComponent,
+    AppointmentComponent,
+    AppointmentListComponent,
+    ViewpatientComponent,
+    ConsultationComponent,
+    ViewfullprescriptionComponent,
+    ViewNotesComponent,
+    AddprescriptionComponent,
+    AddprescribedtestComponent,
+    AddmedicineComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -54,11 +99,15 @@ import { UsermanagementComponent } from './admin/usermanagement/usermanagement.c
     NgxPaginationModule,
     Ng2SearchPipeModule
   ],
-  providers: [AuthService, AuthGuard,{
-    provide:HTTP_INTERCEPTORS,
-    useClass:AuthInterceptor,
-    multi:true
-  }],
+  providers: [AuthService, AuthGuard,LabTechnitianService, FrontofficeService,
+    
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
+    }
+  ],  
+    
   bootstrap: [AppComponent],
 })
 export class AppModule { }

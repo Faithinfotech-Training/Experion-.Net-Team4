@@ -45,5 +45,4 @@ getDoctorById(DoctorId:number):Observable<any>
 }
 
 
-
 }

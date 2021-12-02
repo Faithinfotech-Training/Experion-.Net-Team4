@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ClinicManagementSystemUI';
+  title = 'ClinicManagementSystem';
+
+  //logout
+logout(){
+  //this.authService.logout();
+  //this.router.navigateByUrl('login');
+}
 }
