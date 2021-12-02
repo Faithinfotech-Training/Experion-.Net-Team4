@@ -46,8 +46,7 @@ export class LoginComponent implements OnInit {
       //console.log(this.loginForm.value);
       this.isSubmitted = true;
   
-      // invalid
-  
+      // invalid  
       if (this.loginForm.invalid)
         return;
   
@@ -58,6 +57,7 @@ export class LoginComponent implements OnInit {
   
         //calling method from Authservice 
         //calling token generation api
+        
   
         this.authService.getTokenByPassword(this.loginForm.value).subscribe
         (data=>

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { LabtechnitianComponent } from './labtechnitian/labtechnitian.component';
 import { LoginComponent } from './login/login.component';
 import { ViewprescriptionComponent } from './viewprescription/viewprescription.component';
@@ -17,6 +16,9 @@ import { DoctormanagementComponent } from './admin/doctormanagement/doctormanage
 import { PatientComponent } from './frontoffice/patient/patient.component';
 import { FrontofficeComponent } from './frontoffice/frontoffice.component';
 import { PatientListComponent } from './frontoffice/patient-list/patient-list.component';
+import { DoctorComponent } from './doctor/doctor.component';
+import { ViewfullprescriptionComponent } from './viewprescription/viewfullprescription/viewfullprescription.component';
+import { ConsultationComponent } from './doctor/consultation/consultation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "/login", pathMatch: 'full' },
@@ -24,6 +26,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'viewprescription', component: ViewprescriptionComponent },
   { path: 'viewtest/:pId', component: ViewtestComponent },
+  { path: 'viewfullprescription/:pId', component: ViewfullprescriptionComponent },
   { path: 'viewreport', component: ViewreportsComponent },
   { path: 'addreport', component: AddreportComponent },
   { path: 'addtest/:rptId', component: AddtestsComponent },
@@ -36,7 +39,9 @@ const routes: Routes = [
   { path: 'patient', component: PatientComponent },
   { path: 'patientlist', component: PatientListComponent },
   { path: 'patient/:patientId', component: PatientComponent },
-  { path: 'patientlist/patient', component: PatientComponent } 
+  { path: 'patientlist/patient', component: PatientComponent }, 
+  { path: 'doctor', component: DoctorComponent },
+  { path: 'consultation/:patientId', component: ConsultationComponent },
 ];
 
 @NgModule({

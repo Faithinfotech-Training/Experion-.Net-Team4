@@ -20,8 +20,11 @@ export class LabTechnitianService {
   prescribedTests : PrescribedTest[];
   reports : Report[];
   tests : Test[];
+  staffs : object[];
+  doctors : object[];
 
   constructor(private httpClient: HttpClient) { }
+  
 
   //GET Prescription for Binding
   bindCmbPrescriptions(){
@@ -44,6 +47,22 @@ export class LabTechnitianService {
     this.httpClient.get(environment.apiUrl+"/api/labreport")
       .toPromise().then(response => 
       this.reports=response as Report[]
+    );
+  }
+
+   //Get All Doctors
+   bindListDoctor(){
+    this.httpClient.get(environment.apiUrl+"/api/doctor/getalldoctors")
+      .toPromise().then(response => 
+      this.doctors=response as Object[]
+    );
+  }
+
+  //Get All Staff
+  bindListStaff(){
+    this.httpClient.get(environment.apiUrl+"/api/staff/getallstaff")
+      .toPromise().then(response => 
+      this.staffs=response as object[]
     );
   }
 

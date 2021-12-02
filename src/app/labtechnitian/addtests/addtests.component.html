@@ -2,13 +2,18 @@
 (ngSubmit)="onSubmit(form)">
     <!--Staff ID-->
     <div class="form-group">
-        <label>Staff ID</label>
-        <input name="StaffId" #StaffId="ngModel" [(ngModel)]="labService.testFormData.StaffId"
-            class="form-control" placeholder="Enter Staff ID" minlength="1" maxlength="10" required
-            [ngClass]="{'is-invalid': StaffId.touched && StaffId.invalid}" />
+        <label>Staff</label>
+        <select name="StaffId" id="StaffId" class="form-control" #StaffId="ngModel" required
+            [(ngModel)]="labService.reportFormData.StaffId">
 
+            <option value=0 disabled  >Choose Staff</option>
+
+            <option *ngFor="let staff of labService.staffs" 
+            value="{{staff.StaffId}}">{{staff.StaffName}}</option>
+
+        </select>
         <div class="validation-error" *ngIf="StaffId.touched && StaffId.invalid">
-            <div *ngIf="StaffId.errors.required">Staff ID is Required</div>
+            <div *ngIf="StaffId.errors.required">Staff  is Required</div>
         </div>
     </div>
     <br>

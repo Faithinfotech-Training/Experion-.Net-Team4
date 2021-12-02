@@ -33,6 +33,13 @@ import { FrontofficeService } from './shared/frontoffice.service';
 import { PatientComponent } from './frontoffice/patient/patient.component';
 import { PatientListComponent } from './frontoffice/patient-list/patient-list.component';
 import { PaymentbillComponent } from './frontoffice/paymentbill/paymentbill.component';
+import { ViewpatientComponent } from './doctor/viewpatient/viewpatient.component';
+import { ConsultationComponent } from './doctor/consultation/consultation.component';
+import { ViewfullprescriptionComponent } from './viewprescription/viewfullprescription/viewfullprescription.component';
+import { ViewNotesComponent } from './doctor/view-notes/view-notes.component';
+import { AddprescriptionComponent } from './doctor/addprescription/addprescription.component';
+import { AddprescribedtestComponent } from './doctor/addprescription/addprescribedtest/addprescribedtest.component';
+import { AddmedicineComponent } from './doctor/addprescription/addmedicine/addmedicine.component';
 
 
 
@@ -58,7 +65,15 @@ import { PaymentbillComponent } from './frontoffice/paymentbill/paymentbill.comp
     EditfrontofficeComponent,
     PatientComponent,
     PatientListComponent,
-    PaymentbillComponent
+    PaymentbillComponent,
+    ViewpatientComponent,
+    ConsultationComponent,
+    ViewfullprescriptionComponent,
+    ViewNotesComponent,
+    AddprescriptionComponent,
+    AddprescribedtestComponent,
+    AddmedicineComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -71,7 +86,8 @@ import { PaymentbillComponent } from './frontoffice/paymentbill/paymentbill.comp
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot() ,
   ],  
-  providers: [AuthService, AuthGuard, LabTechnitianService, AuthService , FrontofficeService,{
+  providers: [AuthService, AuthGuard, LabTechnitianService, FrontofficeService,
+    {
     provide:HTTP_INTERCEPTORS,
     useClass:AuthInterceptor,
     multi:true

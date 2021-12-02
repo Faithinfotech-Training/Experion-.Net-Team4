@@ -13,8 +13,9 @@ export class ViewprescriptionComponent implements OnInit {
   page : number=1;
   filter:string;
   tempFilter:string;
+  pId:number;
 
-  constructor(public labService: LabTechnitianService ,private router:Router) { }
+  constructor(public labService: LabTechnitianService, private router:Router) { }
 
   //lifecycle hook
   ngOnInit(): void {
