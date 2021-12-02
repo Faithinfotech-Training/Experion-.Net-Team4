@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
-
+  constructor( private authService:AuthService,private route:Router) { }
+loggedUserName:string;
   ngOnInit(): void {
+    this.loggedUserName=localStorage.getItem("uName");
   }
 
+  LogOut()
+  {
+   
+    this.authService.LogOut();
+    this.route.navigateByUrl("login");
+
+  }
 }

@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="header">
+        <h5 class="text-center">
+            Staff Details
+        </h5>
+        <!--Search functionality-->
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Search .." [(ngModel)]="filter">
+        </div>
+
+        <a href="../staff" class="btn btn-primary"> Add Staff </a>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Address
+                </th>
+                <th>
+                    Phone
+                </th>
+                <th>
+                    Email
+                </th>
+                 <th>
+                    Age
+                </th>
+                <th>
+                    Gender
+                </th>
+                <th>
+                    Qualification
+                </th>
+                
+                <th>
+                    DateOfJoining
+                </th>
+                <th>
+                    Status
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                *ngFor="let staff of staffService.staffs| filter: filter | paginate: {itemsPerPage:5,currentPage:page}">
+                <td>{{staff.StaffId}}</td>
+                <td>{{staff.StaffName}}</td>
+                <td>{{staff.StaffAddress}}</td>
+                <td>{{staff.StaffPhone}}</td>
+                <td>{{staff.StaffEmail}}</td>
+                <td>{{staff.StaffAge}}</td>
+                <td>{{staff.StaffGender}}</td>
+                <td>{{staff.StaffQualification}}</td>
+                <td>{{staff.StaffDateOfJoining|date:'dd-MM-yyyy'}}</td>
+                <td>{{staff.IsActive}}</td>
+
+
+                <td>
+                    <button (click)="deleteform(staff)" class="btn btn-sm btn-outline-danger">Delete</button>&nbsp;
+                    
+                    <button (click)="updatestaff(staff.StaffId)" class="btn btn-sm btn-info"
+                        style="margin-left:10px">Edit</button>
+                </td>
+
+            </tr>
+        </tbody>
+
+    
+
+    </table>
+
+    <div class="footer">
+        <!--pagination - control-->
+
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+
+</div>
+
+
