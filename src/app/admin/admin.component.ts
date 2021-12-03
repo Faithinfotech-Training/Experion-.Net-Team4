@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
   constructor( private authService:AuthService,private route:Router) { }
 loggedUserName:string;
   ngOnInit(): void {
-    this.loggedUserName=localStorage.getItem("username");
+    this.loggedUserName=localStorage.getItem("uName");
   }
 
   LogOut()

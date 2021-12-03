@@ -21,8 +21,8 @@ export class DoctorsComponent implements OnInit {
     //geting doctor id
     this.doctorId = this.route.snapshot.params['doctorId'];
 
-    this.resetform();
-    this.doctorService.bindDoctor();
+    //this.resetform();
+    //this.doctorService.bindDoctor();
 
     console.log("doctor: " + this.doctorId)
     if (this.doctorId != 0 || this.doctorId != null) {
@@ -32,9 +32,9 @@ export class DoctorsComponent implements OnInit {
         var datepipe = new DatePipe("en-UK");
         let formatedDate: any = datepipe.transform(data.DateOfJoining, "yyyy-MM-dd");
         data.DateOfJoining = formatedDate;
-        this.doctorService.formData = data;
+        //this.doctorService.formData = data;
         this.doctorService.formData = Object.assign({}, data);
-        
+        //this.populateForm(data);
       });
     }
 
@@ -49,7 +49,7 @@ export class DoctorsComponent implements OnInit {
     if (addId == 0 || addId == null) {
       this.insertDoctor(form);
 
-      window.location.reload();
+      //window.location.reload();
     }
 
     //update
@@ -74,13 +74,27 @@ export class DoctorsComponent implements OnInit {
     this.doctorService.insertDoctor(form.value).subscribe(
       (result) => {
         console.log("result" + result);
-        this.resetform(form);
+        //this.resetform(form);
         this.toastrService.success('Doctor details Inserted!', 'succesful!');
       }
       , (error) => {
         this.toastrService.error('unexpected error occured!', 'Error!');
       }
     );
+
+  }
+
+  //populate form
+  populateForm(doctor: Doctor) {
+
+    console.log(doctor);
+    var datePipe=new DatePipe("en-UK");
+
+    let formatedDate:any=datePipe.transform(doctor.DoctorDateOfJoining,'yyyy-MM-dd')
+
+     doctor.DoctorDateOfJoining = formatedDate;
+
+    this.doctorService.formData=Object.assign({},doctor);
 
   }
   //update employee

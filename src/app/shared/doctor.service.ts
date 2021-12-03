@@ -23,31 +23,24 @@ bindDoctor(){
 
 }
 
-//insert employee
+//insert doctor
 insertDoctor(doctor:Doctor):Observable<any>
 {
   return this.httpClient.post(environment.apiUrl+"api/doctor/AddDoctor",doctor);
 
 }
 
-//update employee
+//update doctor
 updateDoctor(doctor:Doctor):Observable<any>
 {
   return this.httpClient.put(environment.apiUrl+"api/doctor/UpdateDoctor",doctor);
 
 }
 
-//get employee by id
+//get doctor by id
 getDoctorById(DoctorId:number):Observable<any>
 {
-  return this.httpClient.get(environment.apiUrl+"api/doctor/GetDoctorById?id="+DoctorId);
-
-}
-
-//delete employee
-deleteDoctor(DoctorId:number):Observable<any>
-{
-  return this.httpClient.delete(environment.apiUrl+"api/doctor/DeleteDoctor?id="+DoctorId);
+  return this.httpClient.get(environment.apiUrl+"api/doctor/"+DoctorId);
 
 }
 

@@ -22,10 +22,10 @@
                 <!--password-->
                 <div>
                     <label>Password </label>
-                    <input type="Password" formControlName="Password" placeholder="Enter password" autocomplete="off"  class="form-control">
+                    <input type="Password" formControlName="UserPassword" placeholder="Enter password" autocomplete="off"  class="form-control">
                 </div>
-                <div *ngIf=" isSubmitted&&formControls.Password.errors">
-                    <div *ngIf="formControls.Password.errors.required" style="color: red;">
+                <div *ngIf=" isSubmitted&&formControls.UserPassword.errors">
+                    <div *ngIf="formControls.UserPassword.errors.required" style="color: red;">
 
                         Password required
 

@@ -1,6 +1,6 @@
 export class Doctor {
     DoctorId :number=0;
-    DoctorName :string=''
+    DoctorName :string='';
     DoctorAddress:string='';
     DoctorPhone :string='';
     DoctorEmail :string='';

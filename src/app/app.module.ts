@@ -8,27 +8,31 @@ import { AdminComponent } from './admin/admin.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { LabtechnitianComponent } from './labtechnitian/labtechnitian.component';
 import { FrontofficeComponent } from './frontoffice/frontoffice.component';
-import { ViewprescriptionComponent } from './viewprescription/viewprescription.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { LabTechnitianService } from './shared/lab-technitian.service';
 import { AuthService } from './shared/auth.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
+import {AuthInterceptor} from './shared/auth.interceptor'
+import { AuthGuard } from './shared/auth.guard';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DoctorsComponent } from './admin/doctormanagement/doctors/doctors.component';
+import { DoctorsListComponent } from './admin/doctormanagement/doctors-list/doctors-list.component';
+import { DoctormanagementComponent } from './admin/doctormanagement/doctormanagement.component';
+import { StaffmanagementComponent } from './admin/staffmanagement/staffmanagement.component';
+import { StaffComponent } from './admin/staffmanagement/staff/staff.component';
+import { StaffListComponent } from './admin/staffmanagement/staff-list/staff-list.component';
+import { RolemanagementComponent } from './admin/rolemanagement/rolemanagement.component';
+import { UsermanagementComponent } from './admin/usermanagement/usermanagement.component';
+import { ViewprescriptionComponent } from './viewprescription/viewprescription.component';
+import { LabTechnitianService } from './shared/lab-technitian.service';
 import { ViewtestComponent } from './viewprescription/viewtest/viewtest.component';
 import { ViewreportsComponent } from './viewreports/viewreports.component';
 import { ReporttestComponent } from './viewreports/reporttest/reporttest.component';
 import { AddreportComponent } from './labtechnitian/addreport/addreport.component';
 import { AddtestsComponent } from './labtechnitian/addtests/addtests.component';
-import {AuthInterceptor} from './shared/auth.interceptor'
-import { AuthGuard } from './shared/auth.guard';
-import { DoctorsComponent } from './admin/doctormanagement/doctors/doctors.component';
-import { DoctormanagementComponent } from './admin/doctormanagement/doctormanagement.component';
-import { StaffmanagementComponent } from './admin/staffmanagement/staffmanagement.component';
-import { DoctorsListComponent } from './admin/doctormanagement/doctors-list/doctors-list.component';
 import { EditfrontofficeComponent } from './frontoffice/editfrontoffice/editfrontoffice.component';
-import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FrontofficeService } from './shared/frontoffice.service';
 import { PatientComponent } from './frontoffice/patient/patient.component';
 import { PatientListComponent } from './frontoffice/patient-list/patient-list.component';
@@ -45,6 +49,10 @@ import { AddprescribedtestComponent } from './doctor/addprescription/addprescrib
 import { AddmedicineComponent } from './doctor/addprescription/addmedicine/addmedicine.component';
 import { HomeComponent } from './home/home.component';
 import { EventComponent } from './event/event.component';
+import { RolesComponent } from './admin/rolemanagement/roles/roles.component';
+import { RolesListComponent } from './admin/rolemanagement/roles-list/roles-list.component';
+import { UsersComponent } from './admin/usermanagement/users/users.component';
+import { UsersListComponent } from './admin/usermanagement/users-list/users-list.component';
 
 
 
@@ -66,7 +74,10 @@ import { EventComponent } from './event/event.component';
     DoctorsComponent,
     DoctormanagementComponent,
     StaffmanagementComponent,
-    DoctorsListComponent,    
+    StaffComponent,
+    StaffListComponent,
+    RolemanagementComponent,
+    UsermanagementComponent,    
     EditfrontofficeComponent,
     PatientComponent,
     PatientListComponent,
@@ -83,25 +94,32 @@ import { EventComponent } from './event/event.component';
     AddmedicineComponent,
     HomeComponent,
     EventComponent,
+    RolesComponent,
+    RolesListComponent,
+    UsersComponent,
+    UsersListComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    NgxPaginationModule,
-    Ng2SearchPipeModule,
     ReactiveFormsModule,
+    HttpClientModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot() ,
-  ],  
-  providers: [AuthService, AuthGuard, LabTechnitianService, FrontofficeService,
+    ToastrModule.forRoot() , // ToastrModule added
+    NgxPaginationModule,
+    Ng2SearchPipeModule
+  ],
+  providers: [AuthService, AuthGuard,LabTechnitianService, FrontofficeService,
+    
     {
-    provide:HTTP_INTERCEPTORS,
-    useClass:AuthInterceptor,
-    multi:true
-  }],
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
+    }
+  ],  
+    
   bootstrap: [AppComponent],
 })
 export class AppModule { }

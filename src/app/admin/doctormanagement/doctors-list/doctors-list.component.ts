@@ -23,37 +23,39 @@ export class DoctorsListComponent implements OnInit {
     this.doctorService.bindDoctor();
   }
 
+  
   //populate form
-  populateform(doctor: Doctor) {
+  populateForm(doctor: Doctor) {
 
     console.log(doctor);
+    var datePipe=new DatePipe("en-UK");
 
-    var datepipe = new DatePipe("en-UK");
-    let formatedDate: any = datepipe.transform(doctor.DoctorDateOfJoining, "yyyy-MM-dd");
-    doctor.DoctorDateOfJoining = formatedDate;
-    this.doctorService.formData = doctor;
-    this.doctorService.formData = Object.assign({}, doctor);
+    let formatedDate:any=datePipe.transform(doctor.DoctorDateOfJoining,'yyyy-MM-dd')
+
+     doctor.DoctorDateOfJoining = formatedDate;
+
+    this.doctorService.formData=Object.assign({},doctor);
 
   }
+
+  //delete a doctor-set inactive
 
   deleteform(doctor: Doctor) {
 
     console.log(doctor);
-
-    if (confirm("Are you sure ?")) {
-      this.doctorService.deleteDoctor(doctor.DoctorId).subscribe(
+    var value = confirm("Are you sure ?")
+    if(value) {
+      console.log("deleting a record!");
+      doctor.IsActive=false;
+      console.log(doctor);
+      this.doctorService.updateDoctor(doctor).subscribe(
         (result) => {
-          console.log("result" + result);
-
-          this.toxterService.error('Doctor details Deleted!', 'Deleted!');
+          console.log(result);
           this.doctorService.bindDoctor();
-        }, (error) => {
-          this.toxterService.error('unexpected error occured!', 'Error!');
-        }
-      );
-    }
-
-
+        });
+       this.toxterService.warning(doctor.DoctorName+"Deleted!",'ClinicManagementSystem');
+          
+  }
   }
 
   updatedoctor(doctorId: number) {

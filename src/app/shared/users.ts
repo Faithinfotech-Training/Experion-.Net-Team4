@@ -1,7 +1,7 @@
 export class Users {
-    UserId: number
-    UserName: string
-    Password: string
-    RoleId: number
-    IsActive: boolean
+    UserId:number=0;
+    UserName:string='';
+    UserPassword:string='';
+    RoleId:number;
+    IsActive:boolean=false;
 }

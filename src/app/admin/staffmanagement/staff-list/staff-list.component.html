@@ -1,14 +1,14 @@
 <div class="container">
     <div class="header">
         <h5 class="text-center">
-            Doctor Details
+            Staff Details
         </h5>
         <!--Search functionality-->
         <div class="form-group">
             <input class="form-control" type="text" placeholder="Search .." [(ngModel)]="filter">
         </div>
 
-        <a href="../doctors" class="btn btn-primary"> Add Doctor </a>
+        <a href="../staff" class="btn btn-primary"> Add Staff </a>
     </div>
     <table class="table table-bordered table-striped">
         <thead>
@@ -37,9 +37,7 @@
                 <th>
                     Qualification
                 </th>
-                <th>
-                    Specialization
-                </th>
+                
                 <th>
                     DateOfJoining
                 </th>
@@ -51,31 +49,30 @@
         </thead>
         <tbody>
             <tr
-                *ngFor="let doctor of doctorService.doctors| filter: filter | paginate: {itemsPerPage:5,currentPage:page}">
-                <td (click)="populateForm(doctor)">{{doctor.DoctorId}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorName}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorAddress}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorPhone}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorEmail}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorAge}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorGender}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorQualification}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorSpecialization}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorDateOfJoining|date:'dd-MM-yyyy'}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.IsActive}}</td>
+                *ngFor="let staff of staffService.staffs| filter: filter | paginate: {itemsPerPage:5,currentPage:page}">
+                <td>{{staff.StaffId}}</td>
+                <td>{{staff.StaffName}}</td>
+                <td>{{staff.StaffAddress}}</td>
+                <td>{{staff.StaffPhone}}</td>
+                <td>{{staff.StaffEmail}}</td>
+                <td>{{staff.StaffAge}}</td>
+                <td>{{staff.StaffGender}}</td>
+                <td>{{staff.StaffQualification}}</td>
+                <td>{{staff.StaffDateOfJoining|date:'dd-MM-yyyy'}}</td>
+                <td>{{staff.IsActive}}</td>
 
 
                 <td>
-                    <button (click)="deleteform(doctor)" class="btn btn-sm btn-outline-danger">Delete</button>&nbsp;
+                    <button (click)="deleteform(staff)" class="btn btn-sm btn-outline-danger">Delete</button>&nbsp;
                     
-                    <button (click)="updatedoctor(doctor.DoctorId)" class="btn btn-sm btn-info"
+                    <button (click)="updatestaff(staff.StaffId)" class="btn btn-sm btn-info"
                         style="margin-left:10px">Edit</button>
                 </td>
 
             </tr>
         </tbody>
 
-
+    
 
     </table>
 
@@ -86,4 +83,5 @@
     </div>
 
 </div>
+
 
