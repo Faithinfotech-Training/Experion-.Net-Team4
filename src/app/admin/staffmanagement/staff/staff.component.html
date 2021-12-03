@@ -114,6 +114,21 @@
                 Date Of Joining is required</div>
         </div>
     </div>
+
+    <!--User ID from user table-->
+    <div class="form-group">
+        <label class="col-md-4">UserId</label>
+          <select name="UserId" id="UserId" class="form-control" #UserId="ngModel" required
+          [(ngModel)]="userService.formData.UserId">
+          <option value="0" disabled>Select UserId</option>
+          <option *ngFor="let user of userService.users"
+           value="{{user.UserId}}">Id:{{user.UserId}}, Name:{{user.UserName}}</option>
+          
+          </select>
+          <div class="validation-error" *ngIf="UserId.touched && UserId.invalid">
+          <div *ngIf="UserId.errors.required">User is required</div>
+      </div>
+  </div>
     
     <!--Is Active-->
     <div class="form-group">

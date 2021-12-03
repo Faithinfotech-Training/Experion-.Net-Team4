@@ -20,7 +20,7 @@ export class UsersComponent implements OnInit {
   users: User = new User();
   ngOnInit(): void {
 
-    //get patients for binding
+    //get roles for binding
     this.roleService.bindRole();
 
 

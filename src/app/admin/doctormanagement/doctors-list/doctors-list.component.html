@@ -44,6 +44,9 @@
                     DateOfJoining
                 </th>
                 <th>
+                    User Id
+                </th>
+                <th>
                     Status
                 </th>
 
@@ -62,6 +65,7 @@
                 <td (click)="populateForm(doctor)">{{doctor.DoctorQualification}}</td>
                 <td (click)="populateForm(doctor)">{{doctor.DoctorSpecialization}}</td>
                 <td (click)="populateForm(doctor)">{{doctor.DoctorDateOfJoining|date:'dd-MM-yyyy'}}</td>
+                <td (click)="populateForm(doctor)">{{doctor.UserId}}</td>
                 <td (click)="populateForm(doctor)">{{doctor.IsActive}}</td>
 
 

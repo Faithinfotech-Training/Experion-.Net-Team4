@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from 'src/app/shared/doctor';
 import { DatePipe } from '@angular/common';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-doctors',
@@ -13,17 +14,19 @@ import { DatePipe } from '@angular/common';
 })
 export class DoctorsComponent implements OnInit {
 
-  constructor(public doctorService: DoctorService, private toastrService: ToastrService, private router: Router,
+  constructor(public doctorService: DoctorService,public userService: UserService, private toastrService: ToastrService, private router: Router,
     private route: ActivatedRoute) { }
   doctorId: number;
   doctors: Doctor = new Doctor();
   ngOnInit(): void {
+
+    //get users for binding
+    this.userService.bindUser();
+
     //geting doctor id
     this.doctorId = this.route.snapshot.params['doctorId'];
 
-    //this.resetform();
-    //this.doctorService.bindDoctor();
-
+  
     console.log("doctor: " + this.doctorId)
     if (this.doctorId != 0 || this.doctorId != null) {
       this.doctorService.getDoctorById(this.doctorId).subscribe(data => {

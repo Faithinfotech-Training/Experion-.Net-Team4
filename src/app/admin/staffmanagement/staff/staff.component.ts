@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Staff } from 'src/app/shared/staff';
 import { DatePipe } from '@angular/common';
+import { UserService } from 'src/app/shared/user.service';
 
 
 @Component({
@@ -14,11 +15,15 @@ import { DatePipe } from '@angular/common';
 })
 export class StaffComponent implements OnInit {
 
-  constructor(public staffService: StaffService, private toastrService: ToastrService, private router: Router,
+  constructor(public staffService: StaffService,public userService: UserService, private toastrService: ToastrService, private router: Router,
   private route: ActivatedRoute) { }
   staffId: number;
   staffs: Staff = new Staff();
   ngOnInit(): void {
+
+    //get users for binding
+    this.userService.bindUser();
+
     //geting staff id
     this.staffId = this.route.snapshot.params['staffId'];
 
