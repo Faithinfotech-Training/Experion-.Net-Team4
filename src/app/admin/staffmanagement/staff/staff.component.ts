@@ -57,12 +57,12 @@ export class StaffComponent implements OnInit {
 
       //window.location.reload();
     }
-
     //update
     else {
       this.updateStaff(form);
 
     }
+    this.router.navigate(['/stafflist']);
 
   }
 

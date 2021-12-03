@@ -1,1 +1,30 @@
-<p>addprescribedtest works!</p>
+<form name="prescribedTestForm" #form="ngForm" autocomplete="off"
+(ngSubmit)="onSubmit(form)">
+    
+
+    <!--Prescribed Test Name-->
+    <div class="form-group">
+        <label>Test Name</label>
+        <input name="PrescribedTestName" #PrescribedTestName="ngModel" [(ngModel)]="consultService.prescribedTestFormData.PrescribedTestName"
+            class="form-control" placeholder="Enter Medicine Name" minlength="1" maxlength="25" required
+            [ngClass]="{'is-invalid': PrescribedTestName.touched && PrescribedTestName.invalid}" />
+
+        <div class="validation-error" *ngIf="PrescribedTestName.touched && PrescribedTestName.invalid">
+            <div *ngIf="PrescribedTestName.errors.required">Test Name is Required</div>
+        </div>
+    </div>
+    <br>    
+
+    <!--Submit Button-->
+    <div class="form-group">
+        <br>
+        <button type="submit" [disabled]="!(form.valid && form.dirty) "
+            class="btn  btn-primary form-control" >
+            Add
+        </button>
+    </div>
+    <br>
+</form>
+<br>
+<br>
+<a class="btn ntn-lg btn-secondary for" style="width: 100%;" (click)="goBack()">Finish</a>

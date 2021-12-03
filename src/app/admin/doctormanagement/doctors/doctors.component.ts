@@ -60,6 +60,7 @@ export class DoctorsComponent implements OnInit {
       this.updateDoctor(form);
 
     }
+    this.router.navigate(['/doctors-list']);
 
   }
 
@@ -113,7 +114,7 @@ export class DoctorsComponent implements OnInit {
         this.toastrService.error('unexpected error occured!', 'Error!');
       }
     );
-
   }
+  
 
 }

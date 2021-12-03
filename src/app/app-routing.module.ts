@@ -32,7 +32,15 @@ import { PaymentbillListComponent } from './frontoffice/paymentbill-list/payment
 import { DoctorComponent } from './doctor/doctor.component';
 import { ViewfullprescriptionComponent } from './viewprescription/viewfullprescription/viewfullprescription.component';
 import { ConsultationComponent } from './doctor/consultation/consultation.component';
-
+import { AddprescriptionComponent } from './doctor/addprescription/addprescription.component';
+import { AddnotesComponent } from './doctor/addnotes/addnotes.component';
+import { AddprescribedtestComponent } from './doctor/addprescription/addprescribedtest/addprescribedtest.component';
+import { AddmedicineComponent } from './doctor/addprescription/addmedicine/addmedicine.component';
+import { HomeComponent } from './home/home.component';
+import { EventComponent } from './event/event.component';
+import { EventsComponent } from './admin/eventmanagement/events/events.component';
+import { EventListComponent } from './admin/eventmanagement/event-list/event-list.component';
+  
 const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'',component:LoginComponent},
@@ -72,6 +80,10 @@ const routes: Routes = [
   {path: 'patient/:patientId', component: PatientComponent },
   {path: 'patientlist/patient', component: PatientComponent }, 
   {path: 'doctor', component: DoctorComponent },
+  {path: 'events', component: EventsComponent },
+  {path: 'events/:eventId', component: EventsComponent },
+  {path: 'eventlist/events', component: EventsComponent }, 
+  {path:'eventlist',component:EventListComponent},
   {path: 'consultation/:patientId', component: ConsultationComponent },
   {path:'paymentbill',component:PaymentbillComponent},
   {path:'appointment',component:AppointmentComponent},
@@ -79,7 +91,13 @@ const routes: Routes = [
   {path:'appointmentlist',component:AppointmentListComponent},
   {path:'paymentbilllist/paymentbill',component:PaymentbillComponent},
   {path:'appointmentlist/appointment',component:AppointmentComponent},
-  {path:'appointment/:appointmentId',component:AppointmentComponent}
+  {path:'appointment/:appointmentId',component:AppointmentComponent} ,
+  {path:'addprescription',component:AddprescriptionComponent},
+  {path:'addnotes',component:AddnotesComponent},
+  {path:'addprescribedtest/:prescriptionId',component:AddprescribedtestComponent},
+  {path:'addmedicine/:prescriptionId',component:AddmedicineComponent},  
+  {path:'home',component:HomeComponent},
+  {path:'event',component:EventComponent},
 
 ];
 

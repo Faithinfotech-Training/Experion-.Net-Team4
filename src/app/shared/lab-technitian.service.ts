@@ -28,7 +28,7 @@ export class LabTechnitianService {
 
   //GET Prescription for Binding
   bindCmbPrescriptions(){
-    this.httpClient.get(environment.apiUrl+"/api/prescription")
+    this.httpClient.get(environment.apiUrl+"api/prescription")
       .toPromise().then(response => 
       this.prescriptions=response as Prescription[]
     );
@@ -36,7 +36,7 @@ export class LabTechnitianService {
 
   //Get All Tests For in a Prescription
   bindListPrescribedTests(prescriptionId :number){
-    this.httpClient.get(environment.apiUrl+"/api/PrescribedTest/" + prescriptionId)
+    this.httpClient.get(environment.apiUrl+"api/PrescribedTest/" + prescriptionId)
       .toPromise().then(response => 
       this.prescribedTests=response as PrescribedTest[]
     );
@@ -44,7 +44,7 @@ export class LabTechnitianService {
 
   //Get All Reports
   bindListReport(){
-    this.httpClient.get(environment.apiUrl+"/api/labreport")
+    this.httpClient.get(environment.apiUrl+"api/labreport")
       .toPromise().then(response => 
       this.reports=response as Report[]
     );
@@ -52,7 +52,7 @@ export class LabTechnitianService {
 
    //Get All Doctors
    bindListDoctor(){
-    this.httpClient.get(environment.apiUrl+"/api/doctor/getalldoctors")
+    this.httpClient.get(environment.apiUrl+"api/doctor/getalldoctors")
       .toPromise().then(response => 
       this.doctors=response as Object[]
     );
@@ -60,7 +60,7 @@ export class LabTechnitianService {
 
   //Get All Staff
   bindListStaff(){
-    this.httpClient.get(environment.apiUrl+"/api/staff/getallstaff")
+    this.httpClient.get(environment.apiUrl+"api/staff/getallstaff")
       .toPromise().then(response => 
       this.staffs=response as object[]
     );
@@ -68,7 +68,7 @@ export class LabTechnitianService {
 
   //Get All Test  in a Report
   bindListTest(reportId :number){
-    this.httpClient.get(environment.apiUrl+"/api/test/GetTestByReportId/" + reportId)
+    this.httpClient.get(environment.apiUrl+"api/test/GetTestByReportId/" + reportId)
       .toPromise().then(response => 
       this.tests=response as Test[]
     );
@@ -76,17 +76,17 @@ export class LabTechnitianService {
 
   //GET a particular Report By ID
   getReport(reportId: number): Observable<any>{
-    return this.httpClient.get(environment.apiUrl+"/api/labreport/" + reportId);
+    return this.httpClient.get(environment.apiUrl+"api/labreport/" + reportId);
   
   } 
   
    //INSERT
    insertReport(report :Report): Observable<any>{
-    return this.httpClient.post(environment.apiUrl+"/api/labreport",report);
+    return this.httpClient.post(environment.apiUrl+"api/labreport",report);
   }
 
    //INSERT
    insertTest(test : Test): Observable<any>{
-    return this.httpClient.post(environment.apiUrl+"/api/test",test);
+    return this.httpClient.post(environment.apiUrl+"api/test",test);
   }
 }

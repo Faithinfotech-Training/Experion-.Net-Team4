@@ -38,20 +38,16 @@ export class PatientComponent implements OnInit {
     console.log(form.value);
 
     let addId = this.service.formData.PatientId;
-
-
     if (addId == 0 || addId == null) {
-
       //insert
       this.insertPatientRecord(form);
-
     }
     else {
       //update
       console.log("updating record...")
       this.updatePatientRecord(form)
     }
-
+    this.router.navigate(['/patientlist']);
   }
 
   //clear all contents at loading
@@ -88,7 +84,7 @@ export class PatientComponent implements OnInit {
 
     );
 
-    window.location.reload();
+    
   }
 
 }

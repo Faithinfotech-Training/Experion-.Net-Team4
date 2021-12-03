@@ -1,1 +1,52 @@
-<p>addprescription works!</p>
+<form name="prescriptionForm" #form="ngForm" autocomplete="off"
+(ngSubmit)="onSubmit(form)">
+    
+    
+    <!--Patient ID-->
+    <div class="form-group">
+        <label>Patient</label>
+        <select name="PatientId" id="PatientId" class="form-control" #PatientId="ngModel" required
+            [(ngModel)]="consultService.prescriptionFormData.PatientId">
+            <option value=0 disabled  >Choose Patient</option>
+            <option *ngFor="let patient of patientService.patients" 
+            value="{{patient.PatientId}}">{{patient.PatientName}}</option>
+        </select>
+        <div class="validation-error" *ngIf="PatientId.touched && PatientId.invalid">
+            <div *ngIf="PatientId.errors.required">Patient ID is Required</div>
+        </div>
+    </div>
+    <br>    
+
+    <!--Doctor ID -->
+    <div class="form-group">
+        <label>Doctor</label>
+        <select name="DoctorId" id="DoctorId" class="form-control" #DoctorId="ngModel" required
+            [(ngModel)]="consultService.prescriptionFormData.DoctorId">
+            <option value=0 disabled  >Choose Doctor</option>
+            <option *ngFor="let doctor of labService.doctors" 
+            value="{{doctor.DoctorId}}">{{doctor.DoctorName}}</option>
+        </select>
+        <div class="validation-error" *ngIf="DoctorId.touched && DoctorId.invalid">
+            <div *ngIf="DoctorId.errors.required">Notes are Required</div>
+        </div>
+    </div>
+    <br>       
+    
+    <!--Submit Button-->
+    <div class="form-group">
+        <br>
+        <button type="submit" [disabled]="!(form.valid && form.dirty) "
+            class="btn  btn-primary form-control" >
+            Submit
+        </button>
+    </div>
+    <br>
+</form>
+
+<div *ngIf="isSubmitted == true" >
+    <button class="btn  btn-secondary form-control" (click)="addMedicine()">Add Tests</button>
+</div>
+
+
+
+
