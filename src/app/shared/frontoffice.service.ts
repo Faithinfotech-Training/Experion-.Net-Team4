@@ -25,7 +25,7 @@ export class FrontofficeService {
 
   //get events for binding
   bindListEvent(){
-    this.httpClient.get(environment.apiUrl+"/api/event")
+    this.httpClient.get(environment.apiUrl+"api/event")
    .toPromise().then(response=>
     this.events = response as Events[])
   }
