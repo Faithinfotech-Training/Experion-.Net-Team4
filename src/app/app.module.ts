@@ -47,6 +47,7 @@ import { ViewNotesComponent } from './doctor/view-notes/view-notes.component';
 import { AddprescriptionComponent } from './doctor/addprescription/addprescription.component';
 import { AddprescribedtestComponent } from './doctor/addprescription/addprescribedtest/addprescribedtest.component';
 import { AddmedicineComponent } from './doctor/addprescription/addmedicine/addmedicine.component';
+import { AddnotesComponent } from './doctor/addnotes/addnotes.component';
 
 
 
@@ -86,6 +87,7 @@ import { AddmedicineComponent } from './doctor/addprescription/addmedicine/addme
     AddprescriptionComponent,
     AddprescribedtestComponent,
     AddmedicineComponent,
+    AddnotesComponent,
     
   ],
   imports: [

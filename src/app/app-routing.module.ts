@@ -26,6 +26,10 @@ import { PaymentbillListComponent } from './frontoffice/paymentbill-list/payment
 import { DoctorComponent } from './doctor/doctor.component';
 import { ViewfullprescriptionComponent } from './viewprescription/viewfullprescription/viewfullprescription.component';
 import { ConsultationComponent } from './doctor/consultation/consultation.component';
+import { AddprescriptionComponent } from './doctor/addprescription/addprescription.component';
+import { AddnotesComponent } from './doctor/addnotes/addnotes.component';
+import { AddprescribedtestComponent } from './doctor/addprescription/addprescribedtest/addprescribedtest.component';
+import { AddmedicineComponent } from './doctor/addprescription/addmedicine/addmedicine.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -63,7 +67,11 @@ const routes: Routes = [
   {path:'appointmentlist',component:AppointmentListComponent},
   {path:'paymentbilllist/paymentbill',component:PaymentbillComponent},
   {path:'appointmentlist/appointment',component:AppointmentComponent},
-  {path:'appointment/:appointmentId',component:AppointmentComponent}
+  {path:'appointment/:appointmentId',component:AppointmentComponent} ,
+  {path:'addprescription',component:AddprescriptionComponent},
+  {path:'addnotes',component:AddnotesComponent},
+  {path:'addprescribedtest/:prescriptionId',component:AddprescribedtestComponent},
+  {path:'addmedicine/:prescriptionId',component:AddmedicineComponent},
 
 ];
 

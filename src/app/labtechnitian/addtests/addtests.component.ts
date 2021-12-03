@@ -17,6 +17,9 @@ export class AddtestsComponent implements OnInit {
   rptId : number;
   isSubmitted = false;
 
+ 
+
+
   constructor(public labService: LabTechnitianService , 
     private router:Router,
     private route:ActivatedRoute) { }

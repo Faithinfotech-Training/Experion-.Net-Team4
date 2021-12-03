@@ -34,8 +34,8 @@
     <div class="form-group">
 
         <label>Phone</label>
-        <input type="text" name="DoctorPhone" #DoctorPhone="ngModel" [ngModel]="doctorService.formData.DoctorPhone"
-            class="form-control" placeholder="Enter doctor's Phone" minlength="10" maxlength="10" required
+        <input type="tel" name="DoctorPhone" #DoctorPhone="ngModel" [ngModel]="doctorService.formData.DoctorPhone"
+            class="form-control" placeholder="Enter doctor's Phone" pattern="\d*" minlength="10" maxlength="10" required
             [ngClass]="{'is-invalid':DoctorPhone.touched && DoctorPhone.invalid}" />
         <div class="validation-error" *ngIf="DoctorPhone.touched && DoctorPhone.invalid">
 
@@ -60,8 +60,8 @@
     <div class="form-group">
 
         <label>Age</label>
-        <input type="number" name="DoctorAge" #DoctorAge="ngModel" [ngModel]="doctorService.formData.DoctorAge"
-            class="form-control" placeholder="Enter doctor's Age" minlength="2" maxlength="2" required
+        <input type="text" name="DoctorAge" #DoctorAge="ngModel" [ngModel]="doctorService.formData.DoctorAge"
+            class="form-control" placeholder="Enter doctor's Age" pattern="\d*" maxlength="2" required
             [ngClass]="{'is-invalid':DoctorAge.touched && DoctorAge.invalid}" />
         <div class="validation-error" *ngIf="DoctorAge.touched && DoctorAge.invalid">
 

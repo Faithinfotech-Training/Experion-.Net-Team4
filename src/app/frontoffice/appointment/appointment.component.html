@@ -42,13 +42,17 @@
 </div>
 
 <!--Doctor id-->
+
 <div class="form-group">
-    <label>Doctor ID</label>
-    <input name="DoctorId" #DoctorId="ngModel" [(ngModel)]="service.aFormData.DoctorId"
-        class="form-control" placeholder="enter doctor id " minLength="1" maxLength="25" required
-        [ngClass]="{'is invalid':DoctorId.touched && DoctorId.invalid}" />
-    <div class="validation-error" *ngIf="DoctorId.touched&&DoctorId.invalid">
-        <div *ngIf="DoctorId.errors.required">Doctor Id is required</div>
+    <label class="col-md-4">Doctor</label>
+    <select name="DoctorId" id="DoctorId" class="form-control" #DoctorId="ngModel" required
+        [(ngModel)]="service.aFormData.DoctorId">
+        <option value="0" disabled  >Choose Doctor</option>
+        <option *ngFor="let doctor of labService.doctors"
+        value="{{doctor.DoctorId}}">{{doctor.DoctorName}}</option>
+    </select>
+    <div class="validation-error" *ngIf="DoctorId.touched && DoctorId.invalid">
+        <div *ngIf="DoctorId.errors.required">Doctor  is Required</div>
     </div>
 </div>
 
