@@ -42,30 +42,26 @@ export class PaymentbillComponent implements OnInit {
       );
     }
   }
+  
   onSubmit(form: NgForm) {
     console.log(form.value);
-
     let addId = this.service.billFormData.BillId;
-
-
     if (addId == 0 || addId == null) {
-
       //insert
       this.insertBillRecord(form);
-
     }
     else {
       //update
-      console.log("updating record...")
+      console.log("updating record...");
     }
-
+    this.router.navigate(['/paymentbilllist']);
   }
+
   //clear all contents at loading
   resetForm(form?: NgForm) {
     if (form != null) {
       form.resetForm();
     }
-
   }
 
   //insert
@@ -77,7 +73,6 @@ export class PaymentbillComponent implements OnInit {
         this.resetForm(form)
         this.toastrService.success('Bill record has been inserted', 'ClinicalManagementSystem');
       }
-
     );
     // window.location.reload();
   }

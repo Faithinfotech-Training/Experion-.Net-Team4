@@ -9,7 +9,10 @@ export class DoctorComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
+   
   }
+
+
 
 }

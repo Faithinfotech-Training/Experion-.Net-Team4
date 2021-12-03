@@ -41,16 +41,12 @@
         <label>Doctor</label>
         <select name="DoctorId" id="DoctorId" class="form-control" #DoctorId="ngModel" required
             [(ngModel)]="labService.reportFormData.DoctorId">
-
             <option value=0 disabled  >Choose Doctor</option>
-
             <option *ngFor="let doctor of labService.doctors" 
             value="{{doctor.DoctorId}}">{{doctor.DoctorName}}</option>
-
-
         </select>
         <div class="validation-error" *ngIf="DoctorId.touched && DoctorId.invalid">
-            <div *ngIf="DoctorId.errors.required">Doctor  is Required</div>
+            <div *ngIf="DoctorId.errors.required">Notes are Required</div>
         </div>
     </div>
     <br>   

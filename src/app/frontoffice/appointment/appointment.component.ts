@@ -57,8 +57,8 @@ export class AppointmentComponent implements OnInit {
       //update
       console.log("updating record...")
       this.updateAppointmentRecord(form)
-
     }
+    this.router.navigate(['/appointmentlist']);
   }
   //clear all contents at loading
   resetForm(form?: NgForm) {

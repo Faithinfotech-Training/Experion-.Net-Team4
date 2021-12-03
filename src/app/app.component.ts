@@ -8,9 +8,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ClinicManagementSystem';
 
+  
+  status=localStorage.getItem("Access_Role")
+
+  
+
+  /*
   //logout
 logout(){
-  //this.authService.logout();
-  //this.router.navigateByUrl('login');
-}
+  this.authService.logout();
+  this.router.navigateByUrl('login');
+}*/
 }

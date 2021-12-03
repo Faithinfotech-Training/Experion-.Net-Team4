@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
             console.log(data);
             this.jwtResponse=data;
             localStorage.setItem("token",data.token);// adding token to the local storage
-            sessionStorage.setItem("token",data.token);//adding token to the session storage
+            sessionStorage.setItem("token",data.token);//adding token to the session storage            
             //check the role
             if(this.jwtResponse.rId===1)
                 {

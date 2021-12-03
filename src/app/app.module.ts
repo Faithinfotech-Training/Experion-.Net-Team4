@@ -47,6 +47,7 @@ import { ViewNotesComponent } from './doctor/view-notes/view-notes.component';
 import { AddprescriptionComponent } from './doctor/addprescription/addprescription.component';
 import { AddprescribedtestComponent } from './doctor/addprescription/addprescribedtest/addprescribedtest.component';
 import { AddmedicineComponent } from './doctor/addprescription/addmedicine/addmedicine.component';
+import { AddnotesComponent } from './doctor/addnotes/addnotes.component';
 import { HomeComponent } from './home/home.component';
 import { EventComponent } from './event/event.component';
 import { RolesComponent } from './admin/rolemanagement/roles/roles.component';
@@ -97,6 +98,7 @@ import { EventListComponent } from './admin/eventmanagement/event-list/event-lis
     AddprescriptionComponent,
     AddprescribedtestComponent,
     AddmedicineComponent,
+    AddnotesComponent,
     HomeComponent,
     EventComponent,
     RolesComponent,

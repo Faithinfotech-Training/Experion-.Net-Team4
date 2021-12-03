@@ -47,16 +47,7 @@
                     </div>
                 </div>
 
-                <!--Appointment Time
-<div class="form-group">
-    <label>Appointment Time</label>
-    <input type="time" name="AppointmentTime" id="AppointmentTime" #AppointmentTime="ngModel"
-        [(ngModel)]="service.aFormData.AppointmentTime" class="form-control" required
-        [ngClass]="{'is invalid':AppointmentTime.touched && AppointmentTime.invalid}" />
-    <div class="validation-error" *ngIf="AppointmentTime.touched&&AppointmentTime.invalid">
-        <div *ngIf="AppointmentTime.errors.required">Appointment time is required</div>
-    </div>
-</div>-->
+ 
 
                 <!--Patient ID-->
                 <div class="form-group">
@@ -113,3 +104,4 @@
         </div>
     </div>
 </div>
+
