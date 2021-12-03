@@ -1,59 +1,95 @@
-<div class="container">
-    <div class="header">
-        <h5>Patient Info</h5>
-        <!--search functionality-->
-        <div class="form-group">
-            <input class="form-control" type="text"
-            placeholder="search here...."
-            [(ngModel)]="filter">
+<nav class="navbar navbar-expand-lg navbar navbar-primary" style="background-color: #e3f2fd;">
 
+    <div class="container-fluid">
+        <a class="navbar-brand " href="/home"><i class="fa fa-home"></i><b>HOME</b></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="about.html"><b>ABOUT US</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><b>CONTACT US</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/event"><b>EVENTS</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><b>ANNOUNCEMENTS</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="margin-left:600px" href="/login"><b>LOGOUT</b></a>
+                </li>
+            </ul>
         </div>
-        <a [routerLink]="['patient']" class="btn btn-primary">Add Patient</a>
     </div>
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Patient Name</th>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>Blood Group</th>
-                <th>Patient Address</th>
-                <th>Patient Phone</th>
-                <th>Emergency Contact</th>
-                <th>Patient Email</th>
-                <th>IsActive</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let pat of service.patients|filter:filter| paginate:{itemsPerPage:5,currentPage:page}">
-                <!--ng-container *ngIf="pat.IsActive"-->
-                    <td (click)="populateForm(pat)">{{pat.PatientId}}</td>
-                    <td (click)="populateForm(pat)">{{pat.PatientName}}</td>
-                    <td (click)="populateForm(pat)">{{pat.PatientAge}}</td>
-                    <td (click)="populateForm(pat)">{{pat.PatientGender}}</td>
-                    <td (click)="populateForm(pat)">{{pat.BloodGroup}}</td>
-                    <td (click)="populateForm(pat)">{{pat.PatientAddress}}</td>
-                    <td (click)="populateForm(pat)">{{pat.PatientPhone}}</td>
-                    <td (click)="populateForm(pat)">{{pat.EmergencyContact}}</td>
-                    <td (click)="populateForm(pat)">{{pat.PatientEmail}}</td>
-                    <td (click)="populateForm(pat)">{{pat.IsActive}}</td>
-                    
-                    <td>
-                        <button class="btn btn-sm btn-outline-danger"
-                            (click)="deletePatient(pat)">X</button>&nbsp;
-                        <button (click)="updatePatient(pat.PatientId)" class="btn btn-info" style="margin-left:10px">Edit</button>
+</nav>
 
-                    </td>
-                <!--/ng-container-->
-            </tr>
+<div class="conatiner">
+    <div class="card">
+        <div class="card-body">
+            <div class="container">
+                <div class="header">
+                    <h5>Patient Info</h5>
+                    <!--search functionality-->
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="search here...." [(ngModel)]="filter">
 
-        </tbody>
+                    </div>
+                    <a [routerLink]="['patient']" class="btn btn-primary">Add Patient</a>
+                </div>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Patient Name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Blood Group</th>
+                            <th>Patient Address</th>
+                            <th>Patient Phone</th>
+                            <th>Emergency Contact</th>
+                            <th>Patient Email</th>
+                            <th>IsActive</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            *ngFor="let pat of service.patients|filter:filter| paginate:{itemsPerPage:5,currentPage:page}">
+                            <!--ng-container *ngIf="pat.IsActive"-->
+                            <td (click)="populateForm(pat)">{{pat.PatientId}}</td>
+                            <td (click)="populateForm(pat)">{{pat.PatientName}}</td>
+                            <td (click)="populateForm(pat)">{{pat.PatientAge}}</td>
+                            <td (click)="populateForm(pat)">{{pat.PatientGender}}</td>
+                            <td (click)="populateForm(pat)">{{pat.BloodGroup}}</td>
+                            <td (click)="populateForm(pat)">{{pat.PatientAddress}}</td>
+                            <td (click)="populateForm(pat)">{{pat.PatientPhone}}</td>
+                            <td (click)="populateForm(pat)">{{pat.EmergencyContact}}</td>
+                            <td (click)="populateForm(pat)">{{pat.PatientEmail}}</td>
+                            <td (click)="populateForm(pat)">{{pat.IsActive}}</td>
 
-    </table>
-    <div class="footer">
-        <!--pagination-->
-        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+                            <td>
+                                <button class="btn btn-sm btn-outline-danger"
+                                    (click)="deletePatient(pat)">X</button>&nbsp;
+                                <button (click)="updatePatient(pat.PatientId)" class="btn btn-info"
+                                    style="margin-left:10px">Edit</button>
+
+                            </td>
+                            <!--/ng-container-->
+                        </tr>
+
+                    </tbody>
+
+                </table>
+                <div class="footer">
+                    <!--pagination-->
+                    <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+                </div>
+
+            </div>
+        </div>
     </div>
-
 </div>

@@ -48,6 +48,12 @@ import { AddprescriptionComponent } from './doctor/addprescription/addprescripti
 import { AddprescribedtestComponent } from './doctor/addprescription/addprescribedtest/addprescribedtest.component';
 import { AddmedicineComponent } from './doctor/addprescription/addmedicine/addmedicine.component';
 import { AddnotesComponent } from './doctor/addnotes/addnotes.component';
+import { HomeComponent } from './home/home.component';
+import { EventComponent } from './event/event.component';
+import { RolesComponent } from './admin/rolemanagement/roles/roles.component';
+import { RolesListComponent } from './admin/rolemanagement/roles-list/roles-list.component';
+import { UsersComponent } from './admin/usermanagement/users/users.component';
+import { UsersListComponent } from './admin/usermanagement/users-list/users-list.component';
 
 
 
@@ -88,6 +94,12 @@ import { AddnotesComponent } from './doctor/addnotes/addnotes.component';
     AddprescribedtestComponent,
     AddmedicineComponent,
     AddnotesComponent,
+    HomeComponent,
+    EventComponent,
+    RolesComponent,
+    RolesListComponent,
+    UsersComponent,
+    UsersListComponent,
     
   ],
   imports: [

@@ -22,8 +22,10 @@ export class AppointmentComponent implements OnInit {
   ngOnInit(): void {
     //get patients for binding
     this.service.bindListPatient();
+
     //get doctors for binding
     this.labService.bindListDoctor();
+
      //get appointmentId from activatedroute
      this.appointmentId = this.route.snapshot.params['appointmentId'];
      if(this.appointmentId!=0||this.appointmentId!=null){

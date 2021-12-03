@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { PaymentBill } from './paymentbill';
 import { Appointment } from './appointment';
+import { Events } from './event';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +19,16 @@ export class FrontofficeService {
   patients:Patient[];
   bills:PaymentBill[];
   appointments:Appointment[];
+  events:Events[];
   
   constructor(private httpClient: HttpClient) { }
 
+  //get events for binding
+  bindListEvent(){
+    this.httpClient.get(environment.apiUrl+"/api/event")
+   .toPromise().then(response=>
+    this.events = response as Events[])
+  }
   //INSERT patient
   insertPatient(model:Patient):Observable<any>{
     return this.httpClient.post(environment.apiUrl+"api/Patient/AddPatient",model)
