@@ -53,6 +53,11 @@ import { RolesComponent } from './admin/rolemanagement/roles/roles.component';
 import { RolesListComponent } from './admin/rolemanagement/roles-list/roles-list.component';
 import { UsersComponent } from './admin/usermanagement/users/users.component';
 import { UsersListComponent } from './admin/usermanagement/users-list/users-list.component';
+import { EventmanagementComponent } from './admin/eventmanagement/eventmanagement.component';
+import { EventsComponent } from './admin/eventmanagement/events/events.component';
+import { EventListComponent } from './admin/eventmanagement/event-list/event-list.component';
+
+
 
 
 
@@ -98,6 +103,10 @@ import { UsersListComponent } from './admin/usermanagement/users-list/users-list
     RolesListComponent,
     UsersComponent,
     UsersListComponent,
+    EventmanagementComponent,
+    EventsComponent,
+    EventListComponent,
+   
     
   ],
   imports: [

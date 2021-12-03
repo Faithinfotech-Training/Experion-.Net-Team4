@@ -34,6 +34,8 @@ import { ViewfullprescriptionComponent } from './viewprescription/viewfullprescr
 import { ConsultationComponent } from './doctor/consultation/consultation.component';
 import { HomeComponent } from './home/home.component';
 import { EventComponent } from './event/event.component';
+import { EventsComponent } from './admin/eventmanagement/events/events.component';
+import { EventListComponent } from './admin/eventmanagement/event-list/event-list.component';
   
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -74,6 +76,10 @@ const routes: Routes = [
   {path: 'patient/:patientId', component: PatientComponent },
   {path: 'patientlist/patient', component: PatientComponent }, 
   {path: 'doctor', component: DoctorComponent },
+  {path: 'events', component: EventsComponent },
+  {path: 'events/:eventId', component: EventsComponent },
+  {path: 'eventlist/events', component: EventsComponent }, 
+  {path:'eventlist',component:EventListComponent},
   {path: 'consultation/:patientId', component: ConsultationComponent },
   {path:'paymentbill',component:PaymentbillComponent},
   {path:'appointment',component:AppointmentComponent},

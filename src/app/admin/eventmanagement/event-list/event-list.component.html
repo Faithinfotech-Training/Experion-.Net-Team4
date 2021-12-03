@@ -33,56 +33,41 @@
         <div class="card-body">
             <div class="container">
                 <div class="header">
-                    <h5>Patient Info</h5>
+                    <h5>Event Info</h5>
                     <!--search functionality-->
                     <div class="form-group">
                         <input class="form-control" type="text" placeholder="search here...." [(ngModel)]="filter">
-
                     </div>
-                    <a [routerLink]="['patient']" class="btn btn-primary">Add Patient</a>
+                    <a [routerLink]="['events']" class="btn btn-primary">Add Event</a>
                 </div>
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Patient Name</th>
-                            <th>Age</th>
-                            <th>Gender</th>
-                            <th>Blood Group</th>
-                            <th>Patient Address</th>
-                            <th>Patient Phone</th>
-                            <th>Emergency Contact</th>
-                            <th>Patient Email</th>
-                            <th>IsActive</th>
+                            <th>Event Id</th>
+                            <th>Event Name</th>
+                            <th>Event Description</th>
+                            <th>Event Image</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr
-                            *ngFor="let pat of service.patients|filter:filter| paginate:{itemsPerPage:5,currentPage:page}">
-                            <!--ng-container *ngIf="pat.IsActive"-->
-                            <td (click)="populateForm(pat)">{{pat.PatientId}}</td>
-                            <td (click)="populateForm(pat)">{{pat.PatientName}}</td>
-                            <td (click)="populateForm(pat)">{{pat.PatientAge}}</td>
-                            <td (click)="populateForm(pat)">{{pat.PatientGender}}</td>
-                            <td (click)="populateForm(pat)">{{pat.BloodGroup}}</td>
-                            <td (click)="populateForm(pat)">{{pat.PatientAddress}}</td>
-                            <td (click)="populateForm(pat)">{{pat.PatientPhone}}</td>
-                            <td (click)="populateForm(pat)">{{pat.EmergencyContact}}</td>
-                            <td (click)="populateForm(pat)">{{pat.PatientEmail}}</td>
-                            <td (click)="populateForm(pat)">{{pat.IsActive}}</td>
-
+                            *ngFor="let e of service.events|filter:filter| paginate:{itemsPerPage:5,currentPage:page}">
+                            <td (click)="populateForm(e)">{{e.EventId}}</td>
+                            <td (click)="populateForm(e)">{{e.EventName}}</td>
+                            <td (click)="populateForm(e)">{{e.EventDescription}}</td>
+                            <td (click)="populateForm(e)">{{e.EventImage}}</td>
                             <td>
                                 <button class="btn btn-sm btn-outline-danger"
-                                    (click)="deletePatient(pat)">X</button>&nbsp;
-                                <button (click)="updatePatient(pat.PatientId)" class="btn btn-info"
+                                    (click)="deleteEvent(e.EventId)">Cancel</button>&nbsp;
+                                <button (click)="updateEvent(e.EventId)" class="btn btn-info"
                                     style="margin-left:10px">Edit</button>
 
                             </td>
-                            <!--/ng-container-->
+
+                            <!-- </ng-container>-->
                         </tr>
-
                     </tbody>
-
                 </table>
                 <div class="footer">
                     <!--pagination-->
@@ -93,3 +78,4 @@
         </div>
     </div>
 </div>
+
