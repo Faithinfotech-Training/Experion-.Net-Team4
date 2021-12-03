@@ -23,6 +23,8 @@ import { PaymentbillListComponent } from './frontoffice/paymentbill-list/payment
 import { DoctorComponent } from './doctor/doctor.component';
 import { ViewfullprescriptionComponent } from './viewprescription/viewfullprescription/viewfullprescription.component';
 import { ConsultationComponent } from './doctor/consultation/consultation.component';
+import { HomeComponent } from './home/home.component';
+import { EventComponent } from './event/event.component';
   
 const routes: Routes = [
   { path: '', redirectTo: "/login", pathMatch: 'full' },
@@ -46,18 +48,15 @@ const routes: Routes = [
   { path: 'patientlist/patient', component: PatientComponent }, 
   { path: 'doctor', component: DoctorComponent },
   { path: 'consultation/:patientId', component: ConsultationComponent },
-  {path:'frontoffice',component:FrontofficeComponent},
-  {path:'patient',component:PatientComponent},
   {path:'paymentbill',component:PaymentbillComponent},
   {path:'appointment',component:AppointmentComponent},
-  {path:'patientlist',component:PatientListComponent},
   {path:'paymentbilllist',component:PaymentbillListComponent},
   {path:'appointmentlist',component:AppointmentListComponent},
-  {path:'patient/:patientId',component:PatientComponent},
-  {path:'patientlist/patient',component:PatientComponent},
   {path:'paymentbilllist/paymentbill',component:PaymentbillComponent},
   {path:'appointmentlist/appointment',component:AppointmentComponent},
-  {path:'appointment/:appointmentId',component:AppointmentComponent}
+  {path:'appointment/:appointmentId',component:AppointmentComponent},
+  {path:'home',component:HomeComponent},
+  {path:'event',component:EventComponent}
 ];
 
 @NgModule({

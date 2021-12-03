@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Appointment } from 'src/app/shared/appointment';
 import { FrontofficeService } from 'src/app/shared/frontoffice.service';
+import { LabTechnitianService } from 'src/app/shared/lab-technitian.service';
 
 @Component({
   selector: 'app-appointment',
@@ -16,11 +17,14 @@ export class AppointmentComponent implements OnInit {
   appointmentId:number;
   appointment:Appointment = new Appointment();
 
-  constructor(public service: FrontofficeService,private toastrService: ToastrService, private router: Router, private route: ActivatedRoute) { }
+  constructor(public service: FrontofficeService,public labService: LabTechnitianService,private toastrService: ToastrService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     //get patients for binding
     this.service.bindListPatient();
+
+    //get doctors for binding
+    this.labService.bindListDoctor();
 
      //get appointmentId from activatedroute
      this.appointmentId = this.route.snapshot.params['appointmentId'];
