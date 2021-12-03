@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="header">
+        <h5 class="text-center">
+            Role Details
+        </h5>
+        <!--Search functionality-->
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Search .." [(ngModel)]="filter">
+        </div>
+
+        <a href="../roles" class="btn btn-primary"> Add Role </a>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                   Role Name
+                </th>
+                <th>
+                    Is Active Status
+                 </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                *ngFor="let role of roleService.roles| filter: filter | paginate: {itemsPerPage:5,currentPage:page}">
+                <td>{{role.RoleId}}</td>
+                <td>{{role.RoleName}}</td>
+                <td>{{role.IsActive}}</td>
+
+
+                <td>
+                    <button (click)="deleteform(role)" class="btn btn-sm btn-outline-danger">Delete</button>&nbsp;
+                    
+                    <button (click)="updaterole(role.RoleId)" class="btn btn-sm btn-info"
+                        style="margin-left:10px">Edit</button>
+                </td>
+
+            </tr>
+        </tbody>
+
+
+
+    </table>
+
+    <div class="footer">
+        <!--pagination - control-->
+
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
+
+</div>
+
+

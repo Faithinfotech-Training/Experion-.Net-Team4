@@ -2,14 +2,20 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
-import {AuthGuard} from './shared/auth.guard';
+import { AuthGuard} from './shared/auth.guard';
 import { DoctorsComponent } from './admin/doctormanagement/doctors/doctors.component';
 import { DoctorsListComponent } from './admin/doctormanagement/doctors-list/doctors-list.component';
 import { DoctormanagementComponent } from './admin/doctormanagement/doctormanagement.component';
 import { StaffmanagementComponent } from './admin/staffmanagement/staffmanagement.component';
 import { StaffComponent } from './admin/staffmanagement/staff/staff.component';
 import { StaffListComponent } from './admin/staffmanagement/staff-list/staff-list.component';
+import { RolemanagementComponent } from './admin/rolemanagement/rolemanagement.component';
+import { RolesComponent } from './admin/rolemanagement/roles/roles.component';
+import { RolesListComponent } from './admin/rolemanagement/roles-list/roles-list.component';
+import { UsermanagementComponent } from './admin/usermanagement/usermanagement.component';
+import { UsersComponent } from './admin/usermanagement/users/users.component';
 import { LabtechnitianComponent } from './labtechnitian/labtechnitian.component';
+import { UsersListComponent } from './admin/usermanagement/users-list/users-list.component';
 import { ViewprescriptionComponent } from './viewprescription/viewprescription.component';
 import { ViewreportsComponent } from './viewreports/viewreports.component';
 import { ViewtestComponent } from './viewprescription/viewtest/viewtest.component';
@@ -41,22 +47,32 @@ const routes: Routes = [
   {path:'staffmanagement',component:StaffmanagementComponent},
   {path:'staff/:staffId',component:StaffComponent},
   {path:'stafflist/staff',component:StaffListComponent},
-  { path: 'labtechnitian', component: LabtechnitianComponent },
-  { path: 'viewprescription', component: ViewprescriptionComponent },
-  { path: 'viewtest/:pId', component: ViewtestComponent },
-  { path: 'viewfullprescription/:pId', component: ViewfullprescriptionComponent },
-  { path: 'viewreport', component: ViewreportsComponent },
-  { path: 'addreport', component: AddreportComponent },
-  { path: 'addtest/:rptId', component: AddtestsComponent },
-  { path: 'reporttest/:rtId', component: ReporttestComponent },
-  { path: 'doctors-list', component: DoctorsListComponent },
-  { path: 'frontoffice', component: FrontofficeComponent },
-  { path: 'patient', component: PatientComponent },
-  { path: 'patientlist', component: PatientListComponent },
-  { path: 'patient/:patientId', component: PatientComponent },
-  { path: 'patientlist/patient', component: PatientComponent }, 
-  { path: 'doctor', component: DoctorComponent },
-  { path: 'consultation/:patientId', component: ConsultationComponent },
+  {path:'roles',component:RolesComponent},
+  {path:'roleslist',component:RolesListComponent},
+  {path:'rolesmanagement',component:RolemanagementComponent},
+  {path:'role/:roleId',component:RolesComponent},
+  {path:'roleslist/roles',component:RolesListComponent},
+  {path:'users',component:UsersComponent},
+  {path:'userslist',component:UsersListComponent},
+  {path:'usersmanagement',component:UsermanagementComponent},
+  {path:'user/:userId',component:UsersComponent},
+  {path:'userslist/users',component:UsersListComponent},
+  {path: 'labtechnitian', component: LabtechnitianComponent },
+  {path: 'viewprescription', component: ViewprescriptionComponent },
+  {path: 'viewtest/:pId', component: ViewtestComponent },
+  {path: 'viewfullprescription/:pId', component: ViewfullprescriptionComponent },
+  {path: 'viewreport', component: ViewreportsComponent },
+  {path: 'addreport', component: AddreportComponent },
+  {path: 'addtest/:rptId', component: AddtestsComponent },
+  {path: 'reporttest/:rtId', component: ReporttestComponent },
+  {path: 'doctors-list', component: DoctorsListComponent },
+  {path: 'frontoffice', component: FrontofficeComponent },
+  {path: 'patient', component: PatientComponent },
+  {path: 'patientlist', component: PatientListComponent },
+  {path: 'patient/:patientId', component: PatientComponent },
+  {path: 'patientlist/patient', component: PatientComponent }, 
+  {path: 'doctor', component: DoctorComponent },
+  {path: 'consultation/:patientId', component: ConsultationComponent },
   {path:'paymentbill',component:PaymentbillComponent},
   {path:'appointment',component:AppointmentComponent},
   {path:'paymentbilllist',component:PaymentbillListComponent},

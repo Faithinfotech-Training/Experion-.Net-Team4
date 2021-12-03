@@ -1,0 +1,66 @@
+<form name="userform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+    <!--UserId id-->
+    <input type="hidden" name="UserId" [ngModel]="userService.formData.UserId" />
+
+    <!--User name-->
+    <div class="form-group">
+
+        <label>User Name</label>
+        <input type="text" name="UserName" #UserName="ngModel" [ngModel]="userService.formData.UserName"
+            class="form-control" placeholder="Enter role" minlength="2" maxlength="20" required
+            [ngClass]="{'is-invalid':UserName.touched && UserName.invalid}" />
+        <div class="validation-error" *ngIf="UserName.touched && UserName.invalid">
+
+            <div *ngIf="UserName.errors.required">
+                User's name is required</div>
+        </div>
+    </div>
+
+    <!--User Password-->
+    <div class="form-group">
+
+        <label>User Password</label>
+        <input type="Password" name="UserPassword" #UserPassword="ngModel" [ngModel]="userService.formData.UserPassword"
+            class="form-control" placeholder="Enter role" minlength="5" maxlength="8" required
+            [ngClass]="{'is-invalid':UserPassword.touched && UserPassword.invalid}" />
+        <div class="validation-error" *ngIf="UserPassword.touched && UserPassword.invalid">
+
+            <div *ngIf="UserPassword.errors.required">
+                Password is required</div>
+        </div>
+    </div>
+
+     <!--Role ID from role table-->
+     <div class="form-group">
+      <label class="col-md-4">Role</label>
+        <select name="RoleId" id="RoleId" class="form-control" #RoleId="ngModel" required
+        [(ngModel)]="roleService.formData.RoleId">
+        <option value="0" disabled>Select Role</option>
+        <option *ngFor="let role of roleService.roles"
+         value="{{role.RoleId}}">Id:{{role.RoleId}}, Name:{{role.RoleName}}</option>
+        
+        </select>
+        <div class="validation-error" *ngIf="RoleId.touched && RoleId.invalid">
+        <div *ngIf="RoleId.errors.required">Role is required</div>
+    </div>
+</div>
+
+    <!--Is Active-->
+    <div class="form-group">
+        <div class="form-check">
+            <label class="form-check-label">Is Active </label>
+            <input type="checkbox" name="IsActive" id="IsActive" #IsActive="ngModel"
+                [(ngModel)]="roleService.formData.IsActive" class="form-check-input">
+        </div>
+    </div>
+
+    <!--submit button-->
+    <br>
+    <div class="form-group">
+        <button type="submit" [disabled]="!(form.valid && form.dirty)"
+            class="btn btn-lg btn-primary form-control">Submit </button>
+    </div>
+
+
+</form>
+

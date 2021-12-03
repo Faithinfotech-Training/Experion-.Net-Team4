@@ -47,6 +47,10 @@ import { ViewNotesComponent } from './doctor/view-notes/view-notes.component';
 import { AddprescriptionComponent } from './doctor/addprescription/addprescription.component';
 import { AddprescribedtestComponent } from './doctor/addprescription/addprescribedtest/addprescribedtest.component';
 import { AddmedicineComponent } from './doctor/addprescription/addmedicine/addmedicine.component';
+import { RolesComponent } from './admin/rolemanagement/roles/roles.component';
+import { RolesListComponent } from './admin/rolemanagement/roles-list/roles-list.component';
+import { UsersComponent } from './admin/usermanagement/users/users.component';
+import { UsersListComponent } from './admin/usermanagement/users-list/users-list.component';
 
 
 
@@ -86,6 +90,10 @@ import { AddmedicineComponent } from './doctor/addprescription/addmedicine/addme
     AddprescriptionComponent,
     AddprescribedtestComponent,
     AddmedicineComponent,
+    RolesComponent,
+    RolesListComponent,
+    UsersComponent,
+    UsersListComponent,
     
   ],
   imports: [
