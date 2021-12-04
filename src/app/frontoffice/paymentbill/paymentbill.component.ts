@@ -47,6 +47,7 @@ export class PaymentbillComponent implements OnInit {
     console.log(form.value);
     let addId = this.service.billFormData.BillId;
     if (addId == 0 || addId == null) {
+      form.value.BillNumber = Date.now()  - 1638589350349;
       //insert
       this.insertBillRecord(form);
     }

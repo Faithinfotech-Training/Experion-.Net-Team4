@@ -1,30 +1,38 @@
-<form name="prescribedTestForm" #form="ngForm" autocomplete="off"
-(ngSubmit)="onSubmit(form)">
-    
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
 
-    <!--Prescribed Test Name-->
-    <div class="form-group">
-        <label>Test Name</label>
-        <input name="PrescribedTestName" #PrescribedTestName="ngModel" [(ngModel)]="consultService.prescribedTestFormData.PrescribedTestName"
-            class="form-control" placeholder="Enter Medicine Name" minlength="1" maxlength="25" required
-            [ngClass]="{'is-invalid': PrescribedTestName.touched && PrescribedTestName.invalid}" />
+            <form name="prescribedTestForm" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
 
-        <div class="validation-error" *ngIf="PrescribedTestName.touched && PrescribedTestName.invalid">
-            <div *ngIf="PrescribedTestName.errors.required">Test Name is Required</div>
+
+                <!--Prescribed Test Name-->
+                <div class="form-group">
+                    <label>Test Name</label>
+                    <input name="PrescribedTestName" #PrescribedTestName="ngModel"
+                        [(ngModel)]="consultService.prescribedTestFormData.PrescribedTestName" class="form-control"
+                        placeholder="Enter Test Name" minlength="1" maxlength="25" required
+                        [ngClass]="{'is-invalid': PrescribedTestName.touched && PrescribedTestName.invalid}" />
+
+                    <div class="validation-error" *ngIf="PrescribedTestName.touched && PrescribedTestName.invalid">
+                        <div *ngIf="PrescribedTestName.errors.required">Test Name is Required</div>
+                    </div>
+                </div>
+                <br>
+
+                <!--Submit Button-->
+                <div class="form-group">
+                    <br>
+                    <button type="submit" [disabled]="!(form.valid && form.dirty) "
+                        class="btn  btn-primary form-control">
+                        Add
+                    </button>
+                </div>
+                <br>
+            </form>
+            <br>
+            <br>
+            <a class="btn ntn-lg btn-secondary for" style="width: 100%;" (click)="goBack()">Finish</a>
         </div>
     </div>
-    <br>    
-
-    <!--Submit Button-->
-    <div class="form-group">
-        <br>
-        <button type="submit" [disabled]="!(form.valid && form.dirty) "
-            class="btn  btn-primary form-control" >
-            Add
-        </button>
-    </div>
-    <br>
-</form>
-<br>
-<br>
-<a class="btn ntn-lg btn-secondary for" style="width: 100%;" (click)="goBack()">Finish</a>
+</div>

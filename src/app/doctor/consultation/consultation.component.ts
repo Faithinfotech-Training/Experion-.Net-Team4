@@ -12,7 +12,7 @@ export class ConsultationComponent implements OnInit {
 
   //assign default page number and filter
   page : number=1;
-  filter:string;
+  filter:any;
   tempFilter:string;
   patientId:number;
   
@@ -25,7 +25,7 @@ export class ConsultationComponent implements OnInit {
     //get prescription Id from Activated Route
     this.patientId=this.route.snapshot.params['patientId'];    
     this.consultService.bindListObservations(this.patientId);
-    
+   
 
    
   }

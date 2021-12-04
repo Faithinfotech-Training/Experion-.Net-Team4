@@ -46,6 +46,7 @@ export class EventsComponent implements OnInit {
       this.updateEventRecord(form)
 
     }
+    window.history.go(-1);
   }
   //clear all contents at loading
   resetForm(form?: NgForm) {

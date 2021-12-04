@@ -23,7 +23,7 @@ export class AddtestsComponent implements OnInit {
   constructor(public labService: LabTechnitianService , 
     private router:Router,
     private route:ActivatedRoute) { }
-
+    
   ngOnInit(): void {
     //Get value from activated Route
     this.rptId=this.route.snapshot.params['rptId'];

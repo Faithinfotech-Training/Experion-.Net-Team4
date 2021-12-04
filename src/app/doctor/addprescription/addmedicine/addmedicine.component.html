@@ -1,43 +1,51 @@
-<form name="medicineForm" #form="ngForm" autocomplete="off"
-(ngSubmit)="onSubmit(form)">
-    
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
 
-    <!--Medicine Name-->
-    <div class="form-group">
-        <label>Medicine Name</label>
-        <input name="MedicineName" #MedicineName="ngModel" [(ngModel)]="consultService.medicineFormData.MedicineName"
-            class="form-control" placeholder="Enter Medicine Name" minlength="1" maxlength="25" required
-            [ngClass]="{'is-invalid': MedicineName.touched && MedicineName.invalid}" />
+            <form name="medicineForm" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
 
-        <div class="validation-error" *ngIf="MedicineName.touched && MedicineName.invalid">
-            <div *ngIf="MedicineName.errors.required">Medicine Name is Required</div>
+
+                <!--Medicine Name-->
+                <div class="form-group">
+                    <label>Medicine Name</label>
+                    <input name="MedicineName" #MedicineName="ngModel"
+                        [(ngModel)]="consultService.medicineFormData.MedicineName" class="form-control"
+                        placeholder="Enter Medicine Name" minlength="1" maxlength="25" required
+                        [ngClass]="{'is-invalid': MedicineName.touched && MedicineName.invalid}" />
+
+                    <div class="validation-error" *ngIf="MedicineName.touched && MedicineName.invalid">
+                        <div *ngIf="MedicineName.errors.required">Medicine Name is Required</div>
+                    </div>
+                </div>
+                <br>
+
+                <!--Dosage-->
+                <div class="form-group">
+                    <label>Dosage</label>
+                    <input name="Dosage" #Dosage="ngModel" [(ngModel)]="consultService.medicineFormData.Dosage"
+                        class="form-control" placeholder="Enter Dosage" minlength="1" maxlength="25" required
+                        [ngClass]="{'is-invalid': Dosage.touched && Dosage.invalid}" />
+
+                    <div class="validation-error" *ngIf="Dosage.touched && Dosage.invalid">
+                        <div *ngIf="Dosage.errors.required">Dosage is Required</div>
+                    </div>
+                </div>
+                <br>
+
+                <!--Submit Button-->
+                <div class="form-group">
+                    <br>
+                    <button type="submit" [disabled]="!(form.valid && form.dirty) "
+                        class="btn  btn-primary form-control">
+                        Add
+                    </button>
+                </div>
+                <br>
+            </form>
+            <br>
+            <br>
+            <a class="btn ntn-lg btn-secondary for" style="width: 100%;" (click)="addPrescribedTest()">Next</a>
         </div>
     </div>
-    <br>
-
-    <!--Dosage-->
-    <div class="form-group">
-        <label>Dosage</label>
-        <input name="Dosage" #Dosage="ngModel" [(ngModel)]="consultService.medicineFormData.Dosage"
-            class="form-control" placeholder="Enter Dosage" minlength="1" maxlength="25" required
-            [ngClass]="{'is-invalid': Dosage.touched && Dosage.invalid}" />
-
-        <div class="validation-error" *ngIf="Dosage.touched && Dosage.invalid">
-            <div *ngIf="Dosage.errors.required">Dosage is Required</div>
-        </div>
-    </div>
-    <br>    
-
-    <!--Submit Button-->
-    <div class="form-group">
-        <br>
-        <button type="submit" [disabled]="!(form.valid && form.dirty) "
-            class="btn  btn-primary form-control" >
-            Add
-        </button>
-    </div>
-    <br>
-</form>
-<br>
-<br>
-<a class="btn ntn-lg btn-secondary for" style="width: 100%;"  (click)="addPrescribedTest()">Next</a>
+</div>

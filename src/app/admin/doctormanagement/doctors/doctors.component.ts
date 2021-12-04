@@ -31,13 +31,12 @@ export class DoctorsComponent implements OnInit {
     if (this.doctorId != 0 || this.doctorId != null) {
       this.doctorService.getDoctorById(this.doctorId).subscribe(data => {
         console.log(data);
-
         var datepipe = new DatePipe("en-UK");
-        let formatedDate: any = datepipe.transform(data.DateOfJoining, "yyyy-MM-dd");
-        data.DateOfJoining = formatedDate;
-        //this.doctorService.formData = data;
+        let formatedDate: any = datepipe.transform(data.DoctorDateOfJoining, "yyyy-MM-dd");
+        data.DoctorDateOfJoining = formatedDate;        
         this.doctorService.formData = Object.assign({}, data);
-        //this.populateForm(data);
+        //this.doctorService.formData = data;
+        
       });
     }
 
@@ -90,17 +89,13 @@ export class DoctorsComponent implements OnInit {
 
   //populate form
   populateForm(doctor: Doctor) {
-
     console.log(doctor);
     var datePipe=new DatePipe("en-UK");
-
-    let formatedDate:any=datePipe.transform(doctor.DoctorDateOfJoining,'yyyy-MM-dd')
-
-     doctor.DoctorDateOfJoining = formatedDate;
-
+    let formatedDate:any=datePipe.transform(doctor.DoctorDateOfJoining,'dd-MM-yyyy');
+    doctor.DoctorDateOfJoining = formatedDate;
     this.doctorService.formData=Object.assign({},doctor);
-
   }
+
   //update employee
   updateDoctor(form?: NgForm) {
     console.log("updating doctor...")

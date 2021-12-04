@@ -1,77 +1,80 @@
-<form name="notesForm" #form="ngForm" autocomplete="off"
-(ngSubmit)="onSubmit(form)">
-    
-    
-    <!--Patient ID-->
-    <div class="form-group">
-        <label>Patient</label>
-        <select name="PatientId" id="PatientId" class="form-control" #PatientId="ngModel" required
-            [(ngModel)]="consultService.noteFormData.PatientId">
-            <option value=0 disabled  >Choose Patient</option>
-            <option *ngFor="let patient of patientService.patients" 
-            value="{{patient.PatientId}}">{{patient.PatientName}}</option>
-        </select>
-        <div class="validation-error" *ngIf="PatientId.touched && PatientId.invalid">
-            <div *ngIf="PatientId.errors.required">Patient ID is Required</div>
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+
+            <form name="notesForm" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+
+                <!--Patient ID-->
+                <div class="form-group">
+                    <label>Patient</label>
+                    <select name="PatientId" id="PatientId" class="form-control" #PatientId="ngModel" required
+                        [(ngModel)]="consultService.noteFormData.PatientId">
+                        <option value=0 disabled>Choose Patient</option>
+                        <option *ngFor="let patient of patientService.patients" value="{{patient.PatientId}}">
+                            {{patient.PatientName}}</option>
+                    </select>
+                    <div class="validation-error" *ngIf="PatientId.touched && PatientId.invalid">
+                        <div *ngIf="PatientId.errors.required">Patient ID is Required</div>
+                    </div>
+                </div>
+                <br>
+
+                <!--Doctor ID -->
+                <div class="form-group">
+                    <label>Doctor</label>
+                    <select name="DoctorId" id="DoctorId" class="form-control" #DoctorId="ngModel" required
+                        [(ngModel)]="consultService.noteFormData.DoctorId">
+                        <option value=0 disabled>Choose Doctor</option>
+                        <option *ngFor="let doctor of labService.doctors" value="{{doctor.DoctorId}}">
+                            {{doctor.DoctorName}}</option>
+                    </select>
+                    <div class="validation-error" *ngIf="DoctorId.touched && DoctorId.invalid">
+                        <div *ngIf="DoctorId.errors.required">Doctor is Required</div>
+                    </div>
+                </div>
+                <br>
+
+                <!--Observation-->
+                <div class="form-group">
+                    <label>Observation </label>
+                    <input name="Observation" #Observation="ngModel"
+                        [(ngModel)]="consultService.noteFormData.Observation" class="form-control"
+                        placeholder="Enter Notes" minlength="2" maxlength="180" required
+                        [ngClass]="{'is-invalid': Observation.touched && Observation.invalid}">
+
+                    <div class="validation-error" *ngIf="Observation.touched && Observation.invalid">
+                        <div *ngIf="Observation.errors.required">Notes are Required</div>
+                    </div>
+                </div>
+                <br>
+
+
+                <!--Doctor Notes-->
+                <div class="form-group">
+                    <label>Notes </label>
+                    <textarea name="DoctorNotes" #DoctorNotes="ngModel"
+                        [(ngModel)]="consultService.noteFormData.DoctorNotes" class="form-control"
+                        placeholder="Enter Notes" minlength="2" maxlength="180" required
+                        [ngClass]="{'is-invalid': DoctorNotes.touched && DoctorNotes.invalid}"></textarea>
+
+                    <div class="validation-error" *ngIf="DoctorNotes.touched && DoctorNotes.invalid">
+                        <div *ngIf="DoctorNotes.errors.required">Notes are Required</div>
+                    </div>
+                </div>
+                <br>
+
+
+                <!--Submit Button-->
+                <div class="form-group">
+                    <br>
+                    <button type="submit" [disabled]="!(form.valid && form.dirty) "
+                        class="btn  btn-primary form-control">
+                        Submit
+                    </button>
+                </div>
+                <br>
+            </form>
         </div>
     </div>
-    <br>    
-
-    <!--Doctor ID -->
-    <div class="form-group">
-        <label>Doctor</label>
-        <select name="DoctorId" id="DoctorId" class="form-control" #DoctorId="ngModel" required
-            [(ngModel)]="consultService.noteFormData.DoctorId">
-            <option value=0 disabled  >Choose Doctor</option>
-            <option *ngFor="let doctor of labService.doctors" 
-            value="{{doctor.DoctorId}}">{{doctor.DoctorName}}</option>
-        </select>
-        <div class="validation-error" *ngIf="DoctorId.touched && DoctorId.invalid">
-            <div *ngIf="DoctorId.errors.required">Doctor is Required</div>
-        </div>
-    </div>
-    <br>   
-
-    <!--Observation-->
-    <div class="form-group">
-        <label>Observation </label>
-        <input name="Observation" #Observation="ngModel" [(ngModel)]="consultService.noteFormData.Observation"
-            class="form-control" placeholder="Enter Notes" minlength="2" maxlength="180" required
-            [ngClass]="{'is-invalid': Observation.touched && Observation.invalid}" >
-
-        <div class="validation-error" *ngIf="Observation.touched && Observation.invalid">
-            <div *ngIf="Observation.errors.required">Notes are Required</div>
-        </div>
-    </div>
-    <br>
-
-    
-    <!--Doctor Notes-->
-    <div class="form-group">
-        <label>Notes </label>
-        <textarea name="DoctorNotes" #DoctorNotes="ngModel" [(ngModel)]="consultService.noteFormData.DoctorNotes"
-            class="form-control" placeholder="Enter Notes" minlength="2" maxlength="180" required
-            [ngClass]="{'is-invalid': DoctorNotes.touched && DoctorNotes.invalid}" ></textarea>
-
-        <div class="validation-error" *ngIf="DoctorNotes.touched && DoctorNotes.invalid">
-            <div *ngIf="DoctorNotes.errors.required">Notes are Required</div>
-        </div>
-    </div>
-    <br>
-
-
-    <!--Submit Button-->
-    <div class="form-group">
-        <br>
-        <button type="submit" [disabled]="!(form.valid && form.dirty) "
-            class="btn  btn-primary form-control" >
-            Submit
-        </button>
-    </div>
-    <br>
-</form>
-
-
-
-
-
+</div>

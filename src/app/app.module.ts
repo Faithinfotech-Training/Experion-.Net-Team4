@@ -57,6 +57,9 @@ import { UsersListComponent } from './admin/usermanagement/users-list/users-list
 import { EventmanagementComponent } from './admin/eventmanagement/eventmanagement.component';
 import { EventsComponent } from './admin/eventmanagement/events/events.component';
 import { EventListComponent } from './admin/eventmanagement/event-list/event-list.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -108,6 +111,9 @@ import { EventListComponent } from './admin/eventmanagement/event-list/event-lis
     EventmanagementComponent,
     EventsComponent,
     EventListComponent,
+    AboutusComponent,
+    ContactusComponent,
+    NavbarComponent,
    
     
   ],
