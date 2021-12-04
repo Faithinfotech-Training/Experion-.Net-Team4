@@ -29,7 +29,9 @@ export class AddnotesComponent implements OnInit {
     form.value.IsActive = true;
     console.log(form.value);
     //Insert 
-    this.insertObservationRecord(form);    
+    this.insertObservationRecord(form);
+    window.history.go(-1);
+
   }
 
   //INSERT
@@ -40,7 +42,7 @@ export class AddnotesComponent implements OnInit {
         console.log(result);        
       }      
     );
-    window.location.reload()    
+    //window.location.reload()    
   }
 
 }

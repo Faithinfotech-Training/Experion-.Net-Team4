@@ -1,41 +1,54 @@
-<header>
-    <div class="container">
-        <h5 style="margin-left: 15px;">
-           Hi,This is Admin Module. Welcome {{loggedUserName}}
+<app-navbar></app-navbar>
+<br>
+<br>
 
-        </h5>
-    
-    <nav class="nav">
-        <li class="nav-item">
-            <a class="nav-link" href ="../userslist">
-                 User Management
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href ="../roleslist" >
-                 Role Management
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href ="./stafflist">
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <header>
+                <div class="container">
+                    <h5 style="margin-left: 15px;">
+                        Hi,This is Admin Module.
+                        <!--Welcome {{loggedUserName}}-->
 
-                 Staff Management
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href ="../doctorslist" >
-                 Doctors Management
-            </a>
-        </li>
+                    </h5>
 
-    
-        <li class="nav-item">
-            <a class="nav-link" href ="#" (click)="LogOut()">
-                LogOut
-            </a>
-        </li>
+                    <nav class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../userslist">
+                                User Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../roleslist">
+                                Role Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./stafflist">
 
-    </nav>
+                                Staff Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../doctorslist">
+                                Doctors Management
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../eventlist">
+                                Event Management
+                            </a>
+                        </li>
+
+                    </nav>
+                </div>
+            </header>
+        </div>
+    </div>
 </div>
-</header>
-
+<br>
+<br>
+<br>

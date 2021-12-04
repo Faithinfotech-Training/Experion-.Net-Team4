@@ -1,31 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar navbar-primary" style="background-color: #e3f2fd;">
-    <div class="container-fluid">
-        <a class="navbar-brand " href="#" ><i class="fa fa-home"></i><b>HOME</b></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="about.html"><b>ABOUT US</b></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><b>CONTACT US</b></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><b>EVENTS</b></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><b>ANNOUNCEMENTS</b></a>
-              </li>
-                <li class="nav-item">                   
-                    <a  class="nav-link" style="margin-left:700%" href="#"><b>LOGOUT</b></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-  </nav>
-  <br>
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
 
   <div style="padding-left: 65%; width: max-content;"> 
     <a class="btn btn-lg btn-outline-secondary" href="../addnotes"><b>Add Notes</b></a> &nbsp; &nbsp; 
@@ -50,15 +26,17 @@
         </thead>
         <tbody>
                     
-                <tr *ngFor="let prescription of labService.prescriptions | filter:filter | paginate: {itemsPerPage:5 , currentPage: page}">
+                <ng-container *ngFor="let prescription of labService.prescriptions.slice().reverse()  | paginate: {itemsPerPage:5 , currentPage: page}">
+                   <tr *ngIf="prescription.PatientId == patientId">
                     <td  >{{prescription.PrescriptionNumber}}</td>
                     <td  >{{prescription.PatientName}}</td>
                     <td  >{{prescription.DoctorName }}</td>
                     <td  >{{prescription.PrescriptionDate | date:'dd-MM-yyyy'}}</td>                   
                     <td  >                        
                         <button  (click)="viewFullPrescription(prescription.PrescriptionId)" class="btn btn-info" style="margin-left:10px">Detailed View</button>                    
-                    </td>                    
-                </tr>            
+                    </td>  
+                </tr>                  
+            </ng-container>            
         </tbody>
 
     </table>

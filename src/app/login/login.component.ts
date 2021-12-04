@@ -70,46 +70,43 @@ export class LoginComponent implements OnInit {
             if(this.jwtResponse.rId===1)
                 {
                   //logged as admin
-                  console.log("Admin Module");
-  
+                  console.log("Admin Module");  
                   //adding details to localstorage and sessionstorage
                   localStorage.setItem("username",data.UserName);
                   sessionStorage.setItem("username",data.UserName);
-                  localStorage.setItem("Access_Role",data.rId.toString());
-  
-                //based on role redirect out application
-  
+                  localStorage.setItem("Access_Role",data.rId.toString());  
+                  //based on role redirect out application  
                   this.router.navigateByUrl("/admin");
   
                 }
                 
                   else if(this.jwtResponse.rId===2)
                   {
-                  //logged as manager
+                  //logged as Front Office
                   console.log("Front Office Module")
                   //adding details to localstorage and sessionstorage
                   localStorage.setItem("username",data.UserName);
                   sessionStorage.setItem("username",data.UserName);
                   localStorage.setItem("Access_Role",data.rId.toString());
                   //based on role redirect out application
-                  this.router.navigateByUrl("/frontoffice");
+                  this.router.navigateByUrl("/patientlist");
                 }
 
                 else if(this.jwtResponse.rId===3)
                   {
-                  //logged as manager
+                  //logged as lab Technitian
                   console.log("LabTechnician Module")
                   //adding details to localstorage and sessionstorage
                   localStorage.setItem("username",data.UserName);
                   sessionStorage.setItem("username",data.UserName);
                   localStorage.setItem("Access_Role",data.rId.toString());
                   //based on role redirect out application
-                  this.router.navigateByUrl("/labtechnician");
+                  this.router.navigateByUrl("/labtechnitian");
                 }
                
-                else if(this.jwtResponse.RoleId===4)
+                else if(this.jwtResponse.rId===4)
                 {
-                  //logged as customer
+                  //logged as doctor
                   console.log("Doctor");
                   //adding details to localstorage and sessionstorage
                   localStorage.setItem("username",data.UserName);

@@ -36,8 +36,8 @@ export class StaffComponent implements OnInit {
         console.log(data);
 
         var datepipe = new DatePipe("en-UK");
-        let formatedDate: any = datepipe.transform(data.DateOfJoining, "yyyy-MM-dd");
-        data.DateOfJoining = formatedDate;
+        let formatedDate: any = datepipe.transform(data.StaffDateOfJoining, "yyyy-MM-dd");
+        data.StaffDateOfJoining = formatedDate;
         //this.staffService.formData = data;
         this.staffService.formData = Object.assign({}, data);
         

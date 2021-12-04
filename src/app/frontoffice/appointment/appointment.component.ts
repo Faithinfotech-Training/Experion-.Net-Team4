@@ -32,8 +32,7 @@ export class AppointmentComponent implements OnInit {
        //get appointment
        this.service.getAppointment(this.appointmentId).subscribe(
          (data) => {
-           console.log(data);
-   
+           console.log(data);   
            //date format
            var datePipe = new DatePipe("en-UK");
            let formatedDate: any = datePipe.transform(data.AppointmentDate, 'yyyy-MM-dd')

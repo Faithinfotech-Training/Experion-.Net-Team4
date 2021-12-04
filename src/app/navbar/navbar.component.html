@@ -1,6 +1,4 @@
-<!--navbar-->
 <nav class="navbar navbar-expand-lg navbar navbar-primary" style="background-color: #e3f2fd;">
-
     <div class="container-fluid">
         <a class="navbar-brand " href="/home"><i class="fa fa-home"></i><b>HOME</b></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -16,30 +14,14 @@
                     <a class="nav-link" href="../contactus"><b>CONTACT US</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/event"><b>EVENTS</b></a>
+                    <a class="nav-link" href="../event"><b>EVENTS</b></a>
                 </li>
-               
+                
                 <li class="nav-item">
-                    <a class="nav-link" style="margin-left:1100%" href="../login"><b>LOGIN</b></a>
+                    <a class="nav-link" style="margin-left:850%" (click)="logout()"><b>LOGOUT</b></a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 <br>
-
-<!--events-->
-<div class="container" style="width: 80%;">
-    <div *ngFor="let e of service.events">
-        <div class="card">
-            <div class="card-body">
-                <img src={{e.EventImage}} width="300px" height="300px" style="float: right;">
-                <h2>&#8226; {{e.EventName}}</h2>
-                
-                <br>
-                <h5>{{e.EventDescription}} </h5>                
-            </div>           
-        </div>
-        <br>
-    </div>
-</div>
