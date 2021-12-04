@@ -32,6 +32,20 @@
         <div class="card-body">
             <form name="patform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
 
+                <!--Patient ID-->
+                <input type="hidden" name="PatientId" [(ngModel)]="service.formData.PatientId" />
+
+                <!--Patient Name-->
+                <div class="form-group">
+                    <label>Name</label>
+                    <input name="PatientName" #PatientName="ngModel" [(ngModel)]="service.formData.PatientName"
+                        class="form-control" placeholder="enter full name " minLength="1" maxLength="25" required
+                        [ngClass]="{'is-invalid':PatientName.touched && PatientName.invalid}" />
+                    <div class="validation-error" *ngIf="PatientName.touched&&PatientName.invalid">
+                        <div *ngIf="PatientName.errors.required">Patient Name is required</div>
+                    </div>
+                </div>
+
                 <!--PatientAge-->
                 <div class="form-group">
                     <label>Age</label>
