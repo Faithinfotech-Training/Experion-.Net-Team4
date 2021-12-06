@@ -45,7 +45,7 @@
                         <option value="0" disabled>Choose Doctor</option>
 
                         <option *ngFor="let doctor of labService.doctors" value="{{doctor.DoctorId}}">
-                         Id:{{doctor.DoctorId}} , Name: {{doctor.DoctorName}}</option>
+                          Name: {{doctor.DoctorName}}</option>
 
 
                     </select>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
 
-                <!--is active-->
+                <!--is active
                 <br>
                 <div class="form-group">
                     <div class="form-check">
@@ -62,7 +62,7 @@
                         <input type="checkbox" name="IsActive" id="IsActive" #IsActive="ngModel"
                             [(ngModel)]="service.aFormData.IsActive" class="form-check-input">
                     </div>
-                </div>
+                </div>-->
 
                 <!--submit button-->
                 <br>

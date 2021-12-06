@@ -13,11 +13,17 @@ import { NgForm } from '@angular/forms';
 })
 export class PaymentbillComponent implements OnInit {
 
+  total:number;
   billId:number;
   bill:PaymentBill = new PaymentBill();
   constructor(public service: FrontofficeService,private toastrService: ToastrService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.bill.DoctorConsulationFee=0;
+    this.bill.LabTestFee=0;
+    this.bill.NursingFee=0;
+    this.total=this.Ontotal();
 
     //get patients for binding
     this.service.bindListPatient();
@@ -48,10 +54,13 @@ export class PaymentbillComponent implements OnInit {
     let addId = this.service.billFormData.BillId;
     if (addId == 0 || addId == null) {
       form.value.BillNumber = Date.now()  - 1638589350349;
+      form.value.Amount=form.value.DoctorConsulationFee+form.value.LabTestFee+form.value.NursingFee;
       //insert
+      form.value.IsActive = true;
       this.insertBillRecord(form);
     }
     else {
+      form.value.Amount=form.value.DoctorConsulationFee+form.value.LabTestFee+form.value.NursingFee;
       //update
       console.log("updating record...");
     }
@@ -76,6 +85,28 @@ export class PaymentbillComponent implements OnInit {
       }
     );
     // window.location.reload();
+  }
+
+  onPassValue1(passvalue1 : number ) {
+    this.bill.DoctorConsulationFee=passvalue1;
+    console.log(this.bill.DoctorConsulationFee);
+    return this.bill.DoctorConsulationFee;  
+     }
+
+  onPassValue2(passvalue2 : number ) {
+      this.bill.LabTestFee=passvalue2;
+      console.log(this.bill.LabTestFee);
+      return this.bill.LabTestFee;  
+       }
+       onPassValue3(passvalue3 : number ) {
+        this.bill.NursingFee=passvalue3;
+        console.log(this.bill.NursingFee);
+        return this.bill.NursingFee;  
+         }
+
+  Ontotal(){
+    
+    return +this.bill.DoctorConsulationFee + +this.bill.NursingFee + +this.bill.LabTestFee;
   }
 
 

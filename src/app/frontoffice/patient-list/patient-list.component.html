@@ -23,7 +23,7 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <!--<th>ID</th>-->
                             <th>Patient Name</th>
                             <th>Age</th>
                             <th>Gender</th>
@@ -39,7 +39,7 @@
                         <tr
                             *ngFor="let pat of service.patients|filter:filter| paginate:{itemsPerPage:5,currentPage:page}">
                             <!--ng-container *ngIf="pat.IsActive"-->
-                            <td (click)="populateForm(pat)">{{pat.PatientId}}</td>
+                            <!--<td (click)="populateForm(pat)">{{pat.PatientId}}</td>-->
                             <td (click)="populateForm(pat)">{{pat.PatientName}}</td>
                             <td (click)="populateForm(pat)">{{pat.PatientAge}}</td>
                             <td (click)="populateForm(pat)">{{pat.PatientGender}}</td>
