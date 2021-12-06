@@ -17,6 +17,10 @@ export class AddreportComponent implements OnInit {
   report : Report = new Report();
   rptId : number;
   isSubmitted = false;
+  patientId:number;
+  doctorId:number;
+  staffId:number;
+  staffName:string;
 
   constructor(public labService: LabTechnitianService , public doctorService : DoctorService ,public  patientService : FrontofficeService,
     private router:Router,
@@ -27,6 +31,10 @@ export class AddreportComponent implements OnInit {
     this.labService.bindListStaff();
     this.patientService.bindListPatient();  
     this.labService.bindListDoctor();  
+    this.doctorId = this.route.snapshot.params['doctorId'];
+    this.patientId = this.route.snapshot.params['patientId'];
+    this.staffId = parseInt(localStorage.getItem('staffId'));
+    this.staffName = localStorage.getItem('staffName');
   }
 
   //clear all contents at Initialization  
@@ -43,6 +51,11 @@ export class AddreportComponent implements OnInit {
     form.value.ReportDate = new Date().toISOString().slice(0, 10);
     form.value.ReportNumber = Date.now()  - 1638196230000;    
     form.value.IsActive = true;
+    form.value.StaffId = this.staffId;
+    if(this.doctorId !=null && this.patientId!=null){
+      form.value.PatientId = this.patientId;
+      form.value.DoctorId = this.doctorId;
+    }
     console.log(form.value);
     //Insert 
     this.insertReportRecord(form);    

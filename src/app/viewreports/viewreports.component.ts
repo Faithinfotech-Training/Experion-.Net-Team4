@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LabTechnitianService } from '../shared/lab-technitian.service';
 
 @Component({
@@ -14,14 +14,16 @@ export class ViewreportsComponent implements OnInit {
   filter:string;
   tempFilter:string;
   //tempDateFilter : Date;
-  dateFilter : Date
+  dateFilter : Date;
+  flag:number;
 
-  constructor(public labService: LabTechnitianService ,private router:Router) { }
+  constructor(public labService: LabTechnitianService ,private router:Router,private route:ActivatedRoute) { }
 
   //lifecycle hook
   ngOnInit(): void {
     //Get all reports From Service
     this.labService.bindListReport();
+    this.flag=this.route.snapshot.params['flag'];
   }
 
   //View Tests Of that report

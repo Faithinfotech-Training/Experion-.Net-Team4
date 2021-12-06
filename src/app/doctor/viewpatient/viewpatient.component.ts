@@ -27,9 +27,9 @@ export class ViewpatientComponent implements OnInit {
   }
 
   //consultation For the Patient
-  consult(patientId : number){
+  consult(patientId : number , patientName:string){
     console.log(patientId);
-    this.router.navigate(['consultation',patientId])
+    this.router.navigate(['consultation',patientId,patientName])
   }
 
   

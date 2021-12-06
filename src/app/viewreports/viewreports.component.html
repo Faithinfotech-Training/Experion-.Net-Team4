@@ -1,3 +1,7 @@
+<ng-container *ngIf="flag==1">
+    <app-navbar></app-navbar>
+</ng-container>
+
 
 <div class="container">
     <div class="header">
@@ -22,22 +26,22 @@
             <tr>
                 <th>Report Number</th>
                 <th>Staff Name</th>
-                <th>DoctorName</th>
-                <th>Report Date</th>
-                <th>Patient Id</th>                    
-                <th>Action</th>
+                <th>Doctor Name</th>
+                <th>Patient Name</th>
+                <th>Report Date</th>                               
+               
                 
             </tr>
         </thead>
         <tbody>
                     
                 <tr *ngFor="let report of labService.reports | filter:filter | filter : dateFilter | paginate: {itemsPerPage:5 , currentPage: page}">
-                    <td  >{{report.ReportNumber}}</td>
-                    <td  >{{report.StaffName}}</td>
-                    <td  >{{report.DoctorName }}</td>
-                    <td  >{{report.ReportDate | date:'dd-MM-yyyy'}}</td>   
-                    <td  >{{report.PatientId }}</td>                
-                    <td  >                        
+                    <td>{{report.ReportNumber}}</td>
+                    <td>{{report.StaffName}}</td>
+                    <td>{{report.DoctorName }}</td>
+                    <td>{{report.PatientName }}</td>
+                    <td>{{report.ReportDate | date:'dd-MM-yyyy'}}</td>                                   
+                    <td>                        
                         <button  (click)="viewTest(report.ReportId)" class="btn btn-info" style="margin-left:10px">View Full Report</button>                    
                     </td>
                     

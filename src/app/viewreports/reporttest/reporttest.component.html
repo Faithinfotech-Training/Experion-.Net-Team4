@@ -1,20 +1,23 @@
 <app-navbar></app-navbar>
+<a class="btn btn-sm btn-outline-primary" style="margin-left: 80%;" (click)="goBack()"><b>Go Back</b></a>
+<br>
+<br>
 
-<div class="container">
+<div class="container" id="pdf">
     <div class="header">
        
         <h5>Detailed Report </h5><br> 
         <p style="float: right;"> Date : {{report.ReportDate | date}}</p>
         <p>Report Number : {{report.ReportNumber}}  </p>        
-        <p>Patient ID : {{report.PatientId}}</p> 
+        <p>Patient Name : {{report.PatientName}}</p> 
         <p>Staff Name : {{report.StaffName}}</p>
         <p>Doctor Name : {{report.DoctorName}}</p>        
         <br>        
     </div>
-    <table class="table table-bodered table-striped">
+    <table class="table table-bodered table-striped"  >
         <thead>
             <tr>
-                <th>Test ID</th>
+               
                 <th>Test Name</th>
                 <th>Normal Range</th>
                 <th>Test Result</th>
@@ -24,8 +27,7 @@
         </thead>
         <tbody>
                     
-                <tr *ngFor="let test of labService.tests">
-                    <td  >{{test.TestId}}</td>
+                <tr *ngFor="let test of labService.tests">                    
                     <td  >{{test.TestName}}</td>
                     <td  >{{test.NormalRange}}</td>  
                     <td  >{{test.TestResult}}</td>                           
@@ -35,9 +37,8 @@
     <br>
     <h5>Notes & Observations</h5>
     <p>{{report.ReportNotes}}</p>
-    <br>
-    
-    
+    <br>  
 
 </div>
 
+<a class="btn btn-sm btn-outline-success" style="margin-left: 80%;" (click)="convertToPDF()"><b>Download PDF</b></a>
