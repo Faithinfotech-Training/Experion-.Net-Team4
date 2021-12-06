@@ -10,14 +10,16 @@
             <input class="form-control" type="text" placeholder="Search .." [(ngModel)]="filter">
         </div>
 
+        <a href="../admin" class="btn btn-primary"> Go Back </a> <br> <br>
         <a href="../users" class="btn btn-primary"> Add User </a>
+        
     </div>
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>
+               <!--- <th>
                     ID
-                </th>
+                </th>-->
                 <th>
                    User Name
                 </th>
@@ -35,10 +37,10 @@
         <tbody>
             <tr
                 *ngFor="let user of userService.users| filter: filter | paginate: {itemsPerPage:5,currentPage:page}">
-                <td>{{user.UserId}}</td>
+               <!-- <td>{{user.UserId}}</td>-->
                 <td>{{user.UserName}}</td>
                 <td>{{user.UserPassword}}</td>
-                <td>{{user.RoleId}}</td>
+                <td>{{user.RoleName}}</td>
                 <td>{{user.IsActive}}</td>
 
 

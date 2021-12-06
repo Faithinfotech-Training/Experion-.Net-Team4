@@ -49,6 +49,7 @@ export class DoctorsComponent implements OnInit {
     //insert
 
     if (addId == 0 || addId == null) {
+      form.value.IsActive=true;
       this.insertDoctor(form);
 
       //window.location.reload();
@@ -56,6 +57,7 @@ export class DoctorsComponent implements OnInit {
 
     //update
     else {
+      form.value.IsActive=true;
       this.updateDoctor(form);
 
     }

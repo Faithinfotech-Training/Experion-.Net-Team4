@@ -142,12 +142,12 @@
 
                 <!--User ID from user table-->
                 <div class="form-group">
-                    <label class="col-md-4">UserId</label>
+                    <label class="col-md-4">User Name</label>
                     <select name="UserId" id="UserId" class="form-control" #UserId="ngModel" required
                         [(ngModel)]="userService.formData.UserId">
-                        <option value="0" disabled>Select UserId</option>
-                        <option *ngFor="let user of userService.users" value="{{user.UserId}}">Id:{{user.UserId}},
-                            Name:{{user.UserName}}</option>
+                        <option value="0" disabled>Select User Name</option>
+                        <option *ngFor="let user of userService.users" value="{{user.UserId}}">
+                            {{user.UserName}}</option>
 
                     </select>
                     <div class="validation-error" *ngIf="UserId.touched && UserId.invalid">
@@ -155,14 +155,14 @@
                     </div>
                 </div>
 
-                <!--Is Active-->
+                <!--Is Active
                 <div class="form-group">
                     <div class="form-check">
                         <label class="form-check-label">Is Active </label>
-                        <input type="checkbox" name="IsActive" id="IsActive" #IsActive="ngModel"
+                        <input type="checkbox " name="IsActive" id="IsActive" #IsActive="ngModel"
                             [(ngModel)]="doctorService.formData.IsActive" class="form-check-input">
                     </div>
-                </div>
+                </div>-->
 
                 <!--submit button-->
                 <br>

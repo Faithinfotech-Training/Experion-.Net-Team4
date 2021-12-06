@@ -75,19 +75,21 @@
                             Staff's Age is required</div>
                     </div>
                 </div>
-
+                 
                 <!--Gender-->       
                 <div class="form-group">        
                     <label>Gender </label>
-                    <div>                   
-                          <input type="radio" name="StaffGender" id="StaffGender" #StaffGender="ngModel" value="male"   
-                                         [(ngModel)]="staffService.formData.StaffGender"   class="form-check-input"
+                    <br>
+                    <div class="container">                  
+                         
+                        <input type="radio" name="StaffGender" id="StaffGender" #StaffGender="ngModel" value="male" 
+                                           [(ngModel)]="staffService.formData.StaffGender"   class="form-check-input"
                             required  />         
                           <label>Male</label> 
-                        <br>                
-                        <input type="radio" name="StaffGender" id="StaffGender" #StaffGender="ngModel" value="female"   
-                                  [(ngModel)]="staffService.formData.StaffGender"   class="form-check-input"
-                             required />         
+                                    
+                               <input type="radio" name="StaffGender" id="StaffGender" #StaffGender="ngModel" value="female" 
+                                       [(ngModel)]="staffService.formData.StaffGender"   class="form-check-input"
+                        required  /> 
                         <label>Female</label> 
                          
                     </div>   
@@ -124,12 +126,12 @@
 
                 <!--User ID from user table-->
                 <div class="form-group">
-                    <label class="col-md-4">UserId</label>
+                    <label class="col-md-4">User Name</label>
                     <select name="UserId" id="UserId" class="form-control" #UserId="ngModel" required
                         [(ngModel)]="userService.formData.UserId">
-                        <option value="0" disabled>Select UserId</option>
-                        <option *ngFor="let user of userService.users" value="{{user.UserId}}">Id:{{user.UserId}},
-                            Name:{{user.UserName}}</option>
+                        <option value="0" disabled>Select User Name</option>
+                        <option *ngFor="let user of userService.users" value="{{user.UserId}}">
+                            {{user.UserName}}</option>
 
                     </select>
                     <div class="validation-error" *ngIf="UserId.touched && UserId.invalid">
@@ -137,14 +139,14 @@
                     </div>
                 </div>
 
-                <!--Is Active-->
+                <!--Is Active
                 <div class="form-group">
                     <div class="form-check">
                         <label class="form-check-label">Is Active </label>
                         <input type="checkbox" name="IsActive" id="IsActive" #IsActive="ngModel"
                             [(ngModel)]="staffService.formData.IsActive" class="form-check-input">
                     </div>
-                </div>
+                </div> -->
 
                 <!--submit button-->
                 <br>

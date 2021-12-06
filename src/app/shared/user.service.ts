@@ -17,7 +17,7 @@ export class UserService {
 
 
 bindUser(){
-  this.httpClient.get(environment.apiUrl+"api/user/GetAllUsers")
+  this.httpClient.get(environment.apiUrl+"api/userviewmodel/getuserdetails")
   .toPromise().then(response=>
     this.users=response as User[])
 
@@ -36,6 +36,7 @@ updateUser(user:User):Observable<any>
   return this.httpClient.put(environment.apiUrl+"api/user/UpdateUser",user);
 
 }
+
 
 //get user by id
 getUserById(UserId:number):Observable<any>

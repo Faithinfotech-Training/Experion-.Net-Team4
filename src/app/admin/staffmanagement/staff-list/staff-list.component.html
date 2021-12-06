@@ -9,7 +9,7 @@
         <div class="form-group">
             <input class="form-control" type="text" placeholder="Search .." [(ngModel)]="filter">
         </div>
-
+        <a href="../admin" class="btn btn-primary"> Go Back </a> <br> <br>
         <a href="../staff" class="btn btn-primary"> Add Staff </a>
     </div>
     <table class="table table-bordered table-striped">
@@ -43,9 +43,7 @@
                 <th>
                     DateOfJoining
                 </th>
-                <th>
-                    User Id
-                </th>
+               
                 <th>
                     Status
                 </th>
@@ -64,7 +62,6 @@
                 <td>{{staff.StaffGender}}</td>
                 <td>{{staff.StaffQualification}}</td>
                 <td>{{staff.StaffDateOfJoining|date:'dd-MM-yyyy'}}</td>
-                <td>{{staff.UserId}}</td>
                 <td>{{staff.IsActive}}</td>
 
 
