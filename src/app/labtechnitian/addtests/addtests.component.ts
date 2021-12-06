@@ -28,6 +28,7 @@ export class AddtestsComponent implements OnInit {
     //Get value from activated Route
     this.rptId=this.route.snapshot.params['rptId'];
     this.labService.bindListStaff();
+    this.labService.bindListTests();
   }
 
   //clear all contents at Initialization  

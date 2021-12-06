@@ -5,8 +5,10 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import {Report } from './report';
 import {Test } from './test';
+import {Email} from './email';
 import { Observable } from 'rxjs';
-
+import { EmailValidator } from '@angular/forms';
+import {TestList} from './testlist';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +18,14 @@ export class LabTechnitianService {
   //Declaring The variables
   reportFormData: Report = new Report();
   testFormData : Test = new Test();
+  emailFormData : Email = new Email()
   prescriptions : Prescription[];
   prescribedTests : PrescribedTest[];
   reports : Report[];
   tests : Test[];
   staffs : object[];
   doctors : object[];
+  test : TestList[];
 
   constructor(private httpClient: HttpClient) { }
   
@@ -88,5 +92,14 @@ export class LabTechnitianService {
    //INSERT
    insertTest(test : Test): Observable<any>{
     return this.httpClient.post(environment.apiUrl+"api/test",test);
+  }
+
+  //get tests for binding
+
+  bindListTests(){
+    this.httpClient.get(environment.apiUrl+"api/testlist")
+   .toPromise().then(response=>
+    this.test = response as TestList[])
+
   }
 }
