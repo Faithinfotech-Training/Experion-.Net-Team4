@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import {Report } from './report';
 import {Test } from './test';
 import { Observable } from 'rxjs';
+import { TestList } from './testlist';
 
 
 @Injectable({
@@ -22,9 +23,17 @@ export class LabTechnitianService {
   tests : Test[];
   staffs : object[];
   doctors : object[];
+  test:TestList[];
 
   constructor(private httpClient: HttpClient) { }
   
+  //get tests for binding
+  bindListTests(){
+    this.httpClient.get(environment.apiUrl+"api/testlist")
+   .toPromise().then(response=>
+    this.test = response as TestList[])
+  }
+
 
   //GET Prescription for Binding
   bindCmbPrescriptions(){

@@ -42,6 +42,7 @@ import { EventsComponent } from './admin/eventmanagement/events/events.component
 import { EventListComponent } from './admin/eventmanagement/event-list/event-list.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { ViewbillComponent } from './frontoffice/paymentbill-list/viewbill/viewbill.component';
   
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -80,6 +81,7 @@ const routes: Routes = [
   {path: 'addreport/:patientId/:doctorId', component: AddreportComponent },
   {path: 'addtest/:rptId', component: AddtestsComponent },
   {path: 'reporttest/:rtId', component: ReporttestComponent },
+  {path: 'viewbill/:billId', component: ViewbillComponent },
   {path: 'doctors-list', component: DoctorsListComponent },
   {path: 'frontoffice', component: FrontofficeComponent },
   {path: 'patient', component: PatientComponent },
@@ -97,6 +99,7 @@ const routes: Routes = [
   {path:'paymentbilllist',component:PaymentbillListComponent},
   {path:'appointmentlist',component:AppointmentListComponent},
   {path:'paymentbilllist/paymentbill',component:PaymentbillComponent},
+  {path:'paymentbilllist/viewbill',component:PaymentbillComponent},
   {path:'appointmentlist/appointment',component:AppointmentComponent},
   {path:'appointment/:appointmentId',component:AppointmentComponent} ,
   {path:'addprescription/:patientId/:patientName',component:AddprescriptionComponent},

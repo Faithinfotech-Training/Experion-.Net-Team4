@@ -60,6 +60,7 @@ import { EventListComponent } from './admin/eventmanagement/event-list/event-lis
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ViewbillComponent } from './frontoffice/paymentbill-list/viewbill/viewbill.component';
 
 
 
@@ -114,6 +115,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     AboutusComponent,
     ContactusComponent,
     NavbarComponent,
+    ViewbillComponent,
    
     
   ],
@@ -126,7 +128,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot() , // ToastrModule added
     NgxPaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    
   ],
   providers: [AuthService, AuthGuard,LabTechnitianService, FrontofficeService,
     

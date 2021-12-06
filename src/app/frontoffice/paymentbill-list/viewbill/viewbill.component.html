@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<a class="btn btn-sm btn-outline-primary" style="margin-left: 80%;" (click)="goBack()"><b>Go Back</b></a>
+<br>
+<br>
+
+<div class="container" id="pdf">
+    <div class="header">
+       
+        <h5>Payment Bill Details </h5><br> 
+        <p> Bill Number : {{paymentbill.BillNumber}}</p>
+        <p>Bill Date : {{paymentbill.BillDate|date}}  </p>        
+        <p>Patient Name : {{paymentbill.PatientName}}</p>       
+        <br>        
+    </div>
+    <table class="table table-bodered table-striped"  >
+        <thead>
+            <tr>
+
+                <th>Doctor Consulation Fee</th>
+                <th>Lab Test Fee</th>
+                <th>Nursing Fee</th>
+                                            
+            </tr>
+        </thead>
+        <tbody>
+                    
+                <tr >                    
+                    <td  >{{paymentbill.DoctorConsulationFee}}</td>
+                    <td  >{{paymentbill.LabTestFee}}</td>  
+                    <td  >{{paymentbill.NursingFee}}</td>                           
+                </tr>            
+        </tbody>
+    </table>
+    <br>
+</div>
+<br>
+
+<a class="btn btn-sm btn-outline-success" style="margin-left: 80%;" (click)="convertToPDF()"><b>Download PDF</b></a>

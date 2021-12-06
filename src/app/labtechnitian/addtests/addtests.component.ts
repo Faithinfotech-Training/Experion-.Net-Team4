@@ -25,6 +25,9 @@ export class AddtestsComponent implements OnInit {
     private route:ActivatedRoute) { }
     
   ngOnInit(): void {
+    //get tests for binding
+    this.labService.bindListTests();
+    
     //Get value from activated Route
     this.rptId=this.route.snapshot.params['rptId'];
     this.labService.bindListStaff();

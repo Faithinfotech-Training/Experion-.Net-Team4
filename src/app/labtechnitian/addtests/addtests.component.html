@@ -25,13 +25,14 @@
                 <!--Test Name-->
                 <div class="form-group">
                     <label>Test Name</label>
-                    <input name="TestName" #TestName="ngModel" [(ngModel)]="labService.testFormData.TestName"
-                        class="form-control" placeholder="Enter Test Name" minlength="1" maxlength="20" required
-                        [ngClass]="{'is-invalid': TestName.touched && TestName.invalid}" />
+                    <select name="TestName" id="TestName" class="form-control" #TestName="ngModel" required
+                        [(ngModel)]="labService.testFormData.TestName">
+                        <option value="" disabled>Choose Test</option>
+                        <option *ngFor="let t of labService.test" value="{{t.TestName}}">
+                         {{t.TestName}}</option>
 
-                    <div class="validation-error" *ngIf="TestName.touched && TestName.invalid">
-                        <div *ngIf="TestName.errors.required">Test Name is Required</div>
-                    </div>
+
+                    </select>
                 </div>
                 <br>
 

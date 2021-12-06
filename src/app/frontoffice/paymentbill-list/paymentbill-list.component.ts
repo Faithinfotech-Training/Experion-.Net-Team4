@@ -31,4 +31,10 @@ export class PaymentbillListComponent implements OnInit {
     b.BillDate=formatedDate;
     this.service.billFormData=Object.assign({},b);
   }
+
+  //View bill of a patient
+  viewBill(billId : number){
+    console.log(billId);
+    this.router.navigate(['viewbill',billId])
+  }
 }

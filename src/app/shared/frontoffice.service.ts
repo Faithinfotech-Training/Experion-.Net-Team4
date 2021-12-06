@@ -7,6 +7,7 @@ import { PaymentBill } from './paymentbill';
 import { Appointment } from './appointment';
 import { Events } from './event';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +22,7 @@ export class FrontofficeService {
   bills:PaymentBill[];
   appointments:Appointment[];
   events:Events[];
+  
   
   constructor(private httpClient: HttpClient) { }
 

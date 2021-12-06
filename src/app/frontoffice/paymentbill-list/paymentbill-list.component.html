@@ -1,4 +1,6 @@
 <app-navbar></app-navbar>
+<a class="btn btn-sm btn-outline-primary" style="margin-left: 80%;"  href="../patientlist"><b>Go Back</b></a>
+<br>
 
 <div class="container">
     <div class="card">
@@ -41,6 +43,9 @@
                             <td (click)="populateForm(b)">{{b.Amount}}</td>
                             <td (click)="populateForm(b)">{{b.IsActive}}</td>
                             <td (click)="populateForm(b)">{{b.PatientName}}</td>
+                            <td>
+                                <button class="btn btn-info"style="margin-left:10px"
+                                    (click)="viewBill(b.BillId)">View</button>
                             <!-- </ng-container>-->
                         </tr>
                     </tbody>
@@ -54,6 +59,3 @@
     </div>
 </div>
 <br>
-<div style="padding-left: 80%; width: max-content;">
-    <a class="btn btn-lg btn-outline-secondary"  href="../patientlist"><b>Go Back</b></a>
-</div>
