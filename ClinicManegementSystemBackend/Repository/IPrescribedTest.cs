@@ -10,7 +10,7 @@ namespace ClinicManegementSystemBackend.Repository
    public interface IPrescribedTest
     {
         //get prescribedtest by prescriptionid
-        public Task<ActionResult<TblPrescribedTest>> GetPrescribedTestsByPrescriptionId(int prescriptionId);
+        Task<List<TblPrescribedTest>> GetPrescribedTestsByPrescriptionId(int id);
 
         //add prescribed test
         public Task<int> AddPrescribedTest(TblPrescribedTest prescribedTest);

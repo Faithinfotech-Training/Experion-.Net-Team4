@@ -30,31 +30,25 @@ namespace ClinicManegementSystemBackend.Repository
         #endregion
 
         #region Get Prescribed Tests By prescriptionId
-        public async Task<TblPrescribedTest> GetPrescribedTestsByPrescriptionId(int id)
+        public async Task<List<TblPrescribedTest>> GetPrescribedTestsByPrescriptionId(int id)
         {
             if (db != null)
             {
                 //LINQ
                 return await (from p in db.TblPrescribedTest
-                              where p.PrescribedTestId == id
+                              where p.PrescriptionId == id
                               select new TblPrescribedTest
                               {
                                   PrescribedTestId = p.PrescribedTestId,
                                   PrescribedTestName = p.PrescribedTestName,
                                   IsActive = p.IsActive,
-                                  PrescriptionId=p.PrescriptionId
-                                  
-                              }).FirstOrDefaultAsync();
+                                  PrescriptionId=p.PrescriptionId                                  
+                              }).ToListAsync();
             }
             return null;
         }
 
-        Task<ActionResult<TblPrescribedTest>> IPrescribedTest.GetPrescribedTestsByPrescriptionId(int prescriptionId)
-        {
-            throw new NotImplementedException();
-        }
         #endregion
-
 
     }
 }

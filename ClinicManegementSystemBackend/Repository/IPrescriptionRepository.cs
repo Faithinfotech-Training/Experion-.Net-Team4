@@ -10,7 +10,7 @@ namespace ClinicManegementSystemBackend.Repository
     public interface IPrescriptionRepository
     {
         Task<List<PrescriptionLabViewModel>> GetPrescription();
-        Task UpdateReport(TblPrescription prescription);
+        Task UpdatePrescription(TblPrescription prescription);
         Task<int> AddPrescription(TblPrescription prescription);
     }
 }

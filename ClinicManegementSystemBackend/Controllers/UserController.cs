@@ -1,113 +1,122 @@
 ﻿using ClinicManegementSystemBackend.Models;
 using ClinicManegementSystemBackend.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace ClinicManegementSystemBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LabReportController : ControllerBase
+    public class UserController : ControllerBase
     {
-        //Constructor Dependency Injection for LabReportRepository
-        ILabReportRepository labRepository;
-        public LabReportController(ILabReportRepository _p)
+        IUserRepository userRepository;
+
+        public UserController(IUserRepository _ur)
         {
-            labRepository = _p;
+            userRepository = _ur;
         }
 
-        #region Get Lab Reports
+        #region get users
         [HttpGet]
-        //[Route("GetLabReports")]
-        public async Task<IActionResult> GetAllReports()
+        //[Authorize(AuthenticationSchemes = "Bearer")]
+        [Route("getallusers")]
+        public async Task<IActionResult> GetAllUsers()
         {
             try
             {
-                var report = await labRepository.GetLabReports();
-                if (report == null)
+
+                var users = await userRepository.GetAllUsers();
+                if (users == null)
                 {
                     return NotFound();
                 }
-                return Ok(report);
+                return Ok(users);
+
             }
             catch (Exception)
             {
-
                 return BadRequest();
             }
 
         }
         #endregion
 
-        #region Get Lab Report By ID
+        #region Get User By Id
         [HttpGet("{id}")]
-        //[Route("GetLabReports")]
-        public async Task<IActionResult> GetReportByID(int id)
+        public Task<ActionResult<TblUser>> GetUserById(int id)
         {
             try
             {
-                var report = await labRepository.GetLabReportsById(id);
-                if (report == null)
+                var user = userRepository.GetUserById(id);
+                if (user == null)
                 {
-                    return NotFound();
+                    return null;
                 }
-                return Ok(report);
+                return user;
             }
+
             catch (Exception)
             {
-
-                return BadRequest();
+                return null;
             }
-
         }
         #endregion
 
+        #region Add user
 
-        #region Add Report
-        [HttpPost]        
-        public async Task<IActionResult> AddReport(TblLabReport model)
+        [HttpPost]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Route("adduser")]
+
+        public async Task<IActionResult> AddUser([FromBody] TblUser user)
         {
-            //Check the validation of body
+            // check the validation of body
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var reportId = await labRepository.AddReport(model);
-                    if (reportId > 0)
+                    var userId = await userRepository.AddUser(user);
+                    if (userId > 0)
                     {
-                        return Ok(reportId);
+                        return Ok(userId);
                     }
                     else
                     {
                         return NotFound();
                     }
+
                 }
                 catch (Exception)
                 {
-
                     return BadRequest();
                 }
+
             }
             return BadRequest();
         }
         #endregion
 
-        #region Update Report
+
+
+        #region update user
+
         [HttpPut]
-        //[Route("UpdateReport")]
-        //[Authorize]
-        public async Task<IActionResult> UpdateReport([FromBody] TblLabReport model)
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Route("updateUser")]
+        public async Task<IActionResult> UpdateUser([FromBody] TblUser model)
         {
-            //Check the validation of body
+            //check the validation of body
             if (ModelState.IsValid)
             {
                 try
                 {
-                    await labRepository.UpdateReport(model);
+                    await userRepository.UpdateUser(model);
                     return Ok();
                 }
                 catch (Exception)
@@ -118,6 +127,5 @@ namespace ClinicManegementSystemBackend.Controllers
             return BadRequest();
         }
         #endregion
-
     }
 }

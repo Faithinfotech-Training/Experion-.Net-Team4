@@ -9,6 +9,7 @@ namespace ClinicManegementSystemBackend.Repository
     public interface IDoctorNotesRepository
     {
         Task<int> AddNotes(TblObservation notes);
-        Task<TblObservation> GetNotesByPatientId(int id);
+        Task<List<TblObservation>> GetNotesByPatientId(int id);
+       
     }
 }

@@ -59,9 +59,9 @@ namespace ClinicManegementSystemBackend.Repository
         }
         #endregion
 
-        #region Update Report
+        #region Update Prescription
 
-        public async Task UpdateReport(TblPrescription prescription)
+        public async Task UpdatePrescription(TblPrescription prescription)
         {
             if (db != null)
             {

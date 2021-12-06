@@ -9,6 +9,7 @@ namespace ClinicManegementSystemBackend.Models
         public string Observation { get; set; }
         public string DoctorNotes { get; set; }
         public bool? IsActive { get; set; }
+        public DateTime? ObservationDate { get; set; }
         public int? DoctorId { get; set; }
         public int? PatientId { get; set; }
 

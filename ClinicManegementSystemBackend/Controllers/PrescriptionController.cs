@@ -46,7 +46,7 @@ namespace ClinicManegementSystemBackend.Controllers
         #region Add Prescription
         [HttpPost]
         //checks for token
-        //[Route("AddPrescription")]
+       
         public async Task<IActionResult> AddPrescription([FromBody] TblPrescription model)
         {
             //Check the validation of body
@@ -85,7 +85,7 @@ namespace ClinicManegementSystemBackend.Controllers
             {
                 try
                 {
-                    await prescriptionRepository.UpdateReport(model);
+                    await prescriptionRepository.UpdatePrescription(model);
                     return Ok();
                 }
                 catch (Exception)

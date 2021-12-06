@@ -101,11 +101,54 @@ namespace ClinicManegementSystemBackend.Controllers
         }
         #endregion
 
+        #region Get Staff By UserID        
+        [HttpGet("getstaffbyuserid/{id}")]
+
+        public async Task<IActionResult> GetStaffByID(int id)
+        {
+            try
+            {
+                var report = await staffRepository.GetStaffByUserID(id);
+                if (report == null)
+                {
+                    return NotFound();
+                }
+                return Ok(report);
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+
+        }
+        #endregion
 
 
         #region update Staff
 
+        [HttpPut]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Route("updateStaff")]
+        public async Task<IActionResult> UpdateStaff([FromBody] TblStaff model)
+        {
+            //check the validation of body
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await staffRepository.UpdateStaff(model);
+                    return Ok();
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            }
+            return BadRequest();
+        }
 
+        /*
         [HttpPut]
         [Authorize(AuthenticationSchemes = "Bearer")]
         [Route("updatestaff")]
@@ -137,6 +180,7 @@ namespace ClinicManegementSystemBackend.Controllers
             }
             return BadRequest();
         }
+        */
 
         #endregion
     }

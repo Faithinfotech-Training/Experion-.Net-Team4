@@ -1,5 +1,6 @@
 ﻿using ClinicManegementSystemBackend.Models;
 using ClinicManegementSystemBackend.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,103 +12,110 @@ namespace ClinicManegementSystemBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LabReportController : ControllerBase
+    public class RoleController : ControllerBase
     {
-        //Constructor Dependency Injection for LabReportRepository
-        ILabReportRepository labRepository;
-        public LabReportController(ILabReportRepository _p)
+        IRoleRepository roleRepository;
+
+        public RoleController(IRoleRepository _rr)
         {
-            labRepository = _p;
+            roleRepository = _rr;
         }
 
-        #region Get Lab Reports
+        #region get roles
         [HttpGet]
-        //[Route("GetLabReports")]
-        public async Task<IActionResult> GetAllReports()
+        //[Authorize(AuthenticationSchemes = "Bearer")]
+        [Route("getallroles")]
+        public async Task<IActionResult> GetAllRoles()
         {
             try
             {
-                var report = await labRepository.GetLabReports();
-                if (report == null)
+
+                var roles = await roleRepository.GetAllRoles();
+                if (roles == null)
                 {
                     return NotFound();
                 }
-                return Ok(report);
+                return Ok(roles);
+
             }
             catch (Exception)
             {
-
                 return BadRequest();
             }
 
         }
         #endregion
 
-        #region Get Lab Report By ID
+        #region Get Role By Id
         [HttpGet("{id}")]
-        //[Route("GetLabReports")]
-        public async Task<IActionResult> GetReportByID(int id)
+        public Task<ActionResult<TblRole>> GetRoleById(int id)
         {
             try
             {
-                var report = await labRepository.GetLabReportsById(id);
-                if (report == null)
+                var role = roleRepository.GetRoleById(id);
+                if (role == null)
                 {
-                    return NotFound();
+                    return null;
                 }
-                return Ok(report);
+                return role;
             }
+
             catch (Exception)
             {
-
-                return BadRequest();
+                return null;
             }
-
         }
         #endregion
 
+        #region Add Role
 
-        #region Add Report
-        [HttpPost]        
-        public async Task<IActionResult> AddReport(TblLabReport model)
+        [HttpPost]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Route("addrole")]
+
+        public async Task<IActionResult> AddRole([FromBody] TblRole role)
         {
-            //Check the validation of body
+            // check the validation of body
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var reportId = await labRepository.AddReport(model);
-                    if (reportId > 0)
+                    var roleId = await roleRepository.AddRole(role);
+                    if (roleId > 0)
                     {
-                        return Ok(reportId);
+                        return Ok(roleId);
                     }
                     else
                     {
                         return NotFound();
                     }
+
                 }
                 catch (Exception)
                 {
-
                     return BadRequest();
                 }
+
             }
             return BadRequest();
         }
         #endregion
 
-        #region Update Report
+
+
+        #region update Role
+
         [HttpPut]
-        //[Route("UpdateReport")]
-        //[Authorize]
-        public async Task<IActionResult> UpdateReport([FromBody] TblLabReport model)
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Route("updateRole")]
+        public async Task<IActionResult> UpdateRole([FromBody] TblRole role)
         {
-            //Check the validation of body
+            //check the validation of body
             if (ModelState.IsValid)
             {
                 try
                 {
-                    await labRepository.UpdateReport(model);
+                    await roleRepository.UpdateRole(role);
                     return Ok();
                 }
                 catch (Exception)
@@ -117,7 +125,7 @@ namespace ClinicManegementSystemBackend.Controllers
             }
             return BadRequest();
         }
-        #endregion
-
+    
+      #endregion
     }
 }

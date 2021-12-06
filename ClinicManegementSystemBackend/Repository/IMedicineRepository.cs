@@ -26,7 +26,7 @@ namespace ClinicManegementSystemBackend.Repository
 
         //get medicine by id
         #region get medicine by id
-        Task<MedicineViewModel> GetMedicineById(int id);
+        Task<List<MedicineViewModel>> GetMedicineById(int id);
         #endregion
     }
 }

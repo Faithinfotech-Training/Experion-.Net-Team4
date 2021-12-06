@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ClinicManegementSystemBackend.Repository
 {
-    public class TestRepository
+    public class TestRepository : ITestRepository
     {
         //database connection
         ClinicManagementSystemContext db;
@@ -20,7 +20,7 @@ namespace ClinicManegementSystemBackend.Repository
         }
 
         #region Get Test By Report Id        
-        public async Task<TblTest> GetTestByReportId(int id)
+        public async Task<List<TblTest>> GetTestByReportId(int id)
         {
             if (db != null)
             {
@@ -36,7 +36,8 @@ namespace ClinicManegementSystemBackend.Repository
                                   IsActive = t.IsActive,
                                   ReportId = t.ReportId,
                                   StaffId = t.StaffId
-                              }).FirstOrDefaultAsync();
+
+                              }).ToListAsync();
             }
             return null;
         }
@@ -68,7 +69,7 @@ namespace ClinicManegementSystemBackend.Repository
         #endregion
 
         #region Update Test
-        public async Task UpdateReport(TblTest test)
+        public async Task UpdateTest(TblTest test)
         {
             if (db != null)
             {

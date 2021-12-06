@@ -19,12 +19,15 @@ namespace ClinicManegementSystemBackend.Repository
         //get staff by id
         public Task<ActionResult<TblStaff>> GetStaffById(int staffId);
 
+        //Get Staff By User ID
+        Task<TblStaff> GetStaffByUserID(int id);
+
         //add new staff
         public Task<int> AddStaff(TblStaff staff);
 
         //update staff
 
-        public Task<int> UpdateStaff(TblStaff staff);
+        Task<TblStaff> UpdateStaff(TblStaff staff);
 
         #endregion
 

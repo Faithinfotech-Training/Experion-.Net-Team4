@@ -12,6 +12,8 @@ namespace ClinicManegementSystemBackend.ViewModel
         public DateTime? ReportDate { get; set; }
         public string ReportNotes { get; set; }
         public int? PatientId { get; set; }
+        public string PatientName { get; set; }
+        public string PatientEmail { get; set; }
         public bool? IsActive { get; set; }
         public int? StaffId { get; set; }
         public int? DoctorId { get; set; }

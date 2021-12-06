@@ -19,12 +19,14 @@ namespace ClinicManegementSystemBackend.Repository
         //get doc by id
         public Task<ActionResult<TblDoctor>> GetDoctorById(int doctorId);
 
+        //Get Doctor BY User ID
+        Task<TblDoctor> GetDoctorByUserID(int id);
+
         //add new doctor
         public Task<int> AddDoctor(TblDoctor doctor);
 
         //update doctor
-
-        public Task<int> UpdateDoctor(TblDoctor doctor);
+        Task<TblDoctor> UpdateDoctor(TblDoctor doctor);
 
         #endregion
     }

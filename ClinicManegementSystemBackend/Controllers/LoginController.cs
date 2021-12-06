@@ -47,6 +47,7 @@ namespace ClinicManegementSystemBackend.Controllers
                 {
                     uName = dbUser.UserName,
                     rId = dbUser.RoleId,
+                    userId = dbUser.UserId,
                     token = tokenString
                 });
             }

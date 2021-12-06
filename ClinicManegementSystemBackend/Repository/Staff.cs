@@ -54,6 +54,33 @@ namespace ClinicManegementSystemBackend.Repository
         }
         #endregion
 
+        #region Get Doctor BY User ID
+        public async Task<TblStaff> GetStaffByUserID(int id)
+        {
+            if (db != null)
+            {
+                //LINQ
+                return await (from o in db.TblStaff
+                              where o.UserId == id
+                              select new TblStaff
+                              {
+                                  StaffId = o.StaffId,
+                                  StaffName = o.StaffName,
+                                  StaffAddress = o.StaffAddress,
+                                  StaffPhone = o.StaffPhone,
+                                  StaffEmail = o.StaffEmail,
+                                  StaffAge = o.StaffAge,
+                                  StaffGender = o.StaffGender,
+                                  StaffQualification = o.StaffQualification,
+                                  StaffDateOfJoining = o.StaffDateOfJoining,
+                                  IsActive = o.IsActive,
+                                  UserId = o.UserId
+                              }).FirstOrDefaultAsync();
+            }
+            return null;
+        }
+        #endregion
+
         #region Update Staff
         public async Task<TblStaff> UpdateStaff(TblStaff staff)
         {
@@ -66,10 +93,7 @@ namespace ClinicManegementSystemBackend.Repository
             return null;
         }
 
-        Task<int> IStaff.UpdateStaff(TblStaff staff)
-        {
-            throw new NotImplementedException();
-        }
+        
 
 
         #endregion

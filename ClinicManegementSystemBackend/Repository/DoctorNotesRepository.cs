@@ -30,9 +30,9 @@ namespace ClinicManegementSystemBackend.Repository
         }
         #endregion
 
-        
+
         #region Get Doctor Notes By PatientId
-        public async Task<TblObservation> GetNotesByPatientId(int id)
+        public async Task<List<TblObservation>> GetNotesByPatientId(int id)
         {
             if (db != null)
             {
@@ -46,13 +46,16 @@ namespace ClinicManegementSystemBackend.Repository
                                   DoctorNotes = o.DoctorNotes,
                                   IsActive = o.IsActive,
                                   DoctorId = o.DoctorId,
-                                  PatientId = o.PatientId
-                              }).FirstOrDefaultAsync();
+                                  PatientId = o.PatientId,
+                                  ObservationDate = o.ObservationDate
+                              }).ToListAsync();
             }
             return null;
         }
         #endregion
+
         
+
 
     }
 }

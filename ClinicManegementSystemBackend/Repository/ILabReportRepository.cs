@@ -10,6 +10,7 @@ namespace ClinicManegementSystemBackend.Repository
     public interface ILabReportRepository
     {
         Task<List<LabReportViewModel>> GetLabReports();
+        Task<LabReportViewModel> GetLabReportsById(int id);
         Task<int> AddReport(TblLabReport report);
         Task UpdateReport(TblLabReport report);
 

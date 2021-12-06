@@ -1,5 +1,6 @@
 ﻿using ClinicManegementSystemBackend.Models;
 using ClinicManegementSystemBackend.ViewModel;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,42 @@ namespace ClinicManegementSystemBackend.Repository
         }
 
 
+        #region Get By ID Report using ViewModel
+        public async Task<LabReportViewModel> GetLabReportsById(int id)
+        {
+            if (db != null)
+            {
+                //LINQ
+                //join post and category
+                return await (from l in db.TblLabReport
+                              from d in db.TblDoctor
+                              from s in db.TblStaff
+                              from p in db.TblPatient
+                              where l.DoctorId == d.DoctorId
+                              where l.StaffId == s.StaffId
+                              where l.PatientId == p.PatientId
+                              where l.ReportId == id
+                              select new LabReportViewModel
+                              {
+                                  ReportId = l.ReportId,
+                                  ReportNumber = l.ReportNumber,
+                                  ReportDate = l.ReportDate,
+                                  ReportNotes = l.ReportNotes,
+                                  PatientId = l.PatientId,
+                                  PatientName = p.PatientName,
+                                  PatientEmail = p.PatientEmail,
+                                  IsActive = l.IsActive,
+                                  StaffId = l.StaffId,
+                                  DoctorId = l.DoctorId,
+                                  DoctorName = d.DoctorName,
+                                  StaffName = s.StaffName
+                              }
+                              ).FirstOrDefaultAsync();
+            }
+            return null;
+        }
+        #endregion
+
 
         #region Get Report using ViewModel
         public async Task<List<LabReportViewModel>> GetLabReports()
@@ -31,8 +68,10 @@ namespace ClinicManegementSystemBackend.Repository
                 return await (from l in db.TblLabReport
                               from d in db.TblDoctor
                               from s in db.TblStaff
+                              from p in db.TblPatient
                               where l.DoctorId == d.DoctorId
                               where l.StaffId == s.StaffId
+                              where l.PatientId == p.PatientId
                               select new LabReportViewModel
                               {
                                   ReportId = l.ReportId,
@@ -40,6 +79,7 @@ namespace ClinicManegementSystemBackend.Repository
                                   ReportDate = l.ReportDate,
                                   ReportNotes = l.ReportNotes,
                                   PatientId = l.PatientId,
+                                  PatientName = p.PatientName,
                                   IsActive = l.IsActive,
                                   StaffId = l.StaffId,
                                   DoctorId = l.DoctorId,

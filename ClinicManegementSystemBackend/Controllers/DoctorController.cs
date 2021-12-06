@@ -67,6 +67,30 @@ namespace ClinicManegementSystemBackend.Controllers
         }
         #endregion
 
+        #region Get Doctor By UserID        
+        [HttpGet("getdoctorbyuserid/{id}")]
+       
+        public async Task<IActionResult> GetDoctorByID(int id)
+        {
+            try
+            {
+                var report = await doctorRepository.GetDoctorByUserID(id);
+                if (report == null)
+                {
+                    return NotFound();
+                }
+                return Ok(report);
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+
+        }
+        #endregion
+        
+
         #region Add doctor
 
         [HttpPost]
@@ -101,15 +125,35 @@ namespace ClinicManegementSystemBackend.Controllers
         }
         #endregion
 
-
-
         #region update Doctor
 
+        [HttpPut]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Route("updateDoctor")]
+        public async Task<IActionResult> UpdateDoctor([FromBody] TblDoctor model)
+        {
+            //check the validation of body
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await doctorRepository.UpdateDoctor(model);
+                    return Ok();
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+            }
+            return BadRequest();
+        }
 
+        /*
         [HttpPut]
         [Authorize(AuthenticationSchemes = "Bearer")]
         [Route("updatedoctor")]
 
+        
         public async Task<IActionResult> UpdateDoctor([FromBody] TblDoctor doctor)
         {
             // check the validation of body
@@ -136,7 +180,7 @@ namespace ClinicManegementSystemBackend.Controllers
 
             }
             return BadRequest();
-        }
+        }*/
 
         #endregion
     }

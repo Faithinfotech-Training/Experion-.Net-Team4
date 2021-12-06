@@ -21,8 +21,8 @@ namespace ClinicManegementSystemBackend.Controllers
         }
 
         #region Get Notes By Patient Id
-        [HttpGet("GetNotesByPatientId/{id}")]
-        public async Task<IActionResult> GetTestByReportId(int id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult> GetNoteByPatientId(int id)
         {
             try
             {
@@ -42,6 +42,7 @@ namespace ClinicManegementSystemBackend.Controllers
         }
         #endregion
 
+        
 
         #region Add Notes
         [HttpPost]

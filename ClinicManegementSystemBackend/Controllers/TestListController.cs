@@ -1,6 +1,5 @@
 ﻿using ClinicManegementSystemBackend.Models;
 using ClinicManegementSystemBackend.Repository;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,67 +11,70 @@ namespace ClinicManegementSystemBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PrescribedTestController : ControllerBase
+    public class TestListController : ControllerBase
     {
-        IPrescribedTest prescribedTestRepository;
+        //Constructor Dependency Injection for TestListRepository
+        //1.Default constructor - TestListController
+        //2.ITestListRepository
 
-        public PrescribedTestController(IPrescribedTest _pr)
+        ITestListRepository testListRepository;
+        public TestListController(ITestListRepository _p)
         {
-            prescribedTestRepository = _pr;
+            testListRepository = _p;
         }
 
-        #region Add Prescribed Test
-
+        //add a test to the test list
+        #region add test to the list
         [HttpPost]
-        //[Authorize(AuthenticationSchemes = "Bearer")]
-       
-
-        public async Task<IActionResult> AddPrescribedTest([FromBody] TblPrescribedTest prescribedTest)
+        //[Route("AddTest")]
+        public async Task<IActionResult> AddTestList([FromBody] TblTestList model)
         {
-            // check the validation of body
+            //check the validation of body
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var prescribedTestId = await prescribedTestRepository.AddPrescribedTest(prescribedTest);
-                    if (prescribedTestId > 0)
+                    var testId = await testListRepository.AddTestList(model);
+                    if (testId > 0)
                     {
-                        return Ok(prescribedTestId);
+                        return Ok(testId);
                     }
                     else
                     {
                         return NotFound();
                     }
-
                 }
                 catch (Exception)
                 {
                     return BadRequest();
                 }
-
             }
             return BadRequest();
         }
         #endregion
 
-        #region Get PrescriptionTest By PrescriptionId
-        [HttpGet("{id}")]
-        public async Task<ActionResult> GetByPrescriptionId(int id)
+        //get all test from the test list
+        #region get all test from the test list
+        [HttpGet]
+        //[Route("GetAllTests")]
+        public async Task<IActionResult> GetTestList()
         {
             try
             {
-                var prescribedtest = await prescribedTestRepository.GetPrescribedTestsByPrescriptionId(id);
-                if (prescribedtest == null)
+                var tests = await testListRepository.GetTestList();
+                if (tests == null)
                 {
                     return NotFound();
                 }
-                return Ok(prescribedtest);
+                return Ok(tests);
             }
             catch (Exception)
             {
                 return BadRequest();
+
             }
         }
+
         #endregion
     }
 }

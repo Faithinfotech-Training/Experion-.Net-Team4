@@ -54,6 +54,9 @@ namespace ClinicManegementSystemBackend.Repository
                                  BillId = b.BillId,
                                  BillNumber = b.BillNumber,
                                  BillDate = b.BillDate,
+                                 DoctorConsulationFee = b.DoctorConsulationFee,
+                                 NursingFee = b.NursingFee,
+                                 LabTestFee = b.LabTestFee,
                                  Amount = b.Amount,
                                  IsActive = b.IsActive
                              }
@@ -96,6 +99,9 @@ namespace ClinicManegementSystemBackend.Repository
                                  BillId = b.BillId,
                                  BillNumber = b.BillNumber,
                                  BillDate = b.BillDate,
+                                 DoctorConsulationFee=b.DoctorConsulationFee,
+                                 NursingFee=b.NursingFee,
+                                 LabTestFee=b.LabTestFee,
                                  Amount = b.Amount,
                                  IsActive = b.IsActive
                              }).FirstOrDefaultAsync();

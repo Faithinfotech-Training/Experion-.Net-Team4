@@ -10,10 +10,10 @@ namespace ClinicManegementSystemBackend.Repository
     public interface ITestRepository
     {
 
-        Task<List<TblTest>> GetTests();
+        //Task<List<TblTest>> GetTests();
         Task UpdateTest(TblTest prescription);
         Task<int> AddTest(TblTest prescription);
-        Task<TblTest> GetTestByReportId(int id);
+        Task<List<TblTest>> GetTestByReportId(int id);
         Task<ActionResult<TblTest>> GetTestById(int testId);
     }
 }

@@ -6493,17 +6493,12 @@
     ]
   },
   "packageFolders": {
-<<<<<<< Updated upstream
     "C:\\Users\\nithin.peter\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
-=======
-    "C:\\Users\\Rashmi Nayak\\.nuget\\packages\\": {}
->>>>>>> Stashed changes
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< Updated upstream
       "projectUniqueName": "D:\\CMSProject\\Backend\\ClinicManegementSystemBackend\\ClinicManegementSystemBackend.csproj",
       "projectName": "ClinicManegementSystemBackend",
       "projectPath": "D:\\CMSProject\\Backend\\ClinicManegementSystemBackend\\ClinicManegementSystemBackend.csproj",
@@ -6516,16 +6511,6 @@
       "configFilePaths": [
         "C:\\Users\\nithin.peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-      "projectUniqueName": "D:\\RESTAPI\\Experion-.Net-Team4\\ClinicManegementSystemBackend\\ClinicManegementSystemBackend.csproj",
-      "projectName": "ClinicManegementSystemBackend",
-      "projectPath": "D:\\RESTAPI\\Experion-.Net-Team4\\ClinicManegementSystemBackend\\ClinicManegementSystemBackend.csproj",
-      "packagesPath": "C:\\Users\\Rashmi Nayak\\.nuget\\packages\\",
-      "outputPath": "D:\\RESTAPI\\Experion-.Net-Team4\\ClinicManegementSystemBackend\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\Rashmi Nayak\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> Stashed changes
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

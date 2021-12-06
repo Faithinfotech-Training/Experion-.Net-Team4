@@ -60,7 +60,7 @@ namespace ClinicManegementSystemBackend.Repository
 
         //get medicine details by id
         #region get medicine details by id
-        public async Task<MedicineViewModel> GetMedicineById(int id)
+        public async Task<List<MedicineViewModel>> GetMedicineById(int id)
         {
             if (db != null)
             {
@@ -78,7 +78,7 @@ namespace ClinicManegementSystemBackend.Repository
                                  PrescriptionNumber = p.PrescriptionNumber,
                                  IsActive = m.IsActive
 
-                             }).FirstOrDefaultAsync();
+                             }).ToListAsync();
             }
             return null;
         }

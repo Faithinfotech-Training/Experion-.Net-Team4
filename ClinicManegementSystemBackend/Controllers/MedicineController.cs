@@ -24,8 +24,7 @@ namespace ClinicManegementSystemBackend.Controllers
         }
         //add medicine
         #region add medicine
-        [HttpPost]
-        [Route("AddMedicine")]
+        [HttpPost]       
         public async Task<IActionResult> AddMedicine([FromBody] TblMedicine model)
         {
             //check the validation of body
@@ -100,9 +99,9 @@ namespace ClinicManegementSystemBackend.Controllers
 
         //get medicine details by id
         #region get medicine by id
-        [HttpGet]
-        [Route("GetMedicineById")]
-        public async Task<IActionResult> GetMedicineById(int id)
+        [HttpGet("{id}")]
+        //[Route("GetMedicineById")]
+        public async Task<ActionResult> GetMedicineById(int id)
         {
             try
             {
