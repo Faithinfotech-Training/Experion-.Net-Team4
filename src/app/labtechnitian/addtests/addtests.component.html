@@ -22,6 +22,7 @@
                 </div>
                 <br>
 
+                
                 <!--Test Name-->
                 <div class="form-group">
                     <label>Test Name</label>
@@ -30,27 +31,27 @@
                         <option value="" disabled>Choose Test</option>
                         <option *ngFor="let t of labService.test" value="{{t.TestName}}">
                          {{t.TestName}}</option>
+                    </select>         
+                </div>                
 
-
-                    </select>
-                </div>
-                <br>
-
-                <!--Normal Range-->
                 <div class="form-group">
                     <label>Normal Range</label>
-                    <input name="NormalRange" #NormalRange="ngModel" [(ngModel)]="labService.testFormData.NormalRange"
-                        class="form-control" placeholder="Enter Normal Range" minlength="1" maxlength="20"
-                        [ngClass]="{'is-invalid': NormalRange.touched && NormalRange.invalid}" />
+                    <select name="TestName" id="TestName" class="form-control" #TestName="ngModel" required
+                        [(ngModel)]="labService.testFormData.TestName">
+                        <option value="" disabled>Choose Test</option>
+                        <ng-container *ngFor="let t of labService.test">
+                            <option  value="{{t.NormalRange}}" selected>
+                            Test:{{t.TestName}} Normal Range: {{t.NormalRange}}</option>
+                        </ng-container>
+                    </select>  
                 </div>
-                <br>
 
                 <!--Test Result-->
                 <div class="form-group">
                     <label>Test Result</label>
                     <input name="TestResult" #TestResult="ngModel" [(ngModel)]="labService.testFormData.TestResult"
                         class="form-control" placeholder="Enter Test Result" minlength="1" maxlength="10" required
-                        [ngClass]="{'is-invalid': TestResult.touched && TestResult.invalid}" />
+                        [ngClass]="{'is-invalid': TestResult.touched && TestResult.invalid}"/>
 
                     <div class="validation-error" *ngIf="TestResult.touched && TestResult.invalid">
                         <div *ngIf="TestResult.errors.required">Test Result is Required</div>

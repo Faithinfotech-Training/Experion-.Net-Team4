@@ -5,6 +5,8 @@ export class Report {
     ReportNotes : string;
     StaffId : number;
     PatientId : number;
+    PatientName:string;
+    PatientEmail:string;
     StaffName : string;
     DoctorId : number;
     DoctorName : string='';

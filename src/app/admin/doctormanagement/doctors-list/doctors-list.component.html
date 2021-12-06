@@ -9,7 +9,8 @@
         <div class="form-group">
             <input class="form-control" type="text" placeholder="Search .." [(ngModel)]="filter">
         </div>
-
+        
+        <a href="../admin" class="btn btn-primary"> Go Back </a> <br> <br>
         <a href="../doctors" class="btn btn-primary"> Add Doctor </a>
     </div>
     <table class="table table-bordered table-striped">
@@ -45,9 +46,7 @@
                 <th>
                     DateOfJoining
                 </th>
-                <th>
-                    User Id
-                </th>
+                
                 <th>
                     Status
                 </th>
@@ -57,18 +56,17 @@
         <tbody>
             <tr
                 *ngFor="let doctor of doctorService.doctors| filter: filter | paginate: {itemsPerPage:5,currentPage:page}">
-                <td (click)="populateForm(doctor)">{{doctor.DoctorId}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorName}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorAddress}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorPhone}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorEmail}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorAge}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorGender}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorQualification}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorSpecialization}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.DoctorDateOfJoining|date:'dd-MM-yyyy'}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.UserId}}</td>
-                <td (click)="populateForm(doctor)">{{doctor.IsActive}}</td>
+                <td>{{doctor.DoctorId}}</td>
+                <td>{{doctor.DoctorName}}</td>
+                <td>{{doctor.DoctorAddress}}</td>
+                <td>{{doctor.DoctorPhone}}</td>
+                <td>{{doctor.DoctorEmail}}</td>
+                <td>{{doctor.DoctorAge}}</td>
+                <td>{{doctor.DoctorGender}}</td>
+                <td>{{doctor.DoctorQualification}}</td>
+                <td>{{doctor.DoctorSpecialization}}</td>
+                <td>{{doctor.DoctorDateOfJoining|date:'dd-MM-yyyy'}}</td>
+                <td>{{doctor.IsActive}}</td>
 
 
                 <td>

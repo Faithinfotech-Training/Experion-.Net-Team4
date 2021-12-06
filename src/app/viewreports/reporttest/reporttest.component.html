@@ -10,6 +10,7 @@
         <p style="float: right;"> Date : {{report.ReportDate | date}}</p>
         <p>Report Number : {{report.ReportNumber}}  </p>        
         <p>Patient Name : {{report.PatientName}}</p> 
+        <p>Patient Email : {{report.PatientEmail}}</p> 
         <p>Staff Name : {{report.StaffName}}</p>
         <p>Doctor Name : {{report.DoctorName}}</p>        
         <br>        
@@ -42,3 +43,17 @@
 </div>
 
 <a class="btn btn-sm btn-outline-success" style="margin-left: 80%;" (click)="convertToPDF()"><b>Download PDF</b></a>
+<br>
+<br>
+<div class="form-group"  >
+    <form  name="emailForm" #form="ngForm" autocomplete="off" (ngSubmit)="sendEmail(form)">
+        <input type="hidden" class="form-control" name="Email"  placeholder="{{patientEmail}}" [(ngModel)]="labService.emailFormData.Email" />
+        <input type="hidden" class="form-control" name="Path" value="{{path}}" [(ngModel)]="labService.emailFormData.Path" />
+        <input type="hidden" class="form-control" name="PatientName" placeholder="{{report.PatientName}}" [(ngModel)]="labService.emailFormData.Path" />
+        
+        
+
+        <button style="margin-left: 80%;"  type="submit" class="btn btn-outline-success"><b>Send Mail</b></button>
+
+    </form>
+</div>
