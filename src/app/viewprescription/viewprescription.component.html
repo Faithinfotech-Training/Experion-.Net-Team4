@@ -1,4 +1,7 @@
 <app-navbar></app-navbar>
+<a class="btn btn-sm btn-outline-primary" style="margin-left: 80%;" (click)="goBack()"><b>Go Back</b></a>
+<br>
+<br>
 <div class="container">
     <div class="header">
         <h5>Prescription Info</h5>
@@ -33,7 +36,8 @@
                     <td  >{{prescription.DoctorName }}</td>
                     <td  >{{prescription.PrescriptionDate | date:'dd-MM-yyyy'}}</td>                   
                     <td  >                        
-                        <button  (click)="viewTest(prescription.PrescriptionId)" class="btn btn-info" style="margin-left:10px">View Tests</button>                    
+                        <button  (click)="viewTest(prescription.PrescriptionId, prescription.PrescriptionNumber , prescription.PatientId , prescription.DoctorId)" 
+                        class="btn btn-info" style="margin-left:10px">View Tests</button>                    
                     </td>
                     
                 </tr>

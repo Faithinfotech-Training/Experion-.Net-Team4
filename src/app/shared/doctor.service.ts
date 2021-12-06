@@ -41,8 +41,15 @@ updateDoctor(doctor:Doctor):Observable<any>
 getDoctorById(DoctorId:number):Observable<any>
 {
   return this.httpClient.get(environment.apiUrl+"api/doctor/"+DoctorId);
+}
+
+//get doctor by User id
+getDoctorByUserId(userId:number):Observable<any>
+{
+  return this.httpClient.get(environment.apiUrl+"api/doctor/getdoctorbyuserid/"+userId);
 
 }
+
 
 
 }

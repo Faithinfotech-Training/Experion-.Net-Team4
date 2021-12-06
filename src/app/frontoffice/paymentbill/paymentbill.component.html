@@ -9,8 +9,8 @@
 
                 <!--BillNumber-->
                 <div class="form-group">
-                    <label>Bill Number</label>
-                    <input type="number" name="BillNumber" readonly #BillNumber="ngModel"
+                    <!--<label>Bill Number</label>-->
+                    <input type="hidden" name="BillNumber" readonly #BillNumber="ngModel"
                         [(ngModel)]="service.billFormData.BillNumber" class="form-control"
                         placeholder="enter BillNumber" required
                         [ngClass]="{'is invalid':BillNumber.touched && BillNumber.invalid}" />
@@ -30,12 +30,46 @@
                     </div>
                 </div>
 
+                 <!--Doctor consultation fee-->
+                 <div class="form-group">
+                    <label>Doctor consultation fee</label>
+                    <input type="number" name="DoctorConsulationFee" #DoctorConsulationFee="ngModel" [(ngModel)]="service.billFormData.DoctorConsulationFee"
+                        class="form-control" placeholder="enter the amount" required
+                        [ngClass]="{'is invalid':DoctorConsulationFee.touched && DoctorConsulationFee.invalid}" (input)="onPassValue1($event.target.value)" />
+                    <div class="validation-error" *ngIf="DoctorConsulationFee.touched && DoctorConsulationFee.invalid">
+                        <div *ngIf="DoctorConsulationFee.errors.required">Doctor Consulation Fee is required</div>
+                    </div>
+                </div>
+
+                 <!--Lab fee-->
+                 <div class="form-group">
+                    <label>Lab Test Fee </label>
+                    <input type="number" name="LabTestFee" #LabTestFee="ngModel" [(ngModel)]="service.billFormData.LabTestFee"
+                        class="form-control" placeholder="enter the amount" required
+                        [ngClass]="{'is invalid':LabTestFee.touched && LabTestFee.invalid}" (input)="onPassValue2($event.target.value)" />
+                    <div class="validation-error" *ngIf="LabTestFee.touched && LabTestFee.invalid">
+                        <div *ngIf="LabTestFee.errors.required">Lab Test Feeis required</div>
+                    </div>
+                </div>
+
+                 <!--Nursing fee-->
+                 <div class="form-group">
+                    <label>Nursing Fee</label>
+                    <input type="number" name="NursingFee" #NursingFee="ngModel" [(ngModel)]="service.billFormData.NursingFee"
+                        class="form-control" placeholder="enter the amount" required
+                        [ngClass]="{'is invalid':NursingFee.touched && NursingFee.invalid}" (input)="onPassValue3($event.target.value)"/>
+                    <div class="validation-error" *ngIf="NursingFee.touched && NursingFee.invalid">
+                        <div *ngIf="NursingFee.errors.required">Nursing Fee is required</div>
+                    </div>
+                </div>
+
+
                 <!--Amount-->
                 <div class="form-group">
-                    <label>Amount</label>
-                    <input type="number" name="Amount" #Amount="ngModel" [(ngModel)]="service.billFormData.Amount"
-                        class="form-control" placeholder="enter Amount" required
-                        [ngClass]="{'is invalid':Amount.touched && Amount.invalid}" />
+                    <!--<label>Amount</label>-->
+                    <input type="hidden" name="Amount" #Amount="ngModel" [(ngModel)]="service.billFormData.Amount"
+                        class="form-control" placeholder=" Amount is" required
+                        [ngClass]="{'is invalid':Amount.touched && Amount.invalid}" value={{total}}  />
                     <div class="validation-error" *ngIf="Amount.touched&&Amount.invalid">
                         <div *ngIf="Amount.errors.required">Amount is required</div>
                     </div>
@@ -47,7 +81,7 @@
                     <select name="PatientId" id="PatientId" class="form-control" #PatientId="ngModel" required
                         [(ngModel)]="service.billFormData.PatientId">
                         <option value="0" disabled>Choose Patient</option>
-                        <option *ngFor="let pat of service.patients" value="{{pat.PatientId}}">Id:{{pat.PatientId}},
+                        <option *ngFor="let pat of service.patients" value="{{pat.PatientId}}">
                             Name:{{pat.PatientName}}</option>
 
                     </select>
@@ -56,7 +90,7 @@
                     </div>
                 </div>
 
-                <!--is active-->
+                <!--is active
                 <br>
                 <div class="form-group">
                     <div class="form-check">
@@ -64,7 +98,7 @@
                         <input type="checkbox" name="IsActive" id="IsActive" #IsActive="ngModel"
                             [(ngModel)]="service.billFormData.IsActive" class="form-check-input">
                     </div>
-                </div>
+                </div-->
 
                 <!--submit button-->
                 <br>

@@ -35,8 +35,7 @@ export class DoctorsComponent implements OnInit {
         let formatedDate: any = datepipe.transform(data.DoctorDateOfJoining, "yyyy-MM-dd");
         data.DoctorDateOfJoining = formatedDate;        
         this.doctorService.formData = Object.assign({}, data);
-        //this.doctorService.formData = data;
-        
+        //this.doctorService.formData = data;        
       });
     }
 

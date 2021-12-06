@@ -44,4 +44,11 @@ getStaffById(StaffId:number):Observable<any>
   return this.httpClient.get(environment.apiUrl+"api/staff/"+StaffId);
 
 }
+
+//get doctor by User id
+getStaffByUserId(userId:number):Observable<any>
+{
+  return this.httpClient.get(environment.apiUrl+"api/staff/getstaffbyuserid/"+userId);
+
+}
 }

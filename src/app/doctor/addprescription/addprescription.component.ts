@@ -16,6 +16,10 @@ export class AddprescriptionComponent implements OnInit {
   //Declare Variables  
   prescriptionId : number;
   isSubmitted = false;
+  patientId : number;
+  doctorId : number;
+  doctorName:string;
+  patientName:String;
 
   constructor(public labService: LabTechnitianService , public doctorService : DoctorService, public consultService : ConsultationService ,public  patientService : FrontofficeService,
     private router:Router,
@@ -24,6 +28,10 @@ export class AddprescriptionComponent implements OnInit {
   ngOnInit(): void {
     this.patientService.bindListPatient();  
     this.labService.bindListDoctor();  
+    this.patientId=this.route.snapshot.params['patientId']; 
+    this.patientName=this.route.snapshot.params['patientName'];
+    this.doctorId = parseInt(localStorage.getItem("doctorId"));
+    this.doctorName = localStorage.getItem("doctorName");
   }
 
   onSubmit(form: NgForm){
@@ -33,6 +41,8 @@ export class AddprescriptionComponent implements OnInit {
     form.value.PrescriptionDate = new Date().toISOString().slice(0, 10);
     form.value.PrescriptionNumber = Date.now()  - 1638438447750;    
     form.value.IsActive = true;
+    form.value.PatientId = this.patientId;
+    form.value.DoctorId = this.doctorId;
     console.log(form.value);
     //Insert 
     this.insertPrescriptionRecord(form);    

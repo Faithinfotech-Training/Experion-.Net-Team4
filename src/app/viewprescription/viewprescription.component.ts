@@ -24,9 +24,12 @@ export class ViewprescriptionComponent implements OnInit {
   }
 
   //View Tests Of that Prescription
-  viewTest(pId : number){
-    console.log(pId);
-    this.router.navigate(['viewtest',pId])
+  viewTest(pId : number , pNum:number , patientId:number, doctorId:number){
+    console.log(pId,pNum);
+    this.router.navigate(['viewtest',pId,pNum,patientId,doctorId]);
   }
 
+  goBack(){
+    window.history.go(-1);
+  }
 }

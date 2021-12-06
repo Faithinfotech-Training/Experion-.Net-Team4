@@ -1,4 +1,7 @@
 <app-navbar></app-navbar>
+<a class="btn btn-sm btn-outline-primary" style="margin-left: 80%;" (click)="goBack()"><b>Go Back</b></a>
+<br>
+<br>
 
 <div class="container">
     <div class="header">
@@ -9,16 +12,14 @@
     <table class="table table-bodered table-striped">
         <thead>
             <tr>
-                <th>Test ID</th>
-                <th>Test Name</th>
-                
+               
+                <th>Test Name</th>                
                 
             </tr>
         </thead>
         <tbody>
                     
-                <tr *ngFor="let test of labService.prescribedTests">
-                    <td  >{{test.PrescribedTestId}}</td>
+                <tr *ngFor="let test of labService.prescribedTests">                    
                     <td  >{{test.PrescribedTestName}}</td>             
                 </tr>            
         </tbody>
@@ -29,7 +30,7 @@
     <table class="table table-bodered table-striped">
         <thead>
             <tr>
-                <th>Medicine ID</th>
+                
                 <th>Medicine Name</th>
                 <th>Dosage</th>               
                 
@@ -37,8 +38,7 @@
         </thead>
         <tbody>
                     
-            <tr *ngFor="let medicine of consultService.medicines">
-                <td  >{{medicine.MedicineId}}</td>
+            <tr *ngFor="let medicine of consultService.medicines">               
                 <td  >{{medicine.MedicineName}}</td>   
                 <td  >{{medicine.Dosage}}</td>           
             </tr>            

@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { FrontofficeService } from 'src/app/shared/frontoffice.service';
 import { PaymentBill } from 'src/app/shared/paymentbill';
 import { DatePipe } from '@angular/common';
+import { Patient } from 'src/app/shared/Patient';
 
 @Component({
   selector: 'app-paymentbill-list',
@@ -21,7 +22,7 @@ export class PaymentbillListComponent implements OnInit {
     //get all bills through services
     this.service.bindListBill();
   }
-  //populate form by clicking the td
+  //populate form by clicking the id
   populateForm(b:PaymentBill){
     console.log(b);
     //date format
@@ -30,5 +31,4 @@ export class PaymentbillListComponent implements OnInit {
     b.BillDate=formatedDate;
     this.service.billFormData=Object.assign({},b);
   }
-  
 }

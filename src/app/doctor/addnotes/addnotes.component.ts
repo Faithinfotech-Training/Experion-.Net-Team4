@@ -12,6 +12,10 @@ import { LabTechnitianService } from 'src/app/shared/lab-technitian.service';
 })
 export class AddnotesComponent implements OnInit {
 
+  //Variable to hold value from activated Route
+  patientId : number;
+  doctorId : number;
+
   constructor(public labService: LabTechnitianService ,public  patientService : FrontofficeService, public consultService : ConsultationService ,
     private router:Router,
     private route:ActivatedRoute) { }
@@ -19,7 +23,10 @@ export class AddnotesComponent implements OnInit {
   ngOnInit(): void {
     //Bind The required Data in service
     this.patientService.bindListPatient();  
+    this.patientId=this.route.snapshot.params['patientId'];   
     this.labService.bindListDoctor(); 
+    this.doctorId = parseInt(localStorage.getItem("doctorId"));
+    console.log(this.doctorId);
   }
 
   onSubmit(form: NgForm){    
@@ -27,6 +34,8 @@ export class AddnotesComponent implements OnInit {
     //Setting The Values That do not need input
     form.value.ObservationDate = new Date().toISOString().slice(0, 10);   
     form.value.IsActive = true;
+    form.value.PatientId = this.patientId;
+    form.value.DoctorId = this.doctorId;
     console.log(form.value);
     //Insert 
     this.insertObservationRecord(form);
