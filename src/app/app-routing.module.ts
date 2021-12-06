@@ -72,9 +72,6 @@ const routes: Routes = [
   {path: 'viewprescription', component: ViewprescriptionComponent },
   {path: 'viewtest/:pId', component: ViewtestComponent },
   {path: 'viewtest/:pId/:pNum/:patientId/:doctorId', component: ViewtestComponent },
-  
-
-
   {path: 'viewfullprescription/:pId', component: ViewfullprescriptionComponent},
   {path: 'viewreport/:flag', component: ViewreportsComponent },
   {path: 'addreport', component: AddreportComponent },
@@ -85,7 +82,7 @@ const routes: Routes = [
   {path: 'doctors-list', component: DoctorsListComponent },
   {path: 'frontoffice', component: FrontofficeComponent },
   {path: 'patient', component: PatientComponent },
-  {path: 'patientlist', component: PatientListComponent},//canActivate:[AuthGuard],data:{role:'2'} }
+  {path: 'patientlist', component: PatientListComponent,canActivate:[AuthGuard],data:{role:'2'} },
   {path: 'patient/:patientId', component: PatientComponent },
   {path: 'patientlist/patient', component: PatientComponent }, 
   {path: 'doctor', component: DoctorComponent,canActivate:[AuthGuard],data:{role:'4'} },

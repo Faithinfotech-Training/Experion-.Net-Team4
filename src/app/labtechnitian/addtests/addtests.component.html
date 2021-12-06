@@ -36,13 +36,12 @@
 
                 <div class="form-group">
                     <label>Normal Range</label>
-                    <select name="TestName" id="TestName" class="form-control" #TestName="ngModel" required
-                        [(ngModel)]="labService.testFormData.TestName">
-                        <option value="" disabled>Choose Test</option>
-                        <ng-container *ngFor="let t of labService.test">
-                            <option  value="{{t.NormalRange}}" selected>
-                            Test:{{t.TestName}} Normal Range: {{t.NormalRange}}</option>
-                        </ng-container>
+                    <select name="NormalRange" id="NormalRange" class="form-control" #NormalRange="ngModel" required
+                        [(ngModel)]="labService.testFormData.NormalRange">
+                        <option value="" disabled>Choose Test</option>                     
+                        <option *ngFor="let tst of labService.test" value="{{tst.NormalRange}}" >
+                        Test:{{tst.TestName}} Normal Range: {{tst.NormalRange}}</option>
+                        
                     </select>  
                 </div>
 

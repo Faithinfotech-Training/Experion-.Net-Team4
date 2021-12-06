@@ -7,7 +7,7 @@
     <div class="header">
        
         <h5>Payment Bill Details </h5><br> 
-        <p> Bill Number : {{paymentbill.BillNumber}}</p>
+        <p>Bill Number : {{paymentbill.BillNumber}}</p>
         <p>Bill Date : {{paymentbill.BillDate|date}}  </p>        
         <p>Patient Name : {{paymentbill.PatientName}}</p>       
         <br>        
@@ -19,6 +19,7 @@
                 <th>Doctor Consulation Fee</th>
                 <th>Lab Test Fee</th>
                 <th>Nursing Fee</th>
+                <th>Total Amount</th>
                                             
             </tr>
         </thead>
@@ -27,7 +28,8 @@
                 <tr >                    
                     <td  >{{paymentbill.DoctorConsulationFee}}</td>
                     <td  >{{paymentbill.LabTestFee}}</td>  
-                    <td  >{{paymentbill.NursingFee}}</td>                           
+                    <td  >{{paymentbill.NursingFee}}</td>   
+                    <td  >{{paymentbill.Amount}}</td>                         
                 </tr>            
         </tbody>
     </table>

@@ -39,7 +39,7 @@ export class AddprescriptionComponent implements OnInit {
     console.log(form.value);
     //Setting The Values That do not need input
     form.value.PrescriptionDate = new Date().toISOString().slice(0, 10);
-    form.value.PrescriptionNumber = Date.now()  - 1638438447750;    
+    form.value.PrescriptionNumber = Date.now()  - 1638792741675;    
     form.value.IsActive = true;
     form.value.PatientId = this.patientId;
     form.value.DoctorId = this.doctorId;

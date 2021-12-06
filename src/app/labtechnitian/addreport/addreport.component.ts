@@ -49,7 +49,7 @@ export class AddreportComponent implements OnInit {
     console.log(form.value);
     //Setting The Values That do not need input
     form.value.ReportDate = new Date().toISOString().slice(0, 10);
-    form.value.ReportNumber = Date.now()  - 1638196230000;    
+    form.value.ReportNumber = Date.now()  - 1638792741675;    
     form.value.IsActive = true;
     form.value.StaffId = this.staffId;
     if(this.doctorId !=null && this.patientId!=null){

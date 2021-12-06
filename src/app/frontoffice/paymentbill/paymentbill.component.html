@@ -82,7 +82,7 @@
                         [(ngModel)]="service.billFormData.PatientId">
                         <option value="0" disabled>Choose Patient</option>
                         <option *ngFor="let pat of service.patients" value="{{pat.PatientId}}">
-                            Name:{{pat.PatientName}}</option>
+                            {{pat.PatientName}}</option>
 
                     </select>
                     <div class="validation-error" *ngIf="PatientId.touched && PatientId.invalid">

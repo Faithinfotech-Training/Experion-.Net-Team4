@@ -27,8 +27,7 @@
                     <select name="PatientId" id="PatientId" class="form-control" #PatientId="ngModel" required
                         [(ngModel)]="service.aFormData.PatientId">
                         <option value="0" disabled>Choose Patient</option>
-                        <option *ngFor="let pat of service.patients" value="{{pat.PatientId}}">Id:{{pat.PatientId}},
-                            Name:{{pat.PatientName}}</option>
+                        <option *ngFor="let pat of service.patients" value="{{pat.PatientId}}">{{pat.PatientName}}</option>
 
                     </select>
                     <div class="validation-error" *ngIf="PatientId.touched && PatientId.invalid">
@@ -45,7 +44,7 @@
                         <option value="0" disabled>Choose Doctor</option>
 
                         <option *ngFor="let doctor of labService.doctors" value="{{doctor.DoctorId}}">
-                          Name: {{doctor.DoctorName}}</option>
+                        {{doctor.DoctorName}}</option>
 
 
                     </select>

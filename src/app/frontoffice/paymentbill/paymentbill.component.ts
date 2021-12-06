@@ -53,7 +53,7 @@ export class PaymentbillComponent implements OnInit {
     console.log(form.value);
     let addId = this.service.billFormData.BillId;
     if (addId == 0 || addId == null) {
-      form.value.BillNumber = Date.now()  - 1638589350349;
+      form.value.BillNumber = Date.now()  - 1638792741675;
       form.value.Amount=form.value.DoctorConsulationFee+form.value.LabTestFee+form.value.NursingFee;
       //insert
       form.value.IsActive = true;
