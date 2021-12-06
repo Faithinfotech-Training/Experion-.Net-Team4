@@ -1,11 +1,14 @@
 <app-navbar></app-navbar>
+<a class="btn btn-sm btn-outline-primary" style="margin-left: 80%;"  href="../doctor"><b>Back to main page</b></a>
+<br>
+<br>
+
 <div class="container">
     <div class="card">
         <div class="card-body">
-
   <div style="padding-left: 65%; width: max-content;"> 
-    <a class="btn btn-lg btn-outline-secondary" href="../addnotes"><b>Add Notes</b></a> &nbsp; &nbsp; 
-    <a class="btn btn-lg btn-outline-secondary" style="padding-left: 10px;" href="../addprescription"><b>Add Prescription</b></a>      
+    <a class="btn btn-lg btn-outline-secondary" (click)="addNotes()"><b>Add Notes</b></a> &nbsp; &nbsp; 
+    <a class="btn btn-lg btn-outline-secondary" style="padding-left: 10px;" (click)="addPrescription()"><b>Add Prescription</b></a>      
   </div>
 <br>
 <br>
@@ -46,6 +49,45 @@
     </div>
     <br>
     <br>
+
+    <!--Reports Of Patient-->    
+    <div class="header">
+        <h5>Reports</h5>
+    </div>
+    <table class="table table-bodered table-striped">
+        <thead>
+            <tr>
+                <th>Report Number</th>
+                <th>Staff Name</th>
+                <th>DoctorName</th>
+                <th>Report Date</th>                               
+               
+                
+            </tr>
+        </thead>
+        <tbody>
+                    
+                <ng-container *ngFor="let report of labService.reports  | paginate: {itemsPerPage:10, currentPage: reportPage}">
+                    <tr *ngIf="report.PatientId == patientId">
+                    <td  >{{report.ReportNumber}}</td>
+                    <td  >{{report.StaffName}}</td>
+                    <td  >{{report.DoctorName }}</td>
+                    <td  >{{report.ReportDate | date:'dd-MM-yyyy'}}</td>                                   
+                    <td  >                        
+                        <button  (click)="viewTest(report.ReportId)" class="btn btn-info" style="margin-left:10px">View Full Report</button>                    
+                    </td>
+                    
+                </tr>
+                </ng-container>
+            
+        </tbody>
+
+    </table>    
+    <br>
+
+
+
+    
     <h3>Notes</h3>
     <div class="row" *ngFor="let observation of consultService.observations.slice().reverse()">        
         <div class="card">

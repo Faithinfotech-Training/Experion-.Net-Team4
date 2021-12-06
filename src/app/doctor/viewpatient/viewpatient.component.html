@@ -18,7 +18,7 @@
     <table class="table table-bodered table-striped">
         <thead>
             <tr>
-                <th>Patient ID</th>
+              
                 <th>Patient Name</th>
                 <th>Patient Age</th>
                 <th>Gender</th>
@@ -32,7 +32,7 @@
         <tbody>
                     
                 <tr *ngFor="let patient of consultService.patients | filter:filter | paginate: {itemsPerPage:5 , currentPage: page}">
-                    <td  >{{patient.PatientId}}</td>
+                   
                     <td  >{{patient.PatientName}}</td>
                     <td  >{{patient.PatientAge }}</td>                       
                     <td  >{{patient.PatientGender }}</td>    
@@ -40,7 +40,7 @@
                     <td  >{{patient.PatientEmail }}</td>         
                     <td  >{{patient.PatientPhone }}</td>        
                     <td  >                        
-                        <button  class="btn btn-info" style="margin-left:10px" (click)="consult(patient.PatientId)">Consult</button>                    
+                        <button  class="btn btn-info" style="margin-left:10px" (click)="consult(patient.PatientId , patient.PatientName)">Consult</button>                    
                     </td>                    
                 </tr>
             

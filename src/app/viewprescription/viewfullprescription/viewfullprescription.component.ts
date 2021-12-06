@@ -20,9 +20,12 @@ export class ViewfullprescriptionComponent implements OnInit {
   ngOnInit(): void {    
     //get prescription Id from Activated Route
     this.pId=this.route.snapshot.params['pId'];
-
+    
     //Get all Tests From Service
     this.labService.bindListPrescribedTests(this.pId);
     this.consultService.bindListPrescribedMedicines(this.pId);
+  }
+  goBack(){
+    window.history.go(-1);
   }
 }
