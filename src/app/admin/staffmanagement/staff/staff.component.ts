@@ -53,12 +53,14 @@ export class StaffComponent implements OnInit {
     //insert
 
     if (addId == 0 || addId == null) {
+      form.value.IsActive=true;
       this.insertStaff(form);
 
       //window.location.reload();
     }
     //update
     else {
+       form.value.IsActive=true;
       this.updateStaff(form);
 
     }

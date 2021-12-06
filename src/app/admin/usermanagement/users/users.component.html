@@ -42,8 +42,8 @@
                     <select name="RoleId" id="RoleId" class="form-control" #RoleId="ngModel" required
                         [(ngModel)]="roleService.formData.RoleId">
                         <option value="0" disabled>Select Role</option>
-                        <option *ngFor="let role of roleService.roles" value="{{role.RoleId}}">Id:{{role.RoleId}},
-                            Name:{{role.RoleName}}</option>
+                        <option *ngFor="let role of roleService.roles" value="{{role.RoleId}}">
+                            {{role.RoleName}}</option>
 
                     </select>
                     <div class="validation-error" *ngIf="RoleId.touched && RoleId.invalid">
@@ -51,14 +51,14 @@
                     </div>
                 </div>
 
-                <!--Is Active-->
+                <!--Is Active
                 <div class="form-group">
                     <div class="form-check">
                         <label class="form-check-label">Is Active </label>
                         <input type="checkbox" name="IsActive" id="IsActive" #IsActive="ngModel"
                             [(ngModel)]="roleService.formData.IsActive" class="form-check-input">
                     </div>
-                </div>
+                </div>-->
 
                 <!--submit button-->
                 <br>

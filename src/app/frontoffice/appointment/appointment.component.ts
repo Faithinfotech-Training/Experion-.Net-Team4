@@ -50,11 +50,13 @@ export class AppointmentComponent implements OnInit {
     let addId = this.service.aFormData.AppointmentId;
     if (addId == 0 || addId == null) {
       //insert
+      form.value.IsActive = true;
       this.insertAppointmentRecord(form);
     }
     else {
       //update
       console.log("updating record...")
+      form.value.IsActive = true;
       this.updateAppointmentRecord(form)
     }
     this.router.navigate(['/appointmentlist']);

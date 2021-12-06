@@ -46,6 +46,7 @@ export class UsersComponent implements OnInit {
     //insert
 
     if (addId == 0 || addId == null) {
+      form.value.IsActive=true;
       this.insertUser(form);
 
       //window.location.reload();
@@ -53,6 +54,7 @@ export class UsersComponent implements OnInit {
 
     //update
     else {
+      form.value.IsActive=true;
       this.updateUser(form);
 
     }

@@ -39,12 +39,14 @@ export class PatientComponent implements OnInit {
 
     let addId = this.service.formData.PatientId;
     if (addId == 0 || addId == null) {
+      form.value.IsActive = true;
       //insert
       this.insertPatientRecord(form);
     }
     else {
       //update
       console.log("updating record...")
+      form.value.IsActive = true;
       this.updatePatientRecord(form)
     }
     this.router.navigate(['/patientlist']);

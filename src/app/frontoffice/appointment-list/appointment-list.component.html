@@ -15,11 +15,11 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Appointment Id</th>
+                            <!--<th>Appointment Id</th>-->
                             <th>Appointment Date</th>
                             <!--<th>Appointment Time</th> -->
-                            <th>Doctor id</th>
-                            <th>Patient id</th>
+                            <th>Doctor Name</th>
+                            <th>Patient Name</th>
                             <th>IsActive</th>
 
                         </tr>
@@ -27,12 +27,12 @@
                     <tbody>
                         <tr
                             *ngFor="let apt of service.appointments|filter:filter| paginate:{itemsPerPage:5,currentPage:page}">
-                            <!-- <ng-container *ngIf="emp.IsActive">-->
-                            <td (click)="populateForm(apt)">{{apt.AppointmentId}}</td>
+                            <!-- <ng-container *ngfor="emp.IsActive">-->
+                            <!--<td (click)="populateForm(apt)">{{apt.AppointmentId}}</td>-->
                             <td (click)="populateForm(apt)">{{apt.AppointmentDate |date:'dd-MM-yyyy' }}</td>
                             <!--<td (click)="populateForm(apt)">{{apt.AppointmentTime |date:'h:mm:ss'}}</td>-->
-                            <td (click)="populateForm(apt)">{{apt.DoctorId}}</td>
-                            <td (click)="populateForm(apt)">{{apt.PatientId}}</td>
+                            <td (click)="populateForm(apt)">{{apt.DoctorName}}</td>
+                            <td (click)="populateForm(apt)">{{apt.PatientName}}</td>
                             <td (click)="populateForm(apt)">{{apt.IsActive}}</td>
                             <td>
                                 <button class="btn btn-sm btn-outline-danger"
@@ -54,4 +54,8 @@
             </div>
         </div>
     </div>
+</div>
+<br>
+<div style="padding-left: 80%; width: max-content;">
+    <a class="btn btn-lg btn-outline-secondary"  href="../patientlist"><b>Go Back</b></a>
 </div>

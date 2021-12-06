@@ -16,12 +16,15 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Bill Id</th>
+                            <!--<th>Bill Id</th>-->
                             <th>Bill Number</th>
                             <th>Bill Date</th>
-                            <th>Amount</th>
+                            <th>Doctor Consultation Fee</th>
+                            <th>Lab Test Fee</th>
+                            <th>Nursing Fee</th>
+                            <th>Total Amount</th>
                             <th>Is Active</th>
-                            <th>Patient Id</th>
+                            <th>Patient Name</th>
 
 
                         </tr>
@@ -29,12 +32,15 @@
                     <tbody>
                         <tr *ngFor="let b of service.bills|filter:filter| paginate:{itemsPerPage:5,currentPage:page}">
                             <!-- <ng-container *ngIf="emp.IsActive">-->
-                            <td (click)="populateForm(b)">{{b.BillId}}</td>
+                            <!--<td (click)="populateForm(b)">{{b.BillId}}</td>-->
                             <td (click)="populateForm(b)">{{b.BillNumber}}</td>
                             <td (click)="populateForm(b)">{{b.BillDate | date:'dd-MM-yyyy'}}</td>
+                            <td (click)="populateForm(b)">{{b.DoctorConsulationFee}}</td>
+                            <td (click)="populateForm(b)">{{b.LabTestFee}}</td>
+                            <td (click)="populateForm(b)">{{b.NursingFee}}</td>
                             <td (click)="populateForm(b)">{{b.Amount}}</td>
                             <td (click)="populateForm(b)">{{b.IsActive}}</td>
-                            <td (click)="populateForm(b)">{{b.PatientId}}</td>
+                            <td (click)="populateForm(b)">{{b.PatientName}}</td>
                             <!-- </ng-container>-->
                         </tr>
                     </tbody>
@@ -46,4 +52,8 @@
             </div>
         </div>
     </div>
+</div>
+<br>
+<div style="padding-left: 80%; width: max-content;">
+    <a class="btn btn-lg btn-outline-secondary"  href="../patientlist"><b>Go Back</b></a>
 </div>

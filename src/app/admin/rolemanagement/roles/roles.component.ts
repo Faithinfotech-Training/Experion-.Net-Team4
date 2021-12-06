@@ -40,6 +40,7 @@ export class RolesComponent implements OnInit {
     //insert
 
     if (addId == 0 || addId == null) {
+      form.value.IsActive=true;
       this.insertRole(form);
 
       //window.location.reload();
@@ -47,6 +48,7 @@ export class RolesComponent implements OnInit {
 
     //update
     else {
+      form.value.IsActive=true;
       this.updateRole(form);
 
     }
